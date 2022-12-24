@@ -6,7 +6,7 @@ import "./tailwind.css";
 
 function App() {
   return (
-    <>
+    <div className="bg-grey-400">
       <Header />
       <main className='dark dark\:bg-slate-900 ' style={{
           
@@ -14,7 +14,7 @@ function App() {
         <Home />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

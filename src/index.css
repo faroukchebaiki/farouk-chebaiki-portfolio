@@ -16,7 +16,25 @@
   }
 }
 
-
+.fWohKN {
+  font-size: 18px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+  border-radius: 49%;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.4s opacity ease;
+  transition: 0.4s opacity ease;
+  cursor: pointer;
+  outline: none;
+  background: white;
+  border: 1px solid #00000038;
+  padding: 10px;
+  color: #000000a3;
+}
 
 /* -------------- */
 /* Highlith Text  */
@@ -95,6 +113,7 @@
   @apply rounded-full bg-green-100;
   transition: all 0.4s;
 }
+/**
 box-shadow: none;
 backdrop-filter: blur(8px);
 border-style: solid;
@@ -102,3 +121,4 @@ border-color: rgba(194, 224, 255, 0.08);
 border-width: 0px 0px thin;
 background-color: rgba(10, 25, 41, 0.7);
 color: rgb(160, 170, 180);
+**/

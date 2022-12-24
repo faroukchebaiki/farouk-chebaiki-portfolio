@@ -6,7 +6,7 @@ const HeroSection = (props) => {
     <div
       {...props}
       id="heroSection"
-      className={`p-4 xl:container mx-auto flex lgMax:justify-center justify-between lgMax:items-center lgMax:flex-col hero mb-[80px] sm:mb-[150px] ${props.className}`}
+      className={`p-4 xl:container mx-auto flex lgMax:justify-center justify-between lgMax:items-center lgMax:flex-col hero mb-[80px] sm:mb-[150px] ${props.className} `}
     >
       {/* Left  */}
       <div className='mt-16 sm:mt-36 order-1 md:order-0'>

@@ -8,7 +8,9 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{
+        backgroundColor:"grey"  
+      }} >
         <Home />
       </main>
       <Footer />

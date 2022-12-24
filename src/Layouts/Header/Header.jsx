@@ -44,9 +44,11 @@ const Header = () => {
           ".link",
         ]}
       />
+      <div className='xl sticky top-0 z-50 backdrop-blur-lg bg-white'
+      >
       <Disclosure
         as='header'
-        className='xl:container mx-auto p-4 tracking-wider flex justify-between items-center sticky top-0 z-50 bg-white'
+        className='xl:container mx-auto p-4  tracking-wider flex justify-between items-center sticky top-0 z-50 backdrop-blur-lg '
       >
         {({ open }) => (
           <>
@@ -151,6 +153,7 @@ const Header = () => {
           </>
         )}
       </Disclosure>
+      </div>
     </>
   );
 };

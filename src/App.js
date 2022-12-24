@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Header />
-      <main style={{
-        backgroundColor:"grey"  
+      <main className='dark dark\:bg-slate-900 ' style={{
+          
       }} >
         <Home />
       </main>

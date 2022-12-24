@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='backdrop-blur-md bg-white/30'>
+    <div className='bg-slate-800'>
       {/* Hero */}
       <HeroSection />
 

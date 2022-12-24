@@ -1,11 +1,17 @@
-import './App.css';
-
-import Main from "./components/main.component";
+import "aos/dist/aos.css";
+import Footer from "./Layouts/Footer/Footer";
+import Header from "./Layouts/Header/Header";
+import Home from "./Pages/Home";
+import "./tailwind.css";
 
 function App() {
   return (
     <>
-      <Main />
+      <Header />
+      <main>
+        <Home />
+      </main>
+      <Footer />
     </>
   );
 }

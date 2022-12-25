@@ -14,11 +14,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div 
-      style={{
-        background: "#0f172a",
-        backdropFilter: "blur(12.9px)"
-      }}>
+    <div>
       {/* Hero */}
       <HeroSection />
 

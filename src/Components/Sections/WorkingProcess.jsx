@@ -9,16 +9,14 @@ const WorkingProcess = (props) => {
     >
       {/* Heading  */}
       <div className='xl:container mx-auto heading mb-[50px] sm:mb-[80px]'>
-        <h2 style={{
-        color: "rgb(249 250 251)"
-     }}
-      className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.03em] mt-[18px] mb-[17px]'>
+        <h2
+      className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.03em] mt-[18px] mb-[17px] titles'>
           <span className='py-2'>My </span> 
           Working Process
         </h2>
         <p style={{
         color: "rgb(243 244 246)"
-     }} className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em]'>
+     }} className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
           Know How I work or how i complete any project{" "}
         </p>
       </div>

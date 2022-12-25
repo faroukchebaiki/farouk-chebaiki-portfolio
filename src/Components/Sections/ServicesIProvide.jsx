@@ -11,11 +11,11 @@ const ServicesIProvide = (props) => {
     >
       {/* Heading  */}
       <div className='xl:container mx-auto heading mb-[50px] sm:mb-[80px]'>
-        <h2 className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+        <h2 className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.1em] mt-[18px] mb-[17px] titles'>
           <span className='py-2'>Services</span> I{" "}
           Provide
         </h2>
-        <p className='w-fit mx-auto text-gray-900 text-center leading-[26px] tracking-[0.01em]'>
+        <p className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
           Pick your needed service or contact me for free{" "}
           <br className='hidden sm:block' />
           consultancy
@@ -32,7 +32,7 @@ const ServicesIProvide = (props) => {
             data-aos='fade-right'
             data-aos-once='true'
             data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 bg-white w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start glass'
           >
             <WebsiteIcon />
             <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
@@ -52,7 +52,7 @@ const ServicesIProvide = (props) => {
             data-aos='fade-up'
             data-aos-once='true'
             data-aos-delay='600'
-            className='item mx-6 sm:m-0 z-40 bg-white w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start glass'
           >
             <DesignIcon />
             <h3 className='text-[20px] w-full sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
@@ -72,7 +72,7 @@ const ServicesIProvide = (props) => {
             data-aos-once='true'
             data-aos-delay='200'
             className='item mx-6 sm:m-0 z-40 bg-white w-fit p-4 transition-sha
-          dow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start'
+          dow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center xl:justify-start items-center xl:items-start glass'
           >
             <BugIcon />
             <h3 className='text-[20px] sm:text-[22px] w-full !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>

@@ -25,7 +25,7 @@ const Header = () => {
       <AnimatedCursor
         innerSize={8}
         outerSize={28}
-        color='51, 51, 51'
+        color='190 ,242 ,100'
         outerAlpha={0.2}
         innerScale={0.9}
         outerScale={2}

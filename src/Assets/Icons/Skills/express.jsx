@@ -1,6 +1,6 @@
 import React from "react";
 
-const Redux = (props) => {
+const Express = (props) => {
   return (
     <svg 
     width='30'
@@ -18,4 +18,4 @@ const Redux = (props) => {
   );
 };
 
-export default Redux;
+export default Express;

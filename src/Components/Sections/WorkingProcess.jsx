@@ -5,15 +5,20 @@ const WorkingProcess = (props) => {
   return (
     <div
       {...props}
-      className={`p-4 xl:container mx-auto workingProcess mb-[80px] sm:mb-[150px] bg-gray-400 ${props.className}`}
+      className={`p-4 xl:container mx-auto workingProcess mb-[80px] sm:mb-[150px]  ${props.className}`}
     >
       {/* Heading  */}
       <div className='xl:container mx-auto heading mb-[50px] sm:mb-[80px]'>
-        <h2 className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.03em] mt-[18px] mb-[17px]'>
+        <h2 style={{
+        color: "rgb(249 250 251)"
+     }}
+      className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.03em] mt-[18px] mb-[17px]'>
           <span className='py-2'>My </span> 
           Working Process
         </h2>
-        <p className='w-fit mx-auto text-gray-900 text-center leading-[26px] tracking-[0.01em]'>
+        <p style={{
+        color: "rgb(243 244 246)"
+     }} className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em]'>
           Know How I work or how i complete any project{" "}
         </p>
       </div>
@@ -30,10 +35,11 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='100'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+         
+          className='process-item z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header flex-row-reverse sm:flex-row pt-2 pb-4 flex justify-between items-center'>
-            <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
+            <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] pl-5'>
               01
             </h3>
             <img
@@ -41,13 +47,13 @@ const WorkingProcess = (props) => {
               src={require("../../Assets/Images/process.jpg")}
               alt='ProcessImage'
             />
-            <h2 className='text-[19px] sm:text-[23px] whitespace-pre-wrap sm:whitespace-nowrap !font-jost font-[600] text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
+            <h2 className='text-[19px] sm:text-[23px] whitespace-pre-wrap sm:whitespace-nowrap !font-jost font-[600] leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
               <span className='uppercase before:w-[110%] before:bg-green-40 before:h-[40%] pb-6)'>
                 Discussion
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             It is extremely important to me to understand the needs and
             requirements of the project. Such as What’s the cores features and
             functions? What’s the project deadline? Are there any key
@@ -59,10 +65,10 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='300'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header pt-2 pb-4 flex justify-between items-center'>
-            <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
+            <h3  className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
               02
             </h3>
             <img
@@ -70,13 +76,13 @@ const WorkingProcess = (props) => {
               src={require("../../Assets/Images/process.jpg")}
               alt='ProcessImage'
             />
-            <h2 className='text-[19px] sm:text-[23px] whitespace-pre-wrap sm:whitespace-nowrap !font-jost font-[600] text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
+            <h2 className='text-[19px] sm:text-[23px] whitespace-pre-wrap sm:whitespace-nowrap !font-jost font-[600]  leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
               <span className='uppercase before:w-[110%] before:bg-green-40 before:h-[40%] pb-6)'>
                 Planning
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             Then I create a plan for interior projects that what is the best way
             to complete the project, how tips & technique should I apply etc.
             Planning provides a lot of potential for each project.
@@ -87,7 +93,8 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='500'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+          
+          className='process-item z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header pt-2 pb-4 flex-row-reverse sm:flex-row flex justify-between items-center'>
             <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
@@ -98,13 +105,13 @@ const WorkingProcess = (props) => {
               src={require("../../Assets/Images/process.jpg")}
               alt='ProcessImage'
             />
-            <h2 className='text-[19px] whitespace-pre-wrap sm:whitespace-nowrap sm:text-[23px] !font-jost font-[600] text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
+            <h2 className='text-[19px] whitespace-pre-wrap sm:whitespace-nowrap sm:text-[23px] !font-jost font-[600] leading-[35px] sm:leading-[45px] tracking-[0.09em] mb-[17px]'>
               <span className='uppercase  before:w-[106%] before:bg-green-40 before:h-[40%] pb-6)'>
                 Design
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             Websites promote you 24/7: No employee will do that. So, when I
             design a website I try to give the best of myself to do an awesome,
             clean and service related design for the website. Good design can
@@ -116,7 +123,7 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='700'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+          className='process-item z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header pt-2 pb-4 flex justify-between items-center'>
             <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
@@ -133,7 +140,7 @@ const WorkingProcess = (props) => {
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             The website is built by web language that’s why we need to code for
             every website. Clean & developer friendly & w3c validated coding can
             be a core part to make your website dynamic & full functional. I
@@ -145,7 +152,7 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='900'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+          className='process-item z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header pt-2 pb-4 flex justify-between flex-row-reverse sm:flex-row items-center'>
             <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
@@ -162,7 +169,7 @@ const WorkingProcess = (props) => {
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             Once the design and coding is complete, I send it to the client for
             review. After the client check, If it is necessary to modify or
             revise, I tell the client to send them all in a list and I am happy
@@ -174,7 +181,7 @@ const WorkingProcess = (props) => {
           data-aos='fade-up'
           data-aos-once='true'
           data-aos-delay='1100'
-          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px]'
+          className='process-item bg-white z-10 p-4 mx-2 sm:m-0 px-6 shadow-service w-[480px] glass'
         >
           <div className='header pt-2 pb-4 flex justify-between items-center'>
             <h3 className='text-[46px] leading-6 !font-jost font-semibold tracking-[0.01em] text-gray-50 pl-5'>
@@ -191,7 +198,7 @@ const WorkingProcess = (props) => {
               </span>
             </h2>
           </div>
-          <p className='mx-auto text-justify text-gray-900 text-[14px] leading-[23px] tracking-[0.01em]'>
+          <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             After reviewing everything, we are going to the final step, if
             everything has done, then I can publish it for everyone.{" "}
             <span className='text-green-700'>

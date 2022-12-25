@@ -21,6 +21,7 @@ module.exports = {
       colors: {
         primary: "#19A74B",
         secondary: "#333333",
+        bblack: "#1e293b",
         black85: "rgba(0, 0, 0, 0.81)",
         gray: {
           50: "rgba(0, 0, 0, 0.58)",

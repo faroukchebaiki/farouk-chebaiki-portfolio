@@ -122,3 +122,11 @@ border-width: 0px 0px thin;
 background-color: rgba(10, 25, 41, 0.7);
 color: rgb(160, 170, 180);
 **/
+.glass{
+background: rgba(42, 113, 190, 0.28);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.9px);
+-webkit-backdrop-filter: blur(12.9px);
+border: 1px solid rgba(42, 113, 190, 0.44);
+}

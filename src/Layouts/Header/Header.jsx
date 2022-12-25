@@ -44,7 +44,14 @@ const Header = () => {
           ".link",
         ]}
       />
-      <div className='xl sticky top-0 z-50 backdrop-blur-lg bg-white'>
+      <div 
+      style={{
+            background: "rgba(15,23,42,0.28)",
+            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            backdropFilter: "blur(12.9px)",
+            borderBottom: "1px solid rgba(42, 113, 190, 0.44)"
+        }}
+      className='xl sticky top-0 z-50 backdrop-blur-lg bg-white'>
       <Disclosure
         as='header'
         className='xl:container mx-auto p-4  tracking-wider flex justify-between items-center sticky top-0 z-50 backdrop-blur-lg '
@@ -52,9 +59,9 @@ const Header = () => {
         {({ open }) => (
           <>
             {/* Logo  */}
-            <div className='logo text-[16px] xsm:text-lg flex flex-col tracking-widest'>
+            <div className='logo text-[16px] xsm:text-lg flex flex-col tracking-widest primec'>
               Farouk Chebaiki
-              <span className='text-[12px] hidden sm:block py-0 my-0 text-slate-600'>
+              <span className='text-[12px] hidden sm:block py-0 my-0 text-slate-600 secondec'>
                 Full stack Developer
               </span>
             </div>
@@ -66,7 +73,7 @@ const Header = () => {
                   <AnchorLink
                     offset='96'
                     href='#heroSection'
-                    className='my-4 capitalize block py-1 '
+                    className='my-4 capitalize block py-1 linkc'
                   >
                     Home
                   </AnchorLink>
@@ -75,7 +82,7 @@ const Header = () => {
                   <AnchorLink
                     offset='96'
                     href='#Contact'
-                    className='my-4 capitalize block py-1'
+                    className='my-4 capitalize block py-1 linkc'
                   >
                     Contact
                   </AnchorLink>
@@ -87,7 +94,7 @@ const Header = () => {
             <div className='flex'>
               <button
                 type='button'
-                className={tw`whitespace-nowrap transition-all duration-300 px-8 py-2 border(none) font(nunito normal) text-white bg-primary rounded focus:( ring-4 ring-green-200 outline-8))`}
+                className={tw`mr-[36px] my-2 transition-all duration-300 px-8 py-2 border greenb hover:bg-gray-100 font(nunito normal) text-primary rounded focus:( ring-4 ring-green-200 outline-8))`}
               >
                 Hire Me
               </button>
@@ -104,11 +111,11 @@ const Header = () => {
               <Disclosure.Panel
                 static
                 as='nav'
-                className={tw`border flex justify-between flex-col z-[101] bg-white shadow-sm w-[70%] xsm:max-w-[420px] min-h-full fixed top-0 left-0`}
+                className={tw`border flex justify-between flex-col z-[101]  shadow-sm w-[70%] xsm:max-w-[420px] min-h-full fixed top-0 left-0`}
               >
                 <div className='logo h-[97px] xsm:h-[77px] px-7 pt-6 tracking-widest'>
-                  <p className='text-[18px] sm:text-[19px]'>Farouk Chebaiki</p>
-                  <span className='text-[12px]'>Full stack Developer</span>
+                  <p className='text-[18px] sm:text-[19px] '>Farouk Chebaiki</p>
+                  <span className='text-[12px] '>Full stack Developer</span>
                 </div>
 
                 <div>
@@ -117,7 +124,7 @@ const Header = () => {
                       <AnchorLink
                         offset='96'
                         href='#heroSection'
-                        className='capitalize px-5 py-2 text-[16px] rounded-2xl flex items-center bg-blue-50 text-blue-600'
+                        className='capitalize px-5 py-2 text-[16px] rounded-2xl flex items-center bg-blue-50 '
                       >
                         Home
                       </AnchorLink>
@@ -136,7 +143,7 @@ const Header = () => {
 
                 <div className='message p-4 px-7'>
                   <p className='capitalize text-slate-500 text-sm'>
-                    I available for freelance project.{" "}
+                    I am available for freelance project.{" "}
                   </p>
                 </div>
               </Disclosure.Panel>

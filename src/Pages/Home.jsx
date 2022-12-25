@@ -14,7 +14,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='bg-slate-800'>
+    <div 
+      style={{
+        background: "#0f172a",
+        backdropFilter: "blur(12.9px)"
+      }}>
       {/* Hero */}
       <HeroSection />
 

@@ -1,32 +1,33 @@
 import React from "react";
 import { tw } from "twind";
 
-const HeroSection = (props) => {
+const HeroSection = () => {
   return (
     <div
-      {...props}
+      
       id="heroSection"
-      className={`p-4 xl:container mx-auto flex lgMax:justify-center justify-between lgMax:items-center lgMax:flex-col hero mb-[80px] sm:mb-[150px] ${props.className} `}
+      style={{
+        background: "rgb(7,68,57)",
+        backdropFilter: "blur(16px)",
+        background: "radial-gradient(circle, rgba(7,68,57,1) 0%, rgba(15,23,42,1) 34%"
+    }}
+      className={`p-4 xl:container mx-auto flex lgMax:justify-center justify-between lgMax:items-center lgMax:flex-col hero mb-[80px] sm:mb-[150px] `}
     >
       {/* Left  */}
       <div className='mt-16 sm:mt-36 order-1 md:order-0'>
-        <p
-          className={tw`tracking-[0.1em] relative w-fit text-[16px] after:(w-[12px] h-[12px] bg-black absolute) `}
+        <p style={{color:"#cbd5e1"}}
+          className={tw`tracking-[0.1em] relative w-fit text-[16px] after:(w-[12px] h-[12px]  absolute) `}
         >
-          Hi There ! I'm a{" "}
-          <img
-            className='ml-1 select-none inline-block -mb-1'
-            alt='dot dot'
-            src={require("../../Assets/Images/Intro.png")}
-          ></img>
+          Hi There ! I'm a 
+         
         </p>
-        <h1 className='text-[25px] sm:text-[35px] !font-jost font-extrabold !text-gray-900 leading-[35px] sm:leading-[45px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+        <h1 style={{color:"#bbf7d0"}} className='text-[25px] sm:text-[35px] !font-jost font-extrabold  leading-[35px] sm:leading-[45px] tracking-[0.1em] mt-[18px] mb-[17px]'>
           <span>
             Full Stack Developer
           </span>{" "}
           &<br className='hidden sm:block' /> React Specialist
         </h1>
-        <p className='mb-[30px] sm:mb-[39px] text-gray-900 leading-[26px] tracking-[0.01em] text-[15px]'>
+        <p style={{color:"#cbd5e1"}} className='mb-[30px] sm:mb-[39px] text-gray-900 leading-[26px] tracking-[0.01em] text-[15px]'>
           Nothing is impossible on the web, Let’s execute your idea into
           <br className='hidden sm:block' /> the website and start your business
           or startup today.
@@ -34,13 +35,13 @@ const HeroSection = (props) => {
         <div className='action flex flex-wrap'>
           <button
             type='button'
-            className={tw`mr-[36px] my-2 transition-all duration-300 px-8 py-2 border(none) font(nunito normal) text-white bg-primary rounded focus:( ring-4 ring-green-200 outline-8))`}
+            className={tw`mr-[36px] my-2 transition-all duration-300 px-8 py-2 border greenb hover:bg-gray-100 font(nunito normal) text-primary rounded focus:( ring-4 ring-green-200 outline-8))`}
           >
             Hire Me
           </button>
           <button
             type='button'
-            className={tw`transition-all my-2 duration-300 px-10 py-2 border(1 primary) font(nunito normal) text-primary bg-white rounded focus:( ring-4 ring-green-200))`}
+            className={tw`transition-all my-2 duration-300 px-10 py-2 border(1 primary) hover:bg-green font(nunito normal) text-white  rounded focus:( ring-4 ring-green-200))`}
           >
             See My Projects
           </button>

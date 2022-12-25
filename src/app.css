@@ -1,5 +1,5 @@
 body{
-    //background: #0f172a;
+    background: #0f172a;
 }
 .titles{
     color: rgb(249 250 251);
@@ -51,4 +51,14 @@ body{
 }
 .backggrey{
     background: rgba(1, 146, 66, 0.1);
+}
+.skill{
+    background: rgba(190, 242, 100, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(0, 162, 65, 0.44);
+    color: rgb(243 244 246);
+
 }

@@ -199,7 +199,7 @@ const WorkingProcess = (props) => {
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
             After reviewing everything, we are going to the final step, if
             everything has done, then I can publish it for everyone.{" "}
-            <span className='text-green-700'>
+            <span className='secondec'>
               It's not like that a website completed and the relationship with
               the client is also finished. I always give lifetime support to my
               client and help them when they face any website related problem.

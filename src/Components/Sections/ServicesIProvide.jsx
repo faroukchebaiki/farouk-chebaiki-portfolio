@@ -16,9 +16,9 @@ const ServicesIProvide = (props) => {
           Provide
         </h2>
         <p className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
-          Pick your needed service or contact me for free{" "}
+        Choose your required service or contact me for a{" "}
           <br className='hidden sm:block' />
-          consultancy
+          free consultation.
         </p>
       </div>
 

@@ -28,9 +28,8 @@ const HeroSection = () => {
           &<br className='hidden sm:block' /> React Specialist
         </h1>
         <p style={{color:"#cbd5e1"}} className='mb-[30px] sm:mb-[39px] text-gray-900 leading-[26px] tracking-[0.01em] text-[15px]'>
-          Nothing is impossible on the web, Let’s execute your idea into
-          <br className='hidden sm:block' /> the website and start your business
-          or startup today.
+        Nothing is impossible on the internet, let us put your idea into
+          <br className='hidden sm:block' /> action and launch your business or startup today.
         </p>
         <div className='action flex flex-wrap'>
           <button

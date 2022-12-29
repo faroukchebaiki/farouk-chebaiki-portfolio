@@ -32,9 +32,9 @@ const ExperiencedTech = (props) => {
           </span>
         </h2>
         <p className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
-          I know a lot of technologies & Tools, but I have expertise in{" "}
+        I am familiar with a wide range of technologies and tools, but I am particularly {" "}
           <br className='hidden sm:block' />
-          following
+          skilled in the following.
         </p>
         <h2 className='text-[22px] text-left sm:text-[24px] !font-jost w-fit mx-auto lg:mr-auto  leading-[40px] sm:leading-[45px] tracking-[0.1em] mt-[18px] secondec'>
               <span className='py-1 pl-2'>

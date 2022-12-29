@@ -16,7 +16,7 @@ const ContactWithMe = () => {
           </h2>
           <p className='text-[16px] mt-[27px] !font-jost leading-[28px] tracking-[0.03em] subtitles'>
             Have Any project on mind ? Let’s start together to make it{" "}
-            <br className='hidden sm:block' /> live . Don’t like form ?{" "}
+            <br className='hidden sm:block' /> live .{" "}
             <a
               href='mailto:farouk.chebaiki@gmail.com'
               target='_blanc'

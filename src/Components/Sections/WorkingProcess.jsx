@@ -17,7 +17,7 @@ const WorkingProcess = (props) => {
         <p style={{
         color: "rgb(243 244 246)"
      }} className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
-          Know How I work or how i complete any project{" "}
+          Learn how I operate and how I execute projects.{" "}
         </p>
       </div>
 
@@ -52,10 +52,10 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            It is extremely important to me to understand the needs and
-            requirements of the project. Such as What’s the cores features and
-            functions? What’s the project deadline? Are there any key
-            milestones, important dates, or time constraints? and so on
+          It is critical for me to grasp the project's demands and requirements. 
+          For example, what are the main features and functions? When is the 
+          project due? Are there any crucial dates, milestones, 
+          or time constraints? and so forth
           </p>
         </div>
 
@@ -81,9 +81,9 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            Then I create a plan for interior projects that what is the best way
-            to complete the project, how tips & technique should I apply etc.
-            Planning provides a lot of potential for each project.
+          Then I make a strategy for interior tasks, such as what is the best 
+          approach to accomplish the job, what tips and techniques I should 
+          use, and so on. Each project benefits greatly from careful planning.
           </p>
         </div>
 
@@ -110,10 +110,10 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            Websites promote you 24/7: No employee will do that. So, when I
-            design a website I try to give the best of myself to do an awesome,
-            clean and service related design for the website. Good design can
-            improve the quality of your business.
+          Websites market you 24 hours a day, seven days a week: no employee will do that.
+           So, when I design a website, I try to give it my all to create an 
+           excellent, clean, and service-related design. A good design can 
+           help your company's quality.
           </p>
         </div>
 
@@ -139,10 +139,10 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            The website is built by web language that’s why we need to code for
-            every website. Clean & developer friendly & w3c validated coding can
-            be a core part to make your website dynamic & full functional. I
-            always do coding in the best & professional way.
+          Because web languages are used to create websites, we must code for each one.
+          Clean, developer-friendly, and W3C-validated coding can help to make your
+          website dynamic and fully functional. I always code in a professional
+           and efficient manner.
           </p>
         </div>
 
@@ -168,10 +168,10 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            Once the design and coding is complete, I send it to the client for
-            review. After the client check, If it is necessary to modify or
-            revise, I tell the client to send them all in a list and I am happy
-            to make all the changes every time.
+          I give it to the client for evaluation after the design and coding are 
+          finished. If it is essential to edit or revise after the client checks,
+          I tell the customer to send them all in a list and I am pleased
+          to do all the adjustments every time.
           </p>
         </div>
 
@@ -197,12 +197,13 @@ const WorkingProcess = (props) => {
             </h2>
           </div>
           <p className='mx-auto text-justify text-[14px] leading-[23px] tracking-[0.01em]'>
-            After reviewing everything, we are going to the final step, if
-            everything has done, then I can publish it for everyone.{" "}
+          After we have reviewed everything, we will proceed to the next phase,
+          if everything is completed, I will publish it for everyone.{" "}
             <span className='secondec'>
-              It's not like that a website completed and the relationship with
-              the client is also finished. I always give lifetime support to my
-              client and help them when they face any website related problem.
+            It's not as if a website is finished and the relationship with
+            the client is over. I always provide lifelong assistance to my 
+            clients and assist them when they encounter any website-related 
+            issues.
             </span>
           </p>
         </div>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ContactWithMe from "../Components/Sections/ContactWithMe";
 import ExperiencedTech from "../Components/Sections/ExperiencedTech";
 import HeroSection from "../Components/Sections/HeroSection";
+import Myprojects from "../Components/Sections/myprojects";
 import ServicesIProvide from "../Components/Sections/ServicesIProvide";
 import WorkingProcess from "../Components/Sections/WorkingProcess";
 
@@ -28,7 +29,7 @@ const Home = () => {
       <WorkingProcess />
 
       {/* Completed Projects*/}
-      
+      <Myprojects />
 
       {/* Contact With Me  */}
       <ContactWithMe />

@@ -1,82 +1,154 @@
 import React from "react";
-import { tw } from "twind";
+import WebsiteIcon from "../../Assets/Icons/Services/WebsiteIcon";
 
-const callouts = [
-  {
-    name: 'Desk and Office',
-    description: 'Work from home accessories',
-    imageSrc: 'http://www.annagorin.com/galleries/vistas/slides/oregon-hood-river-valley-sunset.jpg',
-    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-    href: '#',
-  },
-  {
-    name: 'Self-Improvement',
-    description: 'Journals and note-taking',
-    imageSrc: 'http://www.annagorin.com/galleries/vistas/slides/new-zealand-mt-ngauruhoe-tongariro-sunrise.jpg',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
-  },
-  {
-    name: 'Travel',
-    description: 'Daily commute essentials',
-    imageSrc: 'http://www.annagorin.com/galleries/vistas/slides/palouse-falls-washington-river-canyon.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-]
-
-
-const Myprojects = (props) => {
+const ServicesIProvide = (props) => {
   return (
     <div
       {...props}
-      className={`p-4 xl:container mx-auto workingProcess mb-[80px] sm:mb-[150px]  `}
+      className={`p-4 min-w-full mx-auto w-full services mb-[80px] sm:mb-[150px] ${props.className}`}
     >
       {/* Heading  */}
       <div className='xl:container mx-auto heading mb-[50px] sm:mb-[80px]'>
-        <h2
-      className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.03em] mt-[18px] mb-[17px] titles'>
-          <span className='py-2'>My </span> 
+        <h2 className='text-[25px] text-center sm:text-[30px] !font-jost font-semibold w-fit mx-auto leading-[35px] sm:leading-[45px] tracking-[0.1em] mt-[18px] mb-[17px] titles'>
+          <span className='py-2'>My </span> {" "}
           Projects
         </h2>
-        <p style={{
-        color: "rgb(243 244 246)"
-     }} className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
-        this it some examples of my work.{" "}
+        <p className='w-fit mx-auto text-center leading-[26px] tracking-[0.01em] subtitles'>
+        This is some examples of my work.
         </p>
       </div>
 
-      {/*Process*/}
+      {/* Services */}
       <div
-        style={{
-          backgroundImage: `url(${require("../../Assets/Images/services_bg.png")})`,
-          backgroundRepeat: "no-repeat",
-        }}
-        className={tw`process flex flex-wrap justify-center gap-12 bg-fixed bg-left sm:!bg-none`}
+        className='text-center xl:text-left bg-fixed sm:bg-scroll bg-right lg:bg-center overflow-hidden'
       >
-        
-        {callouts.map((callout) => (
-              <div key={callout.name} className="shadow-service w-[480px] glass">
-                <div className="relative sm:w-full overflow-hidden rounded-lg group-hover:opacity-75 ">
-                  <img
-                    src={callout.imageSrc}
-                    alt={callout.imageAlt}
-                    className=" object-cover object-center"
-                  />
-                </div>
-                <h3 className="mt-6 text-sm text-gray-500">
-                  <a href={callout.href}>
-                    <span className="absolute inset-0" />
-                    {callout.name}
-                  </a>
-                </h3>
-                <p className="text-base font-semibold text-gray-900">{callout.description}</p>
-              </div>
-            ))}
-        
+        <div className='xl:container mx-auto w-fit services flex gap-6 smMax:gap-12 sm:gap-14 justify-center flex-wrap'>
+          {/* 1 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+          {/* 2 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+          {/* 3 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+
+          {/* 4 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+          {/* 5 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+          {/* 6 */}
+          <div
+            data-aos='fade-right'
+            data-aos-once='true'
+            data-aos-delay='200'
+            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+          >
+          <WebsiteIcon />
+          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+          Full Functional &amp; <br className='hidden sm:block' />
+          Dynamic Website Creation
+          </h3>
+          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+            I can create any type of full functional &amp; dynamic
+            <br className='hidden sm:block' /> website such as business,
+            ecommerce, blog/news,
+            <br className='hidden sm:block' /> listing, lms etc.
+          </p>
+        </div>
+
+          
+        </div>
       </div>
     </div>
   );
 };
 
-export default Myprojects;
+export default ServicesIProvide;

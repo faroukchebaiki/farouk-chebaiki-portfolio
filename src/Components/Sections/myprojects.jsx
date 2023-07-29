@@ -23,128 +23,118 @@ const ServicesIProvide = (props) => {
         className='text-center xl:text-left bg-fixed sm:bg-scroll bg-right lg:bg-center overflow-hidden'
       >
         <div className='xl:container mx-auto w-fit services flex gap-6 smMax:gap-12 sm:gap-14 justify-center flex-wrap'>
-          {/* 1 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
 
-          {/* 2 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
+{/* 1. Interactive Web Quiz Application */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for a quiz application */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    Interactive Web Quiz Application
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Build an interactive web quiz app. Users select quizzes, answer questions, and receive feedback.
+    <br className='hidden sm:block' />
+    Implement scoring, timer, and admin interface.
+  </p>
+</div>
 
-          {/* 3 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
+{/* 2. Real-time Chat Application */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for a chat application */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    Real-time Chat Application
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Develop a real-time chat app. Implement user authentication, online status, and message receipts.
+    <br className='hidden sm:block' />
+    Use WebSockets for responsive messaging.
+  </p>
+</div>
+
+{/* 3. E-Commerce Website */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for an e-commerce website */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    E-Commerce Website
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Build a fully functional e-commerce website. Implement user authentication, product search, and a user-friendly shopping cart.
+    <br className='hidden sm:block' />
+    Experience with online transactions.
+  </p>
+</div>
+
+{/* 4. Weather App */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for a weather app */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    Weather App
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Create a weather app. Fetch real-time weather data and display forecasts, temperature graphs, and alerts.
+  </p>
+</div>
+
+{/* 5. Social Media Dashboard */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for a social media dashboard */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    Social Media Dashboard
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Create a social media dashboard. Analyze user engagement, metrics, and reach from various platforms.
+    <br className='hidden sm:block' />
+    Implement data visualization.
+  </p>
+</div>
+
+{/* 6. Task Manager */}
+<div
+  data-aos='fade-right'
+  data-aos-once='true'
+  data-aos-delay='200'
+  className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
+>
+  <WebsiteIcon /> {/* Replace with the appropriate icon for a task manager */}
+  <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
+    Task Manager
+  </h3>
+  <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
+    Build a task manager app. Allow users to create,
+    <br className='hidden sm:block' />
+     update, and organize tasks. Implement filtering, 
+     <br className='hidden sm:block' />
+     sorting, and task status updates.
+  </p>
+</div>
 
 
-          {/* 4 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
 
-          {/* 5 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
-
-          {/* 6 */}
-          <div
-            data-aos='fade-right'
-            data-aos-once='true'
-            data-aos-delay='200'
-            className='item mx-6 sm:m-0 z-40 w-fit p-4 transition-shadow focus-visible:bg-black duration-500 mdMax:shadow-service hover:shadow-service pt-14 pb-7 flex flex-col justify-center items-center text-center glass'
-          >
-          <WebsiteIcon />
-          <h3 className='text-[20px] sm:text-[22px] !font-jost font-[500] text-gray-900 leading-[25px] sm:leading-[32px] tracking-[0.1em] mt-[18px] mb-[17px]'>
-          Full Functional &amp; <br className='hidden sm:block' />
-          Dynamic Website Creation
-          </h3>
-          <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-            I can create any type of full functional &amp; dynamic
-            <br className='hidden sm:block' /> website such as business,
-            ecommerce, blog/news,
-            <br className='hidden sm:block' /> listing, lms etc.
-          </p>
-        </div>
-
-          
+         
         </div>
       </div>
     </div>

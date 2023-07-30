@@ -36,7 +36,9 @@ const ServicesIProvide = (props) => {
     Interactive Web Quiz Application
   </h3>
   <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-    Build an interactive web quiz app. Users select quizzes, answer questions, and receive feedback.
+    Build an interactive web quiz app. Users select quizzes,
+    <br className='hidden sm:block' />
+     answer questions, and receive feedback.
     <br className='hidden sm:block' />
     Implement scoring, timer, and admin interface.
   </p>
@@ -54,7 +56,9 @@ const ServicesIProvide = (props) => {
     Real-time Chat Application
   </h3>
   <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-    Develop a real-time chat app. Implement user authentication, online status, and message receipts.
+    Develop a real-time chat app. Implement user 
+    <br className='hidden sm:block' />
+    authentication, online status, and message receipts.
     <br className='hidden sm:block' />
     Use WebSockets for responsive messaging.
   </p>
@@ -72,9 +76,11 @@ const ServicesIProvide = (props) => {
     E-Commerce Website
   </h3>
   <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-    Build a fully functional e-commerce website. Implement user authentication, product search, and a user-friendly shopping cart.
+    Build a fully functional e-commerce website. Implement
     <br className='hidden sm:block' />
-    Experience with online transactions.
+     user authentication, product search, and a user-friendly
+     <br className='hidden sm:block' /> 
+     shopping cart. Experience with online transactions.
   </p>
 </div>
 
@@ -90,7 +96,9 @@ const ServicesIProvide = (props) => {
     Weather App
   </h3>
   <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-    Create a weather app. Fetch real-time weather data and display forecasts, temperature graphs, and alerts.
+    Create a weather app. Fetch real-time weather data and 
+    <br className='hidden sm:block' />
+    display forecasts, temperature graphs, and alerts.
   </p>
 </div>
 
@@ -106,7 +114,9 @@ const ServicesIProvide = (props) => {
     Social Media Dashboard
   </h3>
   <p className='text-gray-900 text-[14px] leading-[26px] tracking-[0.01em]'>
-    Create a social media dashboard. Analyze user engagement, metrics, and reach from various platforms.
+    Create a social media dashboard. Analyze user 
+    <br className='hidden sm:block' />
+    engagement, metrics, and reach from various platforms.
     <br className='hidden sm:block' />
     Implement data visualization.
   </p>

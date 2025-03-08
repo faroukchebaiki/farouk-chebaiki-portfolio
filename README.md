@@ -1,3 +1,3 @@
 
-## This is new Version of my portfolio Coming Soon ...!
+## This is new Version of my portfolio is Coming Soon ...!
 

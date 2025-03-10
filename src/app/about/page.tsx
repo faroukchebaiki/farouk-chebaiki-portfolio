@@ -26,6 +26,10 @@ const about = () => {
           X : 
           <a className="hover:underline hover:text-[#5BD124]" href="https://x.com/faroukchebaiki" target="_blank" rel="noopener noreferrer"> @faroukchebaiki</a>
         </p>
+        <p className="text-3xl font-normal indent-9 mt-3">
+          Github : 
+          <a className="hover:underline hover:text-[#5BD124]" href="https://github.com/faroukchebaiki" target="_blank" rel="noopener noreferrer"> # faroukchebaiki</a>
+        </p>
       </article>
     </main>
   );

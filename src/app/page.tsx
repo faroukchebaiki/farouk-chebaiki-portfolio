@@ -3,23 +3,26 @@ import Profile from "@/Components/profile";
 import Navigation from "@/Components/nav";
 export default function Home() {
   return (
-    <main className="h-screen justify-center items-center flex flex-col">
+    <main className="h-screen  items-center flex flex-col space-between">
+      <Link href="/about" className="mt-auto">
     <Profile />
-    <h1 className="text-xl font-semibold">
+    </Link>
+    <h1 className="text-3xl font-semibold mt-4">
       <span className="text-[#5BD124]">Farouk </span> 
       Chebaiki</h1>
-    <h2 className="text-2xl font-bold">welcome,</h2>
-    <h2 className="text-2xl font-bold">traveler.</h2>
+    <div>
+    <h2 className="text-4xl font-bold mt-4">welcome ,</h2>
+    <h2 className="text-4xl font-bold">traveler .</h2>
 
-    <p className="text-base font-normal">
-      explore my portfolio and use anything you need. <br /> 
-      Reach out if you’d like to discuss your ideas!</p>
-
+    <p className="text-base font-normal mt-4 indent-8">
+      explore my portfolio and use anything <br />you need.  
+      Reach out if you’d like to discuss <br />your ideas!</p>
+      </div>
     <Navigation />
 
     {/* Footer */}
-    <footer className="justify-center text-center z-10">
-      <Link href="/about" className="text-lg underline">
+    <footer className="justify-center text-center mt-auto mb-4">
+      <Link href="/about" className="text-lg underline hover:text-[#5BD124]">
         About me
       </Link>
     </footer>

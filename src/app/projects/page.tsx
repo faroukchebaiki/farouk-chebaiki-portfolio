@@ -1,7 +1,12 @@
+import Header from "@/Components/header";
+import ProjectCard from "@/Components/project";
 const projects = () => {
     return (
       <main>
-        <h1>Projects</h1>
+        <Header />
+        <section>
+          <ProjectCard />
+        </section>
       </main>
     );
   }

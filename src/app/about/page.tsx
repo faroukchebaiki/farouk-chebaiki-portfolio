@@ -5,7 +5,7 @@ const about = () => {
       <Header pagename="About" />
       <article className="mr-auto ml-auto mt-7 max-w-[1000px] p-2">
         <p className="text-3xl font-normal indent-9">
-        I'm Farouk Mohamed Chebaiki, a Full Stack Developer focused on building 
+        Im Farouk Mohamed Chebaiki, a Full Stack Developer focused on building 
         efficient and scalable web applications. I specialize in Next.js, React,
          Node.js, and TailwindCSS, ensuring seamless user experiences and robust
           backend systems.

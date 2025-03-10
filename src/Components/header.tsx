@@ -1,4 +1,4 @@
-import ArrowCircleLeft  from '@/Components/backArrow';
+import ArrowCircleLeft  from '@/Components/Assets/backArrow';
 
 interface HeaderProps {
     pagename: string;
@@ -6,7 +6,8 @@ interface HeaderProps {
   const Header: React.FC<HeaderProps> = ({ pagename }) => {
   return (
     <header
-      className="relative flex items-center justify-center space-between h-[4rem] border-b-1 border-[#5BD124]"
+      className="sticky top-0 z-50 flex items-center justify-center space-between h-[4rem] border-b-1 border-[#5BD124]
+      bg-[rgba(91,209,36,0.12)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[11.8px]"
     >
     <div className='ml-4 mr-auto'>
         <ArrowCircleLeft size={50} color="#5BD124"/>

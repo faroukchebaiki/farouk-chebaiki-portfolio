@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Profile from "@/Components/profile";
 import Navigation from "@/Components/nav";
+
+import Githubicon  from "@/Components/Assets/github";
+
 export default function Home() {
   return (
     <main className="h-screen  items-center flex flex-col space-between">
@@ -21,10 +24,14 @@ export default function Home() {
     <Navigation />
 
     {/* Footer */}
-    <footer className="justify-center text-center mt-auto mb-4">
-      <Link href="/about" className="text-lg underline hover:text-[#5BD124]">
+    <footer className="flex justify-center text-center mt-auto mb-4">
+      <Link href="/about" className="text-lg underline transition-colors duration-200 hover:text-[#5BD124] mr-4">
         About me
       </Link>
+      <a href="https://github.com/faroukchebaiki" className="mr-2" target="_blank" rel="noopener noreferrer">
+        <Githubicon size={20} color="white"  />
+      </a>
+     
     </footer>
   </main>
   );

@@ -7,7 +7,7 @@ const About = () => {
       <article className="mx-auto mt-7 max-w-[800px] p-4">
         <div className="bg-[#5BD124]/40 border-2 border-[#5BD124] p-6  sm:p-4">
           <p className="prose prose-lg prose-gray max-w-none leading-relaxed text-3xl sm:text-base font-normal indent-9">
-            I'm Farouk Mohamed Chebaiki, a Full Stack Developer focused on building
+            I&apos;m Farouk Mohamed Chebaiki, a Full Stack Developer focused on building
             efficient and scalable web applications. I specialize in Next.js, React,
             Node.js, and TailwindCSS, ensuring seamless user experiences and robust
             backend systems.

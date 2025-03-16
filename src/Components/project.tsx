@@ -1,3 +1,4 @@
+import Image from "next/image";
 interface Project {
   title: string;
   description: string;
@@ -64,7 +65,7 @@ export default function ProjectCard() {
       {projects.map((project, index) => (
         <div key={index} className="h-96 w-80 border border-[#5BD124] shadow-lg  overflow-hidden flex flex-col">
           <a href={project.live} target="_blank" rel="noopener noreferrer" className="relative h-1/2 w-full block">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            <Image src={project.image} alt={project.title} fill className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#5BD124]/40 hover:bg-[#5BD124]/70 flex items-center justify-center">
               <h1 className="text-white text-xl font-bold text-center px-4">{project.title}</h1>
             </div>

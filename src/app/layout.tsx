@@ -15,7 +15,7 @@ const PixelifySans = Pixelify_Sans({
 
 export const metadata: Metadata = {
   title: "farouk chebaiki - Full Stack Developer",
-  description: "Welcome to Farouk Chebaiki's portfolio. Explore my projects, skills, and experiences in web development and design.",
+  description: "Welcome to Farouk Chebaiki&apos;s portfolio. Explore my projects, skills, and experiences in web development and design.",
 };
 
 export default function RootLayout({

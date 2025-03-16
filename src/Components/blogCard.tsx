@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface DevToPost {
   id: number;
@@ -56,10 +57,11 @@ const DevToBlog = () => {
               {/* Right side - Image with overlay */}
               {post.cover_image && (
                 <div className="relative w-32 h-32 md:w-48 md:h-32 ml-4">
-                  <img
+                  <Image
                     src={post.cover_image}
                     alt={post.title}
                     className="w-full h-full object-cover"
+                    fill
                   />
                   <div className="absolute inset-0 bg-[#5BD124]/40 hover:bg-[#5BD124]/70 transition"></div>
                 </div>

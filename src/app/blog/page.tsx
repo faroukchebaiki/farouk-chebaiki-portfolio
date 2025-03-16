@@ -1,5 +1,4 @@
 import Header from "@/Components/header";
-import dynamic from "next/dynamic";
 
 
 import DevToBlog from "@/Components/blogCard";

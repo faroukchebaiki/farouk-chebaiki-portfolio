@@ -42,12 +42,12 @@ const DevToBlog = () => {
             className="relative block transition-transform hover:scale-[1.02]"
           >
             {/* Bottom shadow div */}
-            <div className="absolute w-full h-full bg-[#5BD124]/40 border-2 border-[#5BD124] translate-x-2 translate-y-2"></div>
+            <div className="absolute hidden md:block w-full h-full bg-[#5BD124]/40 border-2 border-[#5BD124] translate-x-2 translate-y-2"></div>
 
             {/* Main container */}
-            <div className="relative z-10 flex flex-col md:flex-row items-center border-2 border-[#5BD124] bg-[#5BD124]/40 hover:bg-[#5BD124]/70 p-5 shadow-md transition">
+            <div className="relative mx-2 z-10 flex flex-col md:flex-row items-center border-2 border-[#5BD124] bg-[#5BD124]/40 hover:bg-[#5BD124]/70 p-5 shadow-md transition">
               {/* Left side - Text */}
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-left mb-1">
                 <h1 className="text-xl font-bold text-black">{post.title}</h1>
                 <p className="text-sm text-black mt-2">
                   {new Date(post.published_at).toDateString()}
@@ -56,7 +56,7 @@ const DevToBlog = () => {
 
               {/* Right side - Image with overlay */}
               {post.cover_image && (
-                <div className="relative w-32 h-32 md:w-48 md:h-32 ml-4">
+                <div className="relative w-64 h-64 md:w-48 md:h-32 ml-4">
                   <Image
                     src={post.cover_image}
                     alt={post.title}

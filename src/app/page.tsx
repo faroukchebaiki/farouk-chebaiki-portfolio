@@ -10,9 +10,11 @@ export default function Home() {
       <Link href="/about" className="mt-auto">
     <Profile />
     </Link>
-    <h1 className="text-3xl font-semibold mt-4">
-      <span className="text-[#5BD124]">Farouk </span> 
-      Chebaiki</h1>
+    <Link href="/about">
+      <h1 className="text-3xl font-semibold mt-4">
+        <span className="text-[#5BD124] ">FAROUK </span> 
+        Chebaiki</h1>
+    </Link>
     <div>
     <h2 className="text-4xl font-bold mt-4">welcome ,</h2>
     <h2 className="text-4xl font-bold">traveler .</h2>

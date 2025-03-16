@@ -5,7 +5,7 @@ import "./globals.css";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 
-
+import DarkMistBackground from "@/Components/background";
 
 const PixelifySans = Pixelify_Sans({
   display: "swap",
@@ -29,6 +29,7 @@ export default function RootLayout({
         className={`${PixelifySans.className} antialiased`}
       >
         {children}
+        <DarkMistBackground blurAmount="15px" color="#5BD124" particleCount={20} speed={0.9} turbulence={2} />
         <SpeedInsights />
         <Analytics />
       </body>

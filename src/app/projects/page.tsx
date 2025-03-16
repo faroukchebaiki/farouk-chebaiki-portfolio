@@ -6,11 +6,6 @@ const projects = () => {
         <Header pagename="Projects" />
         <section className="flex flex-wrap justify-center mr-auto ml-auto mt-7 max-w-[1060px]">
           <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
         </section>
       </main>
     );

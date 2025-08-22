@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Profile from "@/Components/profile";
 import Navigation from "@/Components/nav";
+import TechStackSlider from "@/Components/techStackSlider";
 
 import Githubicon  from "@/Components/Assets/github";
 
@@ -20,9 +21,10 @@ export default function Home() {
     <h2 className="text-4xl font-bold">traveler .</h2>
 
     <p className="text-base font-normal mt-4 indent-8">
-      explore my portfolio and use anything <br />you need.  
+      explore my portfolio and use anything <br />you need.
       Reach out if you’d like to discuss <br />your ideas!</p>
       </div>
+    <TechStackSlider />
     <Navigation />
 
     {/* Footer */}

@@ -1,10 +1,16 @@
-import Image from "next/image";
-import React from "react";
+'use client';
 
- const Profile  =() => {
+import Image from "next/image";
+import { motion } from 'framer-motion';
+
+const Profile = () => {
   return (
-    <div
+    <motion.div
       className="mt-auto relative size-40 rounded-full overflow-hidden border-6 bg-white border-[#5BD124]"
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
     >
       <Image
         src="/profile.png"
@@ -12,7 +18,7 @@ import React from "react";
         fill
         className="rounded-full object-cover"
       />
-    </div>
+    </motion.div>
   );
-}
+};
 export default Profile;

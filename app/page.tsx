@@ -9,7 +9,6 @@ export default function Home() {
         blend={23.5}
         amplitude={0.7}
         speed={1}
-        className="w-full h-full"
       />
     </div>
   );

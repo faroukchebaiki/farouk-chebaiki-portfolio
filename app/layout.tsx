@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {Roboto_Mono} from "next/font/google";
 import "./globals.css";
 
+import { ThemeProvider } from "./Components/theme-provider";
 import Navbar from "./Components/NavBar";
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -12,6 +13,7 @@ const bodyFont = Roboto_Mono({
   weight: ["400", "600", "700"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -25,12 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${bodyFont.className} antialiased`}
-      >
+    <html lang="en" className={bodyFont.variable} suppressHydrationWarning>
+      <body className={`antialiased`}>
+        <ThemeProvider>
           <Navbar />
         {children}
+        </ThemeProvider>
         <SpeedInsights />
         <Analytics />
       </body>

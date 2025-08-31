@@ -10,42 +10,31 @@ import {
 } from "@/components/ui/popover";
 import { Github, Twitter, Menu as MenuIcon, X } from "lucide-react";
 
+// Logo font (local to this component)
 import { UnifrakturMaguntia } from "next/font/google";
 const logoFont = UnifrakturMaguntia({ weight: "400", subsets: ["latin"] });
-/**
- * Navbar (Desktop + Mobile in one)
- * - Sticky at top
- * - Desktop (lg+): logo | center links | right email + icons
- * - Mobile/Tablet: logo | Menu button -> popover (small window) above the button
- *
- * Tip: if you have a logo font (e.g. logoFont.className), add it to the logo <span>.
- */
+
 export default function Navbar() {
-  // Controls the mobile/tablet popover state
   const [open, setOpen] = React.useState(false);
 
   return (
     <>
-      {/* ===== Fixed/Sticky Navbar ===== */}
-      <nav className="sticky top-0 z-40 w-full bg-gradient-to-r from-green-700 via-green-600 to-green-800 text-white shadow">
+      {/* Top bar: themed background, text, and bottom border */}
+      <nav className="sticky top-0 z-40 w-full bg-background/95 text-foreground border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          {/* Left: Logo */}
-          <Link
-            href="/"
-            className="text-3xl font-bold tracking-wide hover:opacity-90 transition"
-          >
-            
+          {/* Left: Logo (inherits theme text color) */}
+          <Link href="/" className="text-3xl font-bold tracking-wide hover:opacity-90 transition">
             <span className={logoFont.className}>Farouk Chebaiki</span>
           </Link>
 
-          {/* Center links — visible on desktop (lg+) */}
-          <div className="hidden lg:flex gap-6">
+          {/* Center: Desktop links (tokens only) */}
+          <div className="hidden lg:flex gap-2">
             <NavButton href="/about">About</NavButton>
             <NavButton href="/projects">Projects</NavButton>
             <NavButton href="/blog">Blog</NavButton>
           </div>
 
-          {/* Right side — email + icons (desktop only) */}
+          {/* Right: Desktop contact + icons (tokens only) */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="mailto:me@farouk.uk"
@@ -73,89 +62,74 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile/Tablet (≤ lg): Menu button (popover trigger) */}
+          {/* Mobile/Tablet: Menu button uses theme tokens (secondary surface) */}
           <div className="lg:hidden">
             <Popover open={open} onOpenChange={setOpen}>
-              {/* The trigger is the "Menu" pill button */}
               <PopoverTrigger asChild>
                 <Button
                   variant="secondary"
-                  className="rounded-2xl px-3 sm:px-4 bg-white/15 hover:bg-white/25 text-white backdrop-blur transition shadow-sm"
+                  className="rounded-2xl px-3 sm:px-4"
                 >
                   <MenuIcon className="h-4 w-4 mr-2" />
                   Menu
                 </Button>
               </PopoverTrigger>
 
-              {/* Small window ABOVE the button (aligned to the right edge) */}
+              {/* Popover inherits themed surface + border + foreground */}
               <PopoverContent
                 side="top"
                 align="end"
                 sideOffset={12}
-                collisionPadding={8}
-                className="
-                  z-[60] w-72 rounded-3xl
-                  bg-white p-5 sm:p-6
-                  shadow-[0_10px_30px_rgba(0,0,0,0.15)]
-                  text-black
-                "
+                className="z-[60] w-72 rounded-3xl bg-popover text-popover-foreground border border-border shadow-xl"
               >
-                {/* Single Close button in the top-right */}
+                {/* Close (tokens for border/text) */}
                 <div className="flex justify-end">
                   <button
                     aria-label="Close menu"
                     onClick={() => setOpen(false)}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-black/70 hover:bg-black/5 transition"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border hover:bg-accent hover:text-accent-foreground transition"
                   >
                     <X className="h-4 w-4" />
                   </button>
                 </div>
 
-                {/* Links list */}
+                {/* Links use foreground; hover uses accent */}
                 <nav className="mt-2 space-y-4">
-                  <MenuLink href="/" onSelect={() => setOpen(false)}>
-                    Home
-                  </MenuLink>
-                  <MenuLink href="/about" onSelect={() => setOpen(false)}>
-                    About
-                  </MenuLink>
-                  <MenuLink href="/projects" onSelect={() => setOpen(false)}>
-                    Projects
-                  </MenuLink>
-                  <MenuLink href="/contact" onSelect={() => setOpen(false)}>
-                    Blog
-                  </MenuLink>
+                  <MenuLink href="/" onSelect={() => setOpen(false)}>Home</MenuLink>
+                  <MenuLink href="/about" onSelect={() => setOpen(false)}>About</MenuLink>
+                  <MenuLink href="/projects" onSelect={() => setOpen(false)}>Projects</MenuLink>
+                  <MenuLink href="/blog" onSelect={() => setOpen(false)}>Blog</MenuLink>
                 </nav>
 
-                {/* Email at bottom */}
-                <div className="flex mt-6 gap-4 justify-between items-center ">
+                {/* Bottom row uses tokens */}
+                <div className="flex mt-6 gap-4 justify-between items-center">
                   <a
                     href="mailto:me@farouk.uk"
-                    className="text-sm font-medium text-neutral-700 hover:underline underline-offset-4"
+                    className="text-sm font-medium hover:underline underline-offset-4"
                     onClick={() => setOpen(false)}
                   >
                     me@farouk.uk
                   </a>
                   <div className="flex items-center gap-3">
-                  <a
-                 href="https://github.com/faroukchebaiki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition"
-                aria-label="GitHub"
-                >
-                <Github className="h-5 w-5" />
-                </a>
-                <a
-                href="https://x.com/faroukchebaiki.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition"
-                aria-label="X"
-                >
-                <Twitter className="h-5 w-5" />
-                </a>
-                </div>
+                    <a
+                      href="https://github.com/faroukchebaiki"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80 transition"
+                      aria-label="GitHub"
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                    <a
+                      href="https://x.com/faroukchebaiki"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80 transition"
+                      aria-label="X"
+                    >
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                  </div>
                 </div>
               </PopoverContent>
             </Popover>
@@ -163,17 +137,13 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ===== Overlay that blurs the page when mobile menu is open =====
-         - Renders only on mobile/tablet (lg:hidden) and only while `open`
-         - Covers the whole viewport; clicking it closes the menu
-         - Sits under the popover (z-50 < popover's z-60 above) but above page content
-      */}
+      {/* Overlay uses themed foreground tint; clicking outside closes */}
       <div className="lg:hidden">
         {open && (
           <button
             aria-label="Close menu overlay"
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-50 bg-black/10 backdrop-blur-[2px]"
+            className="fixed inset-0 z-50 bg-foreground/10 backdrop-blur-sm"
           />
         )}
       </div>
@@ -181,9 +151,8 @@ export default function Navbar() {
   );
 }
 
-/* -------------------- Small helpers -------------------- */
+/* --- Helpers use only theme tokens --- */
 
-/** Desktop nav buttons (shadcn Button as a link) */
 function NavButton({
   href,
   children,
@@ -191,18 +160,18 @@ function NavButton({
   href: string;
   children: React.ReactNode;
 }) {
+  // ghost variant already uses tokens; add subtle hover surface via accent
   return (
     <Button
       asChild
       variant="ghost"
-      className="text-white hover:bg-white/10 hover:text-white"
+      className="hover:bg-accent hover:text-accent-foreground"
     >
       <Link href={href}>{children}</Link>
     </Button>
   );
 }
 
-/** MenuLink for the mobile popover */
 function MenuLink({
   href,
   onSelect,

@@ -1,15 +1,21 @@
-export default function Home() {
+
+import Hero from "./components/home/Hero";
+import FeaturedProjects from "./components/home/FeaturedProjects";
+import LatestPosts from "./components/home/LatestPosts";
+import TechStack from "./components/home/TechStack";
+import ContactStrip from "./components/home/ContactStrip";
+
+
+export const revalidate = 3600; 
+
+export default function HomePage() {
   return (
-    <div>
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Hello, Next.js!</h1>
+    <main id="main" className="bg-background text-foreground">
+      <Hero />
+      <FeaturedProjects />
+      <LatestPosts />
+      <TechStack />
+      <ContactStrip />
     </main>
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Hello, Next.js!</h1>
-    </main>
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Hello, Next.js!</h1>
-    </main>
-    </div>
   );
 }

@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top bar: themed background, text, and bottom border */}
-      <nav className="sticky top-0 z-40 w-full bg-background/95 text-foreground border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <nav className="sticky top-0 z-40 w-full bg-background/95 text-foreground border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           {/* Left: Logo (inherits theme text color) */}
           <Link href="/" className="text-3xl font-bold tracking-wide hover:opacity-90 transition">

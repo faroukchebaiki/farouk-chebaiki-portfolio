@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import {Roboto_Mono} from "next/font/google";
 import "./globals.css";
 
-import { ThemeProvider } from "./Components/theme-provider";
-import Navbar from "./Components/NavBar";
+import { ThemeProvider } from "./components/theme-provider";
+import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
@@ -31,7 +32,8 @@ export default function RootLayout({
       <body className={`antialiased`}>
         <ThemeProvider>
           <Navbar />
-        {children}
+          {children}
+        <Footer />
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

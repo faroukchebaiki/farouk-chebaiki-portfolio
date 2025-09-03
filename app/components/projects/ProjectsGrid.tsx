@@ -1,0 +1,131 @@
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import { Github, Link as LinkIcon, X } from "lucide-react";
+import ProjectCard from "./ProjectCard";
+import SlideOver from "./SlideOver";
+
+export type Project = {
+  id: string;
+  title: string;
+  short: string;
+  long: string;
+  image: string;
+  stack: string[];
+  github?: string;
+  live?: string;
+  featured?: boolean;
+};
+
+export default function ProjectsGrid({ projects }: { projects: Project[] }) {
+  const featured = projects.find((p) => p.featured) ?? projects[0];
+  const rest = projects.filter((p) => p.id !== featured.id);
+
+  const [open, setOpen] = React.useState(false);
+  const [active, setActive] = React.useState<Project | null>(null);
+
+  const onOpen = (p: Project) => {
+    setActive(p);
+    setOpen(true);
+  };
+  const onClose = () => setOpen(false);
+
+  return (
+    <>
+      {/* Grid */}
+      <div
+        className="
+          grid gap-5
+          sm:grid-cols-2
+          lg:grid-cols-3
+        "
+      >
+        {/* Featured spans full width */}
+        <div className="sm:col-span-2 lg:col-span-3">
+          <ProjectCard project={featured} onClick={() => onOpen(featured)} featured />
+        </div>
+
+        {/* Other projects */}
+        {rest.map((p) => (
+          <ProjectCard key={p.id} project={p} onClick={() => onOpen(p)} />
+        ))}
+      </div>
+
+      {/* Slide-over detail panel */}
+      <SlideOver open={open} onClose={onClose}>
+        {active && (
+          <article className="flex h-full flex-col">
+            {/* Header */}
+            <div className="flex items-start justify-between border-b border-border p-4">
+              <div>
+                <h2 className="text-xl font-semibold">{active.title}</h2>
+                <p className="mt-1 text-sm text-muted-foreground">{active.short}</p>
+              </div>
+              <button
+                onClick={onClose}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border hover:bg-accent transition"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-card">
+                <Image
+                  src={active.image}
+                  alt={active.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+
+              <p className="text-[0.975rem]/7 text-muted-foreground">{active.long}</p>
+
+              {/* Stack badges */}
+              <ul className="mt-1 flex flex-wrap gap-2">
+                {active.stack.map((t) => (
+                  <li
+                    key={t}
+                    className="rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Footer actions */}
+            <div className="border-t border-border p-4 flex items-center gap-3">
+              {active.github && (
+                <a
+                  href={active.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 hover:bg-accent hover:text-accent-foreground transition"
+                >
+                  <Github className="h-4 w-4" />
+                  <span>GitHub</span>
+                </a>
+              )}
+              {active.live && (
+                <a
+                  href={active.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-primary-foreground hover:bg-accent hover:text-accent-foreground transition"
+                >
+                  <LinkIcon className="h-4 w-4" />
+                  <span>Live</span>
+                </a>
+              )}
+            </div>
+          </article>
+        )}
+      </SlideOver>
+    </>
+  );
+}

@@ -24,7 +24,7 @@ export default function Hero() {
           <span className="font-bold text-accent-foreground">Farouk</span>
         </p>
 
-        <h1 className="mt-2 text-xl sm:text-3xl md:text-4xl tracking-tight">
+        <h1 className="mt-2 text-xl sm:text-3xl md:text-4xl tracking-tight"> a{" "}
           <span className="bg-gradient-to-r from-emerald-400 to-accent-foreground bg-clip-text text-transparent">
             Full-Stack Dev
           </span>{" "}

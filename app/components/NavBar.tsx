@@ -9,6 +9,7 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { Github, Twitter, Menu as MenuIcon, X } from "lucide-react";
+import { siteConfig } from "@/lib/site";
 
 // Logo font (local to this component)
 import { UnifrakturMaguntia } from "next/font/google";
@@ -24,7 +25,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           {/* Left: Logo (inherits theme text color) */}
           <Link href="/" className="text-3xl font-bold tracking-wide hover:opacity-90 transition">
-            <span className={logoFont.className}>Farouk Chebaiki</span>
+            <span className={logoFont.className}>{siteConfig.brandName}</span>
           </Link>
 
           {/* Center: Desktop links (tokens only) */}
@@ -37,13 +38,13 @@ export default function Navbar() {
           {/* Right: Desktop contact + icons (tokens only) */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="mailto:me@farouk.uk"
+              href={`mailto:${siteConfig.email}`}
               className="text-sm hover:underline underline-offset-4"
             >
-              me@farouk.uk
+              {siteConfig.email}
             </a>
             <a
-              href="https://github.com/faroukchebaiki"
+              href={siteConfig.social.github ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
@@ -52,7 +53,7 @@ export default function Navbar() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://x.com/faroukchebaiki"
+              href={siteConfig.social.twitter ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
@@ -104,15 +105,15 @@ export default function Navbar() {
                 {/* Bottom row uses tokens */}
                 <div className="flex mt-6 gap-4 justify-between items-center">
                   <a
-                    href="mailto:me@farouk.uk"
+                    href={`mailto:${siteConfig.email}`}
                     className="text-sm font-medium hover:underline underline-offset-4"
                     onClick={() => setOpen(false)}
                   >
-                    me@farouk.uk
+                    {siteConfig.email}
                   </a>
                   <div className="flex items-center gap-3">
                     <a
-                      href="https://github.com/faroukchebaiki"
+                      href={siteConfig.social.github ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:opacity-80 transition"
@@ -121,7 +122,7 @@ export default function Navbar() {
                       <Github className="h-5 w-5" />
                     </a>
                     <a
-                      href="https://x.com/faroukchebaiki"
+                      href={siteConfig.social.twitter ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:opacity-80 transition"

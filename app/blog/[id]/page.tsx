@@ -50,35 +50,53 @@ export default async function ArticlePage({ params }: { params: { id: string } }
   const dateWithYear = `${data.readable_publish_date}, ${year}`;
 
   return (
-        <main className="bg-background text-foreground">
-        <section className="container mx-auto px-4 sm:px-6 py-6 sm:py-10 max-w-3xl">
-            {/* Sticky back button with ~1rem gap from top */}
-            <div className="sticky top-4 z-30 -ml-1 mb-3">
+    <main className="bg-background text-foreground">
+      <section className="container mx-auto px-4 sm:px-6 py-6 sm:py-10">
+        <div className="lg:flex lg:justify-center lg:gap-8">
+          {/* Left sticky back button (desktop-only) */}
+          <aside className="hidden lg:block sticky top-24 self-start w-36">
             <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-card/80 backdrop-blur px-3 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground transition"
+            >
+              ← Back
+            </Link>
+          </aside>
+
+          {/* Article column */}
+          <div className="w-full max-w-3xl">
+            {/* Mobile back button (kept at top) */}
+            <div className="sticky top-4 z-30 -ml-1 mb-3 lg:hidden">
+              <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card/80 backdrop-blur px-3 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground transition"
-            >
+              >
                 ← Back
-            </Link>
+              </Link>
             </div>
 
             <div className="flex items-center justify-end">
-            <span className="text-xs text-muted-foreground">{dateWithYear}</span>
+              <span className="text-xs text-muted-foreground">{dateWithYear}</span>
             </div>
 
-            <h1 className="mt-2 text-[1.9rem] sm:text-[2.2rem] font-bold leading-tight tracking-tight">
-            {data.title}
-            </h1>
+            {/* Page-like reading area with side lines */}
+            <div className="mt-2 border-x border-border px-5">
+              <h1 className="text-[1.9rem] sm:text-[2.2rem] font-bold leading-tight tracking-tight">
+                {data.title}
+              </h1>
 
-            {data.cover_image && (
-            <div
-                className="mt-4 aspect-[16/9] w-full rounded-xl border border-border bg-center bg-cover"
-                style={{ backgroundImage: `url(${data.cover_image})` }}
-            />
-            )}
+              {data.cover_image && (
+                <div
+                  className="mt-4 aspect-[16/9] w-full rounded-xl border border-border bg-center bg-cover lg:border-0 lg:rounded-none"
+                  style={{ backgroundImage: `url(${data.cover_image})` }}
+                />
+              )}
 
-            <ArticleBody html={data.body_html} originalUrl={data.url} />
-        </section>
-        </main>
-    );
+              <ArticleBody html={data.body_html} originalUrl={data.url} />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

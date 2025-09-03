@@ -35,8 +35,10 @@ export default function ArticleView({
         if (!res.ok) throw new Error(`Failed to load article: ${res.status}`);
         const json: DevToArticleFull = await res.json();
         setData(json);
-      } catch (e: any) {
-        if (e.name !== "AbortError") setError(e.message ?? "Failed to fetch");
+      } catch (e: unknown) {
+        if (e instanceof DOMException && e.name === "AbortError") return;
+        const msg = e instanceof Error ? e.message : "Failed to fetch";
+        setError(msg);
       }
     };
     run();
@@ -63,6 +65,7 @@ export default function ArticleView({
       {/* Top bar */}
       <div className="flex items-center gap-3 border-b border-border px-3 py-2">
         <button
+          type="button"
           onClick={onClose}
           className="inline-flex items-center gap-2 rounded-md border border-border px-2 py-1 text-sm hover:bg-accent hover:text-accent-foreground transition"
           aria-label="Go back"

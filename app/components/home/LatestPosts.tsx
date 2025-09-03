@@ -1,6 +1,7 @@
 // src/components/home/LatestPosts.tsx
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
 type DevToPost = {
   id: number;
@@ -13,7 +14,7 @@ type DevToPost = {
 
 async function getPosts(): Promise<DevToPost[]> {
   const res = await fetch(
-    "https://dev.to/api/articles?username=YOUR_DEVTO_USER&per_page=3",
+    `https://dev.to/api/articles?username=${encodeURIComponent(siteConfig.devtoUsername ?? "")}&per_page=3`,
     { next: { revalidate: 3600 } } // cache 1h
   );
   if (!res.ok) return [];
@@ -33,9 +34,7 @@ export default async function LatestPosts() {
           {posts.map((p) => (
             <Link
               key={p.id}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/blog/${p.id}`}
               className="rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
             >
               {p.cover_image && (

@@ -3,12 +3,20 @@
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import BlogRow, { type DevToArticle } from "./BlogRow";
+import BlogRowSkeleton from "./BlogRowSkeleton";
 import SlideOver from "../projects/SlideOver";
 import ArticleView from "./ArticleView";
 
+const PER_PAGE = 7;
+
 export default function BlogList({ username }: { username: string }) {
   const [articles, setArticles] = React.useState<DevToArticle[] | null>(null);
+  const [showSkeleton, setShowSkeleton] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  const [page, setPage] = React.useState(1);
+  const [loading, setLoading] = React.useState(false);
+  const [hasMore, setHasMore] = React.useState(true);
+  const sentinelRef = React.useRef<HTMLDivElement | null>(null);
 
   const router = useRouter();
   const search = useSearchParams();
@@ -19,25 +27,79 @@ export default function BlogList({ username }: { username: string }) {
     typeof window !== "undefined" &&
     window.matchMedia("(min-width: 1024px)").matches; // lg breakpoint
 
+  // Initial load
   React.useEffect(() => {
+    // Slight delay before showing skeleton to avoid flicker
+    const t = setTimeout(() => setShowSkeleton(true), 300);
     const ctrl = new AbortController();
-    const run = async () => {
+    const load = async () => {
       try {
         setError(null);
-        const res = await fetch(
-          `https://dev.to/api/articles?username=${encodeURIComponent(username)}`,
-          { signal: ctrl.signal }
-        );
+        setLoading(true);
+        const url = `https://dev.to/api/articles?username=${encodeURIComponent(
+          username
+        )}&page=1&per_page=${PER_PAGE}`;
+        const res = await fetch(url, { signal: ctrl.signal });
         if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
         const data: DevToArticle[] = await res.json();
         setArticles(data);
-      } catch (e: any) {
-        if (e.name !== "AbortError") setError(e.message ?? "Failed to fetch");
+        setHasMore(data.length === PER_PAGE);
+        setPage(1);
+      } catch (e: unknown) {
+        if (e instanceof DOMException && e.name === "AbortError") return;
+        const msg = e instanceof Error ? e.message : "Failed to fetch";
+        setError(msg);
+      } finally {
+        setLoading(false);
       }
     };
-    run();
-    return () => ctrl.abort();
+    load();
+    return () => {
+      clearTimeout(t);
+      ctrl.abort();
+    };
   }, [username]);
+
+  const loadMore = React.useCallback(async () => {
+    if (loading || !hasMore) return;
+    const ctrl = new AbortController();
+    try {
+      setLoading(true);
+      const nextPage = page + 1;
+      const url = `https://dev.to/api/articles?username=${encodeURIComponent(
+        username
+      )}&page=${nextPage}&per_page=${PER_PAGE}`;
+      const res = await fetch(url, { signal: ctrl.signal });
+      if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
+      const data: DevToArticle[] = await res.json();
+      setArticles((prev) => (prev ? [...prev, ...data] : data));
+      setHasMore(data.length === PER_PAGE);
+      setPage(nextPage);
+    } catch (e: unknown) {
+      if (e instanceof DOMException && e.name === "AbortError") return;
+      const msg = e instanceof Error ? e.message : "Failed to fetch";
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
+  }, [loading, hasMore, page, username]);
+
+  // Infinite scroll via IntersectionObserver
+  React.useEffect(() => {
+    if (!sentinelRef.current) return;
+    const el = sentinelRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting) {
+          loadMore();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.unobserve(el);
+  }, [loadMore]);
 
   const onOpen = (id: number) => {
     if (isDesktop()) {
@@ -66,13 +128,13 @@ export default function BlogList({ username }: { username: string }) {
   }
 
   if (!articles) {
-    return (
-      <div className="space-y-4">
-        {[...Array(5)].map((_, i) => (
-          <div key={i} className="rounded-2xl border border-border bg-card p-4 animate-pulse h-40" />
+    return showSkeleton ? (
+      <div className="space-y-5" aria-busy>
+        {Array.from({ length: PER_PAGE }).map((_, i) => (
+          <BlogRowSkeleton key={`init-${i}`} />
         ))}
       </div>
-    );
+    ) : null;
   }
 
   return (
@@ -82,6 +144,29 @@ export default function BlogList({ username }: { username: string }) {
         {articles.map((a) => (
           <BlogRow key={a.id} article={a} onClick={() => onOpen(a.id)} />
         ))}
+        {/* Loading more skeletons */}
+        {loading && hasMore && (
+          <div className="space-y-5" aria-busy>
+            {Array.from({ length: 2 }).map((_, i) => (
+              <BlogRowSkeleton key={`more-${i}`} />
+            ))}
+          </div>
+        )}
+        {/* Load more button */}
+        {hasMore && (
+          <div className="flex justify-center pt-2">
+            <button
+              type="button"
+              onClick={loadMore}
+              disabled={loading}
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm hover:bg-accent/10 disabled:opacity-50"
+            >
+              {loading ? "Loading…" : "Load more"}
+            </button>
+          </div>
+        )}
+        {/* Sentinel for infinite scroll */}
+        {hasMore && <div ref={sentinelRef} className="h-1" />}
       </div>
 
       {/* Mobile slide-over only (desktop navigates to page) */}

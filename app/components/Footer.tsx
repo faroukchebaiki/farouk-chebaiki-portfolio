@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
         <p className="text-xs sm:text-sm">
           © 2025{" "}
           <Link
-            href="https://github.com/faroukchebaiki/farouk-chebaiki-portfolio"
+            href={siteConfig.repository ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-emerald-400 transition-colors"
@@ -16,12 +17,12 @@ export default function Footer() {
           </Link>{" "}
           by{" "}
           <Link
-            href="https://github.com/faroukchebaiki"
+            href={siteConfig.social.github ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-emerald-400 transition-colors"
           >
-            farouk
+            {siteConfig.brandName}
           </Link>
           . All rights reserved ·{" "}
           <Link

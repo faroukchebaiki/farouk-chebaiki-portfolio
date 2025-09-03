@@ -1,11 +1,12 @@
 // src/components/home/FeaturedProjects.tsx
 import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
-const projects = [
-  { title: "Project One", desc: "Short description", href: "/projects#one" },
-  { title: "Project Two", desc: "Short description", href: "/projects#two" },
-  { title: "Project Three", desc: "Short description", href: "/projects#three" },
-];
+const projects = siteConfig.projects.slice(0, 3).map((p) => ({
+  title: p.title,
+  desc: p.description,
+  href: "/projects",
+}));
 
 export default function FeaturedProjects() {
   return (

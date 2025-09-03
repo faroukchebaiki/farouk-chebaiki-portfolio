@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About — Farouk Chebaiki",
@@ -158,32 +158,32 @@ export default function AboutPage() {
               <li>
                 Email:{" "}
                 <a
-                  href="mailto:me@farouk.uk"
+                  href={`mailto:${siteConfig.email}`}
                   className="underline underline-offset-4"
                 >
-                  me@farouk.uk
+                  {siteConfig.email}
                 </a>
               </li>
               <li>
                 X:{" "}
                 <a
-                  href="https://x.com/faroukchebaiki"
+                  href={siteConfig.social.twitter ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-4"
                 >
-                  @faroukchebaiki
+                  {siteConfig.social.twitter?.replace("https://x.com/", "@") ?? "@username"}
                 </a>
               </li>
               <li>
                 GitHub:{" "}
                 <a
-                  href="https://github.com/faroukchebaiki"
+                  href={siteConfig.social.github ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-4"
                 >
-                  faroukchebaiki
+                  {siteConfig.social.github?.replace("https://github.com/", "") ?? "username"}
                 </a>
               </li>
               <li>
@@ -204,3 +204,4 @@ export default function AboutPage() {
     </main>
   );
 }
+ 

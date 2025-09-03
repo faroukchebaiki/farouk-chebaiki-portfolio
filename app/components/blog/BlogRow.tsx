@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import * as React from "react";
 import { Clock, Heart, MessageSquare } from "lucide-react";
 
 export type DevToArticle = {
@@ -64,9 +63,9 @@ export default function BlogRow({
           min-h-[12rem] sm:min-h-[14rem]
         "
       >
-        {/* Thumb: choose a wide-ish aspect to match DEV.to covers */}
-        <div className="relative overflow-hidden">
-          <div className="relative h-full w-full sm:h-auto sm:aspect-[18/10] aspect-[16/9]">
+        {/* Thumb: fill full card height on desktop, keep aspect on mobile */}
+        <div className="relative overflow-hidden sm:h-full">
+          <div className="relative w-full aspect-[16/9] sm:h-full sm:aspect-auto">
             <Image
               src={article.cover_image || article.social_image}
               alt={article.title}
@@ -95,7 +94,7 @@ export default function BlogRow({
             {article.title}
           </h3>
 
-          <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
+          <p className="mt-2 text-sm lg:text-[0.95rem] text-muted-foreground line-clamp-3 lg:line-clamp-6">
             {article.description}
           </p>
 

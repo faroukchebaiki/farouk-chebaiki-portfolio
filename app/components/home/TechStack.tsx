@@ -1,15 +1,122 @@
 // src/components/home/TechStack.tsx
+"use client";
+
+import * as React from "react";
+import { Github, GitBranch, Terminal, Cloud, Database, Server, Shield, Cpu, Play, Pause, ArrowLeftRight } from "lucide-react";
+
+type StackItem = {
+  name: string;
+  // Prefer lucide icons when possible
+  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  // If a brand logo is needed, drop an SVG or PNG under public/icons/stack and set img
+  img?: string; // e.g. "/icons/stack/react.svg"
+};
+
+const STACK: StackItem[] = [
+  // Use Simple Icons CDN for recognizable brand marks
+  { name: "TypeScript", img: "https://cdn.simpleicons.org/typescript" },
+  { name: "React", img: "https://cdn.simpleicons.org/react" },
+  { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs" },
+  { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss" },
+  { name: "shadcn/ui", img: "https://cdn.simpleicons.org/shadcnui" },
+  { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
+  { name: "Express", img: "https://cdn.simpleicons.org/express/ffffff" },
+  { name: "PostgreSQL", img: "https://cdn.simpleicons.org/postgresql" },
+  { name: "MongoDB", img: "https://cdn.simpleicons.org/mongodb" },
+  { name: "Redis", img: "https://cdn.simpleicons.org/redis" },
+  { name: "Firebase", img: "https://cdn.simpleicons.org/firebase" },
+  { name: "Linux", img: "https://cdn.simpleicons.org/linux" },
+  { name: "Docker", img: "https://cdn.simpleicons.org/docker" },
+  { name: "Podman", img: "https://cdn.simpleicons.org/podman" },
+  { name: "Cloudflare", img: "https://cdn.simpleicons.org/cloudflare" },
+  { name: "Nginx", img: "https://cdn.simpleicons.org/nginx" },
+  { name: "Git", img: "https://cdn.simpleicons.org/git" },
+  { name: "Postman", img: "https://cdn.simpleicons.org/postman" },
+  
+];
+
+function Row({ items, size = 40 }: { items: StackItem[]; size?: number }) {
+  return (
+    <div className="flex items-center gap-4 pr-4">
+      {items.map((it, i) => (
+        <div
+          key={`${it.name}-${i}`}
+          className="
+            inline-flex items-center gap-3 rounded-2xl border border-border bg-card
+            px-4 py-3 text-sm text-card-foreground
+            shadow-sm
+          "
+          title={it.name}
+        >
+          {it.img ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={it.img} alt="" className="select-none" style={{ height: size, width: size }} />
+          ) : it.Icon ? (
+            <it.Icon className="" style={{ height: size, width: size }} />
+          ) : null}
+          <span className="whitespace-nowrap">{it.name}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function TechStack() {
+  // Duplicate items for seamless marquee
+  const items = React.useMemo(() => [...STACK, ...STACK], []);
+  const [paused, setPaused] = React.useState(false);
+  const [reverse, setReverse] = React.useState(false);
+  const onTogglePause = () => setPaused((p) => !p);
+  const onToggleReverse = () => setReverse((r) => !r);
   return (
     <section className="border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 py-10">
         <h2 className="text-xl font-semibold">Tech Stack</h2>
-        <ul className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
-          <li className="rounded-full border border-border px-3 py-1 bg-card">Next.js</li>
-          <li className="rounded-full border border-border px-3 py-1 bg-card">TypeScript</li>
-          <li className="rounded-full border border-border px-3 py-1 bg-card">Tailwind v4</li>
-          <li className="rounded-full border border-border px-3 py-1 bg-card">shadcn/ui</li>
-        </ul>
+        <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+          Full‑stack developer focused on scalable, high‑performance apps with clean architecture,
+          security, and efficient DX — working across Next.js, React, Node.js, and containerized
+          backends while exploring AI‑driven automation.
+        </p>
+
+        {/* Marquee rail */}
+        <div className="mt-6 overflow-hidden">
+          <div className="relative">
+            {/* gradient masks left/right for polish with subtle blur */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background via-background/80 to-transparent backdrop-blur-sm" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background via-background/80 to-transparent backdrop-blur-sm" />
+
+            {/* Controls */}
+            <div className="absolute right-2 -top-10 flex items-center gap-2">
+              <button
+                type="button"
+                onClick={onToggleReverse}
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2 py-1 text-xs hover:bg-accent"
+                title="Reverse direction"
+              >
+                <ArrowLeftRight className="h-3.5 w-3.5" />
+                Reverse
+              </button>
+              <button
+                type="button"
+                onClick={onTogglePause}
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2 py-1 text-xs hover:bg-accent"
+                title={paused ? "Play" : "Pause"}
+              >
+                {paused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
+                {paused ? "Play" : "Pause"}
+              </button>
+            </div>
+
+            <div
+              className={`flex w-max will-change-transform ${reverse ? "animate-marquee-reverse" : "animate-marquee"} ${paused ? "pause-animation" : ""}`}
+              onClick={onTogglePause}
+              role="button"
+              aria-label="Tech logos marquee"
+            >
+              <Row items={items} size={56} />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -16,6 +16,8 @@ export type Project = {
   github?: string;
   live?: string;
   featured?: boolean;
+  highlights?: string[];
+  pages?: string[];
 };
 
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
@@ -96,6 +98,30 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   </li>
                 ))}
               </ul>
+
+              {/* Highlights / Features */}
+              {active.highlights && active.highlights.length > 0 && (
+                <div className="mt-4">
+                  <h3 className="text-base font-semibold">Features</h3>
+                  <ul className="mt-2 list-disc pl-6 space-y-1 text-sm text-foreground/90">
+                    {active.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Pages */}
+              {active.pages && active.pages.length > 0 && (
+                <div className="mt-4">
+                  <h3 className="text-base font-semibold">Pages</h3>
+                  <ul className="mt-2 list-disc pl-6 space-y-1 text-sm text-foreground/90">
+                    {active.pages.map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Footer actions */}

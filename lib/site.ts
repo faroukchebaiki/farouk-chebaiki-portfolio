@@ -111,7 +111,7 @@ export const siteConfig: SiteConfig = {
       { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss" },
       { name: "shadcn/ui", img: "https://cdn.simpleicons.org/shadcnui" },
       { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
-      { name: "Express", img: "https://cdn.simpleicons.org/express/ffffff" },
+      { name: "Express", img: "https://cdn.simpleicons.org/express" },
       { name: "tRPC", img: "https://cdn.simpleicons.org/trpc" },
       { name: "PostgreSQL", img: "https://cdn.simpleicons.org/postgresql" },
       { name: "MongoDB", img: "https://cdn.simpleicons.org/mongodb" },

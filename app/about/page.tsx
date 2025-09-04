@@ -93,7 +93,9 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5"
                   title={it.name}
                 >
-                  <Image src={it.img} alt="" width={20} height={20} />
+                  {/* Use <img> for external SVG logos to avoid Next Image SVG restrictions */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={it.img} alt="" width={20} height={20} className="select-none" />
                   <span>{it.name}</span>
                 </li>
               ))}

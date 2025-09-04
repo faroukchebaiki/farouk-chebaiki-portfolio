@@ -18,7 +18,7 @@ export default function ProjectCard({
     <button
       onClick={onClick}
       className={`
-        group w-full text-left
+        group w-full text-left cursor-pointer
         overflow-hidden rounded-2xl border border-border bg-card
         transition
         hover:shadow-lg hover:-translate-y-0.5
@@ -39,7 +39,11 @@ export default function ProjectCard({
           alt={project.title}
           fill
           className="object-cover transition duration-300 group-hover:scale-[1.03]"
-          sizes={featured ? "(max-width: 1024px) 100vw, 40vw" : "(max-width: 1024px) 100vw, 33vw"}
+          sizes={
+            featured
+              ? "(max-width: 1024px) 100vw, 40vw"
+              : "(max-width: 1024px) 100vw, 33vw"
+          }
         />
       </div>
 

@@ -13,27 +13,35 @@ export default function ContactStrip() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
-            <span className="text-foreground/90">Available for freelance or roles</span>
+            <span className="text-foreground/90">
+              {siteConfig.contactCta?.availability}
+            </span>
           </div>
 
-          <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight">Let’s build something.</h2>
+          <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight">
+            {siteConfig.contactCta?.title}
+          </h2>
           <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            I’m available for select freelance projects or a full‑time position. If you’re hiring or need help shipping a product, I’d love to chat.
+            {siteConfig.contactCta?.description}
           </p>
 
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-5 py-2.5 hover:bg-accent hover:text-accent-foreground transition"
-            >
-              Contact me
-            </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 hover:bg-accent hover:text-accent-foreground transition"
-            >
-              See Projects
-            </Link>
+            {siteConfig.contactCta?.primary && (
+              <Link
+                href={siteConfig.contactCta.primary.href}
+                className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-5 py-2.5 hover:bg-accent hover:text-accent-foreground transition"
+              >
+                {siteConfig.contactCta.primary.label}
+              </Link>
+            )}
+            {siteConfig.contactCta?.secondary && (
+              <Link
+                href={siteConfig.contactCta.secondary.href}
+                className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 hover:bg-accent hover:text-accent-foreground transition"
+              >
+                {siteConfig.contactCta.secondary.label}
+              </Link>
+            )}
           </div>
         </div>
       </div>

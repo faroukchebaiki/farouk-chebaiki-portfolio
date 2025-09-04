@@ -24,17 +24,29 @@ export async function POST(req: Request) {
 
     if (honey) return NextResponse.json({ ok: true }, { status: 202 });
     if (!name || !email || !message)
-      return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: "Missing required fields" },
+        { status: 400 },
+      );
     if (!EMAIL_RE.test(email))
-      return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: "Invalid email" },
+        { status: 400 },
+      );
     if (!consent)
-      return NextResponse.json({ ok: false, error: "Consent is required" }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: "Consent is required" },
+        { status: 400 },
+      );
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
     const RESEND_FROM = process.env.RESEND_FROM;
     const RESEND_TO = process.env.RESEND_TO;
     if (!RESEND_API_KEY || !RESEND_FROM || !RESEND_TO)
-      return NextResponse.json({ ok: false, error: "Email is not configured" }, { status: 500 });
+      return NextResponse.json(
+        { ok: false, error: "Email is not configured" },
+        { status: 500 },
+      );
 
     const createdAt = new Date().toISOString();
 
@@ -64,11 +76,17 @@ export async function POST(req: Request) {
     });
 
     if (!res.ok)
-      return NextResponse.json({ ok: false, error: `Failed to send (${res.status})` }, { status: 502 });
+      return NextResponse.json(
+        { ok: false, error: `Failed to send (${res.status})` },
+        { status: 502 },
+      );
 
     return NextResponse.json({ ok: true }, { status: 202 });
   } catch {
-    return NextResponse.json({ ok: false, error: "Bad request" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "Bad request" },
+      { status: 400 },
+    );
   }
 }
 
@@ -80,4 +98,3 @@ function escapeHtml(input: string) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-

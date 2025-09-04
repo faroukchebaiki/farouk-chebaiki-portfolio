@@ -7,7 +7,9 @@ import Particles from "./Particles";
 /** Read a CSS var and fall back to a hex */
 function readVar(name: string, fallback: string) {
   if (typeof window === "undefined") return fallback;
-  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const v = getComputedStyle(document.documentElement)
+    .getPropertyValue(name)
+    .trim();
   return v || fallback;
 }
 
@@ -20,13 +22,13 @@ export default function HeroParticles() {
     // Pull from your tokens to stay on-brand
     if (isDark) {
       // bright on dark
-      const accent = "#ffffff";                 // pure white
-      const tint  = readVar("--accent", "#a7f3d0"); // soft mint
+      const accent = "#ffffff"; // pure white
+      const tint = readVar("--accent", "#a7f3d0"); // soft mint
       return [accent, tint];
     } else {
       // subtle on light
-      const ink   = readVar("--primary", "#0f172a"); // slate-900-ish
-      const ring  = readVar("--ring", "#64748b");    // slate-500-ish
+      const ink = readVar("--primary", "#0f172a"); // slate-900-ish
+      const ring = readVar("--ring", "#64748b"); // slate-500-ish
       return [ink, ring];
     }
   }, [isDark]);
@@ -35,14 +37,14 @@ export default function HeroParticles() {
   const params = useMemo(() => {
     return isDark
       ? {
-          additiveBlend: true,     // glow on dark
+          additiveBlend: true, // glow on dark
           brightness: 1.35,
           alphaStrength: 1.0,
           particleBaseSize: 130,
           particleCount: 240,
         }
       : {
-          additiveBlend: false,    // no glow on light
+          additiveBlend: false, // no glow on light
           brightness: 0.85,
           alphaStrength: 0.65,
           particleBaseSize: 95,

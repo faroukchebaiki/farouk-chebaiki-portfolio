@@ -31,7 +31,8 @@ export default function ArticleBody({
     const pres = Array.from(root.querySelectorAll("pre"));
     pres.forEach((pre) => {
       // If already processed, skip
-      if ((pre.parentElement as HTMLElement)?.classList?.contains("__codewrap")) return;
+      if ((pre.parentElement as HTMLElement)?.classList?.contains("__codewrap"))
+        return;
 
       // 1) Create wrapper
       const wrap = document.createElement("div");
@@ -48,7 +49,7 @@ export default function ArticleBody({
         "border-border",
         "bg-card",
         "overflow-x-auto",
-        "p-4"
+        "p-4",
       );
 
       // 4) Create copy button pinned to wrapper (not pre)

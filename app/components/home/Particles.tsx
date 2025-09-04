@@ -11,27 +11,35 @@ interface ParticlesProps {
   particleColors?: string[];
   moveParticlesOnHover?: boolean;
   particleHoverFactor?: number;
-  alphaParticles?: boolean;      // soft edges (enable for glow stacking)
+  alphaParticles?: boolean; // soft edges (enable for glow stacking)
   particleBaseSize?: number;
   sizeRandomness?: number;
   cameraDistance?: number;
   disableRotation?: boolean;
   className?: string;
   /** NEW: make overlapping particles glow more (great for dark) */
-  additiveBlend?: boolean;       // default true
+  additiveBlend?: boolean; // default true
   /** NEW: multiply fragment brightness (1 = unchanged) */
-  brightness?: number;           // default 1.0
+  brightness?: number; // default 1.0
   /** NEW: scale alpha of the circle sprite (0–1) */
-  alphaStrength?: number;        // default 0.8
+  alphaStrength?: number; // default 0.8
 }
 
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 
 const hexToRgb = (hex: string): [number, number, number] => {
   hex = hex.replace(/^#/, "");
-  if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("");
+  if (hex.length === 3)
+    hex = hex
+      .split("")
+      .map((c) => c + c)
+      .join("");
   const int = parseInt(hex, 16);
-  return [((int >> 16) & 255) / 255, ((int >> 8) & 255) / 255, (int & 255) / 255];
+  return [
+    ((int >> 16) & 255) / 255,
+    ((int >> 8) & 255) / 255,
+    (int & 255) / 255,
+  ];
 };
 
 const vertex = /* glsl */ `
@@ -103,15 +111,15 @@ export default function Particles({
   particleColors,
   moveParticlesOnHover = false,
   particleHoverFactor = 1,
-  alphaParticles = true,          // default true for glow stacking
-  particleBaseSize = 110,         // a bit larger for visibility
+  alphaParticles = true, // default true for glow stacking
+  particleBaseSize = 110, // a bit larger for visibility
   sizeRandomness = 1,
   cameraDistance = 20,
   disableRotation = false,
   className,
-  additiveBlend = true,           // NEW
-  brightness = 1.0,               // NEW
-  alphaStrength = 0.9,            // NEW
+  additiveBlend = true, // NEW
+  brightness = 1.0, // NEW
+  alphaStrength = 0.9, // NEW
 }: ParticlesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -151,13 +159,16 @@ export default function Particles({
       const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
       mouseRef.current = { x, y };
     };
-    if (moveParticlesOnHover) container.addEventListener("mousemove", handleMouseMove);
+    if (moveParticlesOnHover)
+      container.addEventListener("mousemove", handleMouseMove);
 
     const count = particleCount;
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
-    const palette = (particleColors?.length ? particleColors : defaultColors).map(hexToRgb);
+    const palette = (
+      particleColors?.length ? particleColors : defaultColors
+    ).map(hexToRgb);
 
     for (let i = 0; i < count; i++) {
       let x, y, z, len;
@@ -169,8 +180,12 @@ export default function Particles({
       } while (len > 1 || len === 0);
       const r = Math.cbrt(Math.random());
       positions.set([x * r, y * r, z * r], i * 3);
-      randoms.set([Math.random(), Math.random(), Math.random(), Math.random()], i * 4);
-      const [rCol, gCol, bCol] = palette[Math.floor(Math.random() * palette.length)];
+      randoms.set(
+        [Math.random(), Math.random(), Math.random(), Math.random()],
+        i * 4,
+      );
+      const [rCol, gCol, bCol] =
+        palette[Math.floor(Math.random() * palette.length)];
       colors.set([rCol, gCol, bCol], i * 3);
     }
 
@@ -189,7 +204,7 @@ export default function Particles({
         uBaseSize: { value: particleBaseSize },
         uSizeRandomness: { value: sizeRandomness },
         uAlphaParticles: { value: alphaParticles ? 1 : 0 },
-        uBrightness: { value: brightness },       // NEW
+        uBrightness: { value: brightness }, // NEW
         uAlphaStrength: { value: alphaStrength }, // NEW
       },
       transparent: true,
@@ -231,7 +246,8 @@ export default function Particles({
 
     return () => {
       window.removeEventListener("resize", resize);
-      if (moveParticlesOnHover) container.removeEventListener("mousemove", handleMouseMove);
+      if (moveParticlesOnHover)
+        container.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(raf);
       try {
         if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
@@ -248,10 +264,15 @@ export default function Particles({
     sizeRandomness,
     cameraDistance,
     disableRotation,
-    additiveBlend,       // NEW dep
-    brightness,          // NEW dep
-    alphaStrength,       // NEW dep
+    additiveBlend, // NEW dep
+    brightness, // NEW dep
+    alphaStrength, // NEW dep
   ]);
 
-  return <div ref={containerRef} className={`relative w-full h-full ${className ?? ""}`} />;
+  return (
+    <div
+      ref={containerRef}
+      className={`relative w-full h-full ${className ?? ""}`}
+    />
+  );
 }

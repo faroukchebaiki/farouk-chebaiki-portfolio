@@ -45,7 +45,11 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       >
         {/* Featured spans full width */}
         <div className="sm:col-span-2 lg:col-span-3">
-          <ProjectCard project={featured} onClick={() => onOpen(featured)} featured />
+          <ProjectCard
+            project={featured}
+            onClick={() => onOpen(featured)}
+            featured
+          />
         </div>
 
         {/* Other projects */}
@@ -62,7 +66,9 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             <div className="flex items-start justify-between border-b border-border p-4">
               <div>
                 <h2 className="text-xl font-semibold">{active.title}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{active.short}</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {active.short}
+                </p>
               </div>
               <button
                 onClick={onClose}
@@ -85,7 +91,9 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 />
               </div>
 
-              <p className="text-[0.975rem]/7 text-muted-foreground">{active.long}</p>
+              <p className="text-[0.975rem]/7 text-muted-foreground">
+                {active.long}
+              </p>
 
               {/* Stack badges */}
               <ul className="mt-1 flex flex-wrap gap-2">

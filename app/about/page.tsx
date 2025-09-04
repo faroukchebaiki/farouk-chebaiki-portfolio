@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
+import GitHubContributions from "../components/about/GitHubContributions";
+import ContactStrip from "../components/home/ContactStrip";
 
 export const metadata: Metadata = {
   title: "About — Farouk Chebaiki",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     description:
       "Full Stack Developer passionate about building efficient, scalable, and secure web applications.",
   },
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -43,32 +46,19 @@ export default function AboutPage() {
           <div>
             <p className="text-sm text-muted-foreground">About</p>
             <h1 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">
-              Farouk Mohamed Chebaiki
+              {siteConfig.about?.heroGreeting}
             </h1>
-            <p className="mt-4 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              I’m a Full Stack Developer passionate about building efficient and
-              scalable web applications. I specialize in{" "}
-              <strong>Next.js</strong>, <strong>React</strong>, and{" "}
-              <strong>Tailwind CSS</strong> for crafting intuitive user
-              experiences, combined with <strong>Node.js</strong>,{" "}
-              <strong>Express</strong>, and <strong>tRPC</strong> to ensure
-              powerful and reliable backend systems.
+            <p className="mt-2 text-base sm:text-lg text-muted-foreground">
+              {siteConfig.about?.heroTagline}
             </p>
-            <p className="mt-3 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              Beyond web development, I focus on system security, DevOps, and
-              performance optimization. I work with{" "}
-              <strong>containerization</strong> (Podman, Docker),{" "}
-              <strong>system administration</strong> (Ubuntu Server), and
-              backend solutions like Firebase and Payload CMS to build scalable
-              and secure infrastructures.
-            </p>
-            <p className="mt-3 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              I believe that great software is more than just code—it’s about
-              efficiency, security, and maintainability. Whether working on
-              frontend interfaces, backend architectures, or deployment
-              pipelines, I prioritize clean architecture, scalability, and a
-              seamless user experience.
-            </p>
+            {siteConfig.about?.intro?.map((para, i) => (
+              <p
+                key={para}
+                className={`max-w-2xl text-base sm:text-lg text-muted-foreground ${i === 0 ? "mt-4" : "mt-3"}`}
+              >
+                {para}
+              </p>
+            ))}
           </div>
         </div>
       </section>
@@ -78,43 +68,33 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 grid gap-8 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold">What I do</h2>
-            <p className="mt-3 text-muted-foreground">
-              I design and ship end-to-end web applications—from data models and
-              APIs to clean, responsive UIs—always balancing performance,
-              security, and maintainability.
+            <p className="mt-3 text-muted-foreground max-w-2xl">
+              End‑to‑end product work — from data models and APIs to clean,
+              responsive UIs — with performance and security top of mind.
             </p>
-            <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-              <li>• Build modern full-stack apps with Next.js & React</li>
-              <li>• Secure backend APIs with Node.js, Express, tRPC</li>
-              <li>• Containerization with Podman & Docker</li>
-              <li>• System administration with Ubuntu Server</li>
-              <li>• CMS & backend integrations (Firebase, Payload)</li>
-              <li>• Performance tuning & DevOps automation</li>
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              {siteConfig.about?.whatIDo?.map((item) => (
+                <li key={item.title}>
+                  <span className="font-medium text-foreground">
+                    {item.title}
+                  </span>{" "}
+                  {item.body}
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="text-xl font-semibold">Stack</h3>
-            <ul className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
-              {[
-                "Next.js",
-                "React",
-                "Tailwind CSS",
-                "TypeScript",
-                "Node.js",
-                "Express",
-                "tRPC",
-                "Podman",
-                "Docker",
-                "Ubuntu Server",
-                "Firebase",
-                "Payload CMS",
-              ].map((item) => (
+            <ul className="mt-4 flex flex-wrap gap-3 text-sm text-muted-foreground">
+              {siteConfig.about?.stack?.map((it) => (
                 <li
-                  key={item}
-                  className="rounded-full border border-border bg-card px-3 py-1"
+                  key={it.name}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5"
+                  title={it.name}
                 >
-                  {item}
+                  <Image src={it.img} alt="" width={20} height={20} />
+                  <span>{it.name}</span>
                 </li>
               ))}
             </ul>
@@ -122,86 +102,127 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== Principles ===== */}
+      {/* ===== Background (Timeline) ===== */}
       <section className="border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 grid gap-8 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold">Principles</h2>
-            <ul className="mt-4 space-y-3 text-muted-foreground">
-              <li>• Efficiency: fast systems that scale</li>
-              <li>• Security: protect data and infrastructure</li>
-              <li>• Maintainability: clean, predictable architecture</li>
-              <li>• UX first: seamless, intuitive interfaces</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">Beyond Code</h3>
-            <p className="mt-3 text-muted-foreground">
-              I enjoy exploring new technologies, contributing to open source,
-              and sharing knowledge. Outside of coding, I’m active in learning
-              about system security, automation, and optimization.
-            </p>
-          </div>
+        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <h2 className="text-2xl font-semibold">Background</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl">
+            A quick timeline from most recent to earliest milestones.
+          </p>
+
+          <ol
+            className="mt-6 relative border-s border-border pl-6"
+            aria-label="Timeline"
+          >
+            {/* 2022 – Present */}
+            <li className="mb-8 ms-4">
+              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h3 className="font-semibold">
+                  💻 2022 – Present — Web Development Journey
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Transitioned into software development through online
+                  bootcamps and self‑learning.
+                </p>
+                <div className="mt-3 text-sm text-muted-foreground space-y-2">
+                  <div>
+                    <span className="text-foreground font-medium">
+                      Zero To Mastery Academy (ZTM)
+                    </span>{" "}
+                    — completed multiple courses focusing on:
+                  </div>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      Full Stack Web Development (Next.js, React, Node.js,
+                      Express)
+                    </li>
+                    <li>System Design, Security, and DevOps fundamentals</li>
+                    <li>Projects‑driven learning with real‑world practices</li>
+                  </ul>
+                </div>
+                <div className="mt-3">
+                  <h4 className="text-sm font-semibold">
+                    Selected personal projects
+                  </h4>
+                  <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                    <li>🛒 Clothing E‑Commerce Platform (Next.js + MongoDB)</li>
+                    <li>🔐 Crypto Payment API (Express + PostgreSQL)</li>
+                    <li>✅ Task Manager App (React + Redis)</li>
+                    <li>🌐 Personal Portfolio (Next.js + Tailwind CSS)</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            {/* 2023 — Military Service */}
+            <li className="mb-8 ms-4">
+              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h3 className="font-semibold">🎖️ 2023 — Military Service</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Served one year in the Algerian National Service — gained
+                  resilience, teamwork, adaptability, and discipline.
+                </p>
+              </div>
+            </li>
+
+            {/* 2020 – 2022 — Master's */}
+            <li className="mb-8 ms-4">
+              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h3 className="font-semibold">
+                  🎓 2020 – 2022 — Master’s in Process Engineering of Materials
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  University of Saida — focused on efficiency, optimization, and
+                  scalability; principles I now apply in software architecture.
+                </p>
+              </div>
+            </li>
+
+            {/* 2017 – 2020 — Bachelor's */}
+            <li className="mb-8 ms-4">
+              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h3 className="font-semibold">
+                  🎓 2017 – 2020 — Bachelor’s in Process Engineering
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  University of Saida — developed strong analytical and
+                  problem‑solving skills.
+                </p>
+              </div>
+            </li>
+
+            {/* 2018 — High School */}
+            <li className="ms-4">
+              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h3 className="font-semibold">
+                  🎓 2018 — High School Graduation
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Science stream, Saida, Algeria — foundation in math, physics,
+                  and problem‑solving.
+                </p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
-      {/* ===== Contact Info ===== */}
-      <section>
+      {/* Removed: My Philosophy, Currently Exploring, and 2025 Goals as requested */}
+
+      {/* ===== Contributions ===== */}
+      <section className="border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <h2 className="text-xl font-semibold">Let’s connect</h2>
-            <p className="mt-2 text-muted-foreground">
-              If you’re interested in collaborating, building something new, or
-              just sharing ideas, reach out anytime.
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>
-                Email:{" "}
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="underline underline-offset-4"
-                >
-                  {siteConfig.email}
-                </a>
-              </li>
-              <li>
-                X:{" "}
-                <a
-                  href={siteConfig.social.twitter ?? "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  {siteConfig.social.twitter?.replace("https://x.com/", "@") ?? "@username"}
-                </a>
-              </li>
-              <li>
-                GitHub:{" "}
-                <a
-                  href={siteConfig.social.github ?? "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  {siteConfig.social.github?.replace("https://github.com/", "") ?? "username"}
-                </a>
-              </li>
-              <li>
-                Telegram/WhatsApp:{" "}
-                <a
-                  href="https://wa.me/213657613894"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  +213657613894
-                </a>
-              </li>
-            </ul>
-          </div>
+          <GitHubContributions username={siteConfig.githubUsername ?? ""} />
         </div>
       </section>
+
+      {/* ===== Contact CTA (reused from Home) ===== */}
+      <ContactStrip />
     </main>
   );
 }
- 

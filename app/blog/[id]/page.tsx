@@ -15,31 +15,57 @@ type DevToArticleFull = {
   tags: string;
 };
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const id = params.id;
   try {
-    const res = await fetch(`https://dev.to/api/articles/${id}`, { next: { revalidate: 300 } });
+    const res = await fetch(`https://dev.to/api/articles/${id}`, {
+      next: { revalidate: 300 },
+    });
     if (!res.ok) throw new Error("not found");
     const data: DevToArticleFull = await res.json();
     return {
       title: `${data.title} — Blog`,
       description: data.description || "Article from DEV.to",
-      openGraph: { title: data.title, description: data.description || "", url: data.url },
-      twitter: { card: "summary_large_image", title: data.title, description: data.description || "" },
+      alternates: { canonical: `/blog/${id}` },
+      openGraph: {
+        title: data.title,
+        description: data.description || "",
+        url: data.url,
+        images: data.cover_image ? [{ url: data.cover_image }] : undefined,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: data.title,
+        description: data.description || "",
+        images: data.cover_image ? [data.cover_image] : undefined,
+      },
     };
   } catch {
     return { title: "Article — Blog" };
   }
 }
 
-export default async function ArticlePage({ params }: { params: { id: string } }) {
+export default async function ArticlePage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const id = params.id;
-  const res = await fetch(`https://dev.to/api/articles/${id}`, { cache: "no-store" });
+  const res = await fetch(`https://dev.to/api/articles/${id}`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     return (
       <main className="container mx-auto px-4 sm:px-6 py-10">
         <p className="text-muted-foreground">Article not found.</p>
-        <Link href="/blog" className="mt-4 inline-block underline underline-offset-4">
+        <Link
+          href="/blog"
+          className="mt-4 inline-block underline underline-offset-4"
+        >
           ← Back to blog
         </Link>
       </main>
@@ -76,7 +102,9 @@ export default async function ArticlePage({ params }: { params: { id: string } }
             </div>
 
             <div className="flex items-center justify-end">
-              <span className="text-xs text-muted-foreground">{dateWithYear}</span>
+              <span className="text-xs text-muted-foreground">
+                {dateWithYear}
+              </span>
             </div>
 
             {/* Page-like reading area with side lines */}

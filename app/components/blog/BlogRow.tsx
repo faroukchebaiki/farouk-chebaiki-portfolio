@@ -26,13 +26,12 @@ export default function BlogRow({
   article: DevToArticle;
   onClick?: () => void;
 }) {
-  const tags =
-    Array.isArray(article.tag_list)
-      ? article.tag_list
-      : (article.tag_list || "")
-          .split(",")
-          .map((t) => t.trim())
-          .filter(Boolean);
+  const tags = Array.isArray(article.tag_list)
+    ? article.tag_list
+    : (article.tag_list || "")
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean);
 
   // Ensure the date shows a year (readable_publish_date lacks year sometimes)
   const year = new Date(article.published_timestamp).getFullYear();
@@ -40,6 +39,7 @@ export default function BlogRow({
 
   return (
     <button
+      type="button"
       onClick={onClick}
       className="
         group relative w-full cursor-pointer text-left overflow-hidden rounded-2xl

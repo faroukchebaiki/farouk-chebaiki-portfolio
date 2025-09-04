@@ -24,7 +24,10 @@ export default function Navbar() {
       <nav className="sticky top-0 z-40 w-full bg-background/95 text-foreground border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           {/* Left: Logo (inherits theme text color) */}
-          <Link href="/" className="text-3xl font-bold tracking-wide hover:opacity-90 transition">
+          <Link
+            href="/"
+            className="text-3xl font-bold tracking-wide hover:opacity-90 transition"
+          >
             <span className={logoFont.className}>{siteConfig.brandName}</span>
           </Link>
 
@@ -44,24 +47,24 @@ export default function Navbar() {
             >
               {siteConfig.email}
             </a>
-            <a
-              href={siteConfig.social.github ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href={siteConfig.social.twitter ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition"
-              aria-label="X"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
+                  <a
+                    href={siteConfig.social.github ?? "#"}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="hover:opacity-80 transition"
+                    aria-label="GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={siteConfig.social.twitter ?? "#"}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="hover:opacity-80 transition"
+                    aria-label="X"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
           </div>
 
           {/* Mobile/Tablet: Menu button uses theme tokens (secondary surface) */}
@@ -87,6 +90,7 @@ export default function Navbar() {
                 {/* Close (tokens for border/text) */}
                 <div className="flex justify-end">
                   <button
+                    type="button"
                     aria-label="Close menu"
                     onClick={() => setOpen(false)}
                     className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border hover:bg-accent hover:text-accent-foreground transition"
@@ -97,11 +101,21 @@ export default function Navbar() {
 
                 {/* Links use foreground; hover uses accent */}
                 <nav className="mt-2 space-y-4">
-                  <MenuLink href="/" onSelect={() => setOpen(false)}>Home</MenuLink>
-                  <MenuLink href="/about" onSelect={() => setOpen(false)}>About</MenuLink>
-                  <MenuLink href="/projects" onSelect={() => setOpen(false)}>Projects</MenuLink>
-                  <MenuLink href="/blog" onSelect={() => setOpen(false)}>Blog</MenuLink>
-                  <MenuLink href="/contact" onSelect={() => setOpen(false)}>Contact</MenuLink>
+                  <MenuLink href="/" onSelect={() => setOpen(false)}>
+                    Home
+                  </MenuLink>
+                  <MenuLink href="/about" onSelect={() => setOpen(false)}>
+                    About
+                  </MenuLink>
+                  <MenuLink href="/projects" onSelect={() => setOpen(false)}>
+                    Projects
+                  </MenuLink>
+                  <MenuLink href="/blog" onSelect={() => setOpen(false)}>
+                    Blog
+                  </MenuLink>
+                  <MenuLink href="/contact" onSelect={() => setOpen(false)}>
+                    Contact
+                  </MenuLink>
                 </nav>
 
                 {/* Bottom row uses tokens */}
@@ -117,7 +131,7 @@ export default function Navbar() {
                     <a
                       href={siteConfig.social.github ?? "#"}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="me noopener noreferrer"
                       className="hover:opacity-80 transition"
                       aria-label="GitHub"
                     >
@@ -126,7 +140,7 @@ export default function Navbar() {
                     <a
                       href={siteConfig.social.twitter ?? "#"}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="me noopener noreferrer"
                       className="hover:opacity-80 transition"
                       aria-label="X"
                     >
@@ -144,6 +158,7 @@ export default function Navbar() {
       <div className="lg:hidden">
         {open && (
           <button
+            type="button"
             aria-label="Close menu overlay"
             onClick={() => setOpen(false)}
             className="fixed inset-0 z-50 bg-foreground/10 backdrop-blur-sm"

@@ -61,6 +61,6 @@ export default function SlideOver({
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

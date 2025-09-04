@@ -29,7 +29,7 @@ export default function LatestPosts() {
       try {
         const res = await fetch(
           `https://dev.to/api/articles?username=${encodeURIComponent(siteConfig.devtoUsername ?? "")}&per_page=3`,
-          { cache: "no-store" }
+          { cache: "no-store" },
         );
         const data: DevToPost[] = res.ok ? await res.json() : [];
         if (!aborted) setPosts(data);
@@ -38,10 +38,14 @@ export default function LatestPosts() {
       }
     };
     run();
-    return () => { aborted = true; };
+    return () => {
+      aborted = true;
+    };
   }, []);
 
-  const isDesktop = () => typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches; // lg
+  const isDesktop = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(min-width: 1024px)").matches; // lg
 
   const onOpen = (id: number) => {
     if (isDesktop()) {
@@ -64,7 +68,7 @@ export default function LatestPosts() {
             <button
               key={p.id}
               onClick={() => onOpen(p.id)}
-              className="text-left rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
+              className="cursor-pointer text-left rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
             >
               {p.cover_image && (
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-border">
@@ -78,14 +82,20 @@ export default function LatestPosts() {
                 </div>
               )}
               <h3 className="mt-4 font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {p.description}
+              </p>
             </button>
           ))}
         </div>
 
         {/* Mobile slide-over */}
         <div className="lg:hidden">
-          <SlideOver open={open} onClose={onClose} widthClass="w-full md:w-[85%]">
+          <SlideOver
+            open={open}
+            onClose={onClose}
+            widthClass="w-full md:w-[85%]"
+          >
             {activeId ? <ArticleView id={activeId} onClose={onClose} /> : null}
           </SlideOver>
         </div>

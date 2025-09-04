@@ -31,7 +31,9 @@ export default function ArticleView({
       try {
         setError(null);
         setData(null);
-        const res = await fetch(`https://dev.to/api/articles/${id}`, { signal: ctrl.signal });
+        const res = await fetch(`https://dev.to/api/articles/${id}`, {
+          signal: ctrl.signal,
+        });
         if (!res.ok) throw new Error(`Failed to load article: ${res.status}`);
         const json: DevToArticleFull = await res.json();
         setData(json);
@@ -53,7 +55,10 @@ export default function ArticleView({
         <div className="mt-4 h-4 w-1/2 rounded bg-muted animate-pulse" />
         <div className="mt-6 space-y-2">
           {[...Array(8)].map((_, i) => (
-            <div key={i} className="h-3 w-full rounded bg-muted animate-pulse" />
+            <div
+              key={i}
+              className="h-3 w-full rounded bg-muted animate-pulse"
+            />
           ))}
         </div>
       </div>
@@ -73,7 +78,9 @@ export default function ArticleView({
           <ArrowLeft className="h-4 w-4" />
           Back
         </button>
-        <h2 className="ml-1 line-clamp-1 text-base font-semibold">{data.title}</h2>
+        <h2 className="ml-1 line-clamp-1 text-base font-semibold">
+          {data.title}
+        </h2>
       </div>
 
       {/* Scrollable content */}

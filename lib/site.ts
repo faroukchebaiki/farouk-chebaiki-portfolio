@@ -12,6 +12,7 @@ export type RawProject = {
 };
 
 export type SiteConfig = {
+  siteUrl?: string; // canonical site URL
   brandName: string; // used as logo text
   logoImage?: string; // optional path if using an image logo
   email: string;
@@ -22,10 +23,37 @@ export type SiteConfig = {
   };
   repository?: string; // this portfolio repo
   devtoUsername?: string; // DEV.to username for blog integration
+  githubUsername?: string; // GitHub username for contributions
+  hero?: {
+    heading: string;
+    subheading: string;
+    profileImage?: string;
+  };
+  contactCta?: {
+    availability: string;
+    title: string;
+    description: string;
+    primary: { href: string; label: string };
+    secondary: { href: string; label: string };
+  };
+  about?: {
+    heroGreeting: string;
+    heroTagline: string;
+    intro: string[];
+    whatIDo: Array<{ title: string; body: string }>;
+    stack: Array<{ name: string; img: string }>;
+    background: Array<{
+      title: string;
+      period: string;
+      description: string;
+      bullets?: string[];
+    }>;
+  };
   projects: RawProject[];
 };
 
 export const siteConfig: SiteConfig = {
+  siteUrl: "https://www.farouk.uk",
   brandName: "Farouk Chebaiki",
   logoImage: undefined,
   email: "me@farouk.uk",
@@ -36,17 +64,115 @@ export const siteConfig: SiteConfig = {
   },
   repository: "https://github.com/faroukchebaiki/farouk-chebaiki-portfolio",
   devtoUsername: "karadza",
+  githubUsername: "faroukchebaiki",
+  hero: {
+    heading:
+      "a Full-Stack Dev focused on building user-friendly web applications.",
+    subheading: "Hi, I’m Farouk",
+    profileImage: "/profile.png",
+  },
+  contactCta: {
+    availability: "Available for freelance or roles",
+    title: "Let’s build something.",
+    description:
+      "I’m available for select freelance projects or a full‑time position. If you’re hiring or need help shipping a product, I’d love to chat.",
+    primary: { href: "/contact", label: "Contact me" },
+    secondary: { href: "/projects", label: "See Projects" },
+  },
+  about: {
+    heroGreeting: "👋 Hi, I’m Farouk Chebaiki",
+    heroTagline: "🚀 Full Stack Developer · Security & DevOps Enthusiast",
+    intro: [
+      "I’m a Full Stack Developer passionate about building scalable, secure, and high‑performance web applications. I blend intuitive frontend experiences with robust backend systems — always guided by efficiency, security, and maintainability.",
+      "With a focus on clean architecture and modern tech, I bring ideas to life with Next.js, React, Tailwind CSS, Node.js, and tRPC — while ensuring reliability with Express, PostgreSQL, MongoDB, Redis, and Firebase.",
+    ],
+    whatIDo: [
+      {
+        title: "Frontend Development →",
+        body: "Seamless UIs with Next.js, React, Tailwind CSS, and MUI — accessible, fast, and polished.",
+      },
+      {
+        title: "Backend Engineering →",
+        body: "Secure APIs and scalable systems with Node.js, Express, and tRPC — optimized for reliability and speed.",
+      },
+      {
+        title: "DevOps & Security →",
+        body: "Hardened infrastructures using Docker, Podman, Ubuntu Server, and Nginx — with automation at the core.",
+      },
+      {
+        title: "Scalable Deployments →",
+        body: "Performance‑driven pipelines with Cloudflare, Payload CMS, and containerization strategies.",
+      },
+    ],
+    stack: [
+      { name: "TypeScript", img: "https://cdn.simpleicons.org/typescript" },
+      { name: "React", img: "https://cdn.simpleicons.org/react" },
+      { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs" },
+      { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss" },
+      { name: "shadcn/ui", img: "https://cdn.simpleicons.org/shadcnui" },
+      { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
+      { name: "Express", img: "https://cdn.simpleicons.org/express/ffffff" },
+      { name: "tRPC", img: "https://cdn.simpleicons.org/trpc" },
+      { name: "PostgreSQL", img: "https://cdn.simpleicons.org/postgresql" },
+      { name: "MongoDB", img: "https://cdn.simpleicons.org/mongodb" },
+      { name: "Redis", img: "https://cdn.simpleicons.org/redis" },
+      { name: "Firebase", img: "https://cdn.simpleicons.org/firebase" },
+      { name: "Docker", img: "https://cdn.simpleicons.org/docker" },
+      { name: "Podman", img: "https://cdn.simpleicons.org/podman" },
+      { name: "Linux", img: "https://cdn.simpleicons.org/linux" },
+      { name: "Nginx", img: "https://cdn.simpleicons.org/nginx" },
+      { name: "Git", img: "https://cdn.simpleicons.org/git" },
+    ],
+    background: [
+      {
+        title: "Web Development Journey",
+        period: "2022 – Present",
+        description:
+          "Transitioned into software development through online bootcamps and self‑learning. Zero To Mastery Academy (ZTM) courses with System Design, Security, and DevOps focus.",
+        bullets: [
+          "Full Stack Web Development (Next.js, React, Node.js, Express)",
+          "System Design, Security, and DevOps fundamentals",
+          "Projects‑driven learning with real‑world practices",
+          "Selected projects: E‑Commerce (Next.js + MongoDB), Crypto Payment API (Express + PostgreSQL), Task Manager (React + Redis), Portfolio (Next.js + Tailwind)",
+        ],
+      },
+      {
+        title: "Military Service",
+        period: "2023",
+        description:
+          "Algerian National Service — resilience, teamwork, adaptability, and discipline.",
+      },
+      {
+        title: "Master’s in Process Engineering of Materials",
+        period: "2020 – 2022",
+        description:
+          "University of Saida — efficiency, optimization, and scalability applied to software architecture.",
+      },
+      {
+        title: "Bachelor’s in Process Engineering",
+        period: "2017 – 2020",
+        description:
+          "University of Saida — strong analytical and problem‑solving skills.",
+      },
+      {
+        title: "High School Graduation (Science stream)",
+        period: "2018",
+        description:
+          "Saida, Algeria — foundation in math, physics, and problem‑solving.",
+      },
+    ],
+  },
   projects: [
     {
       title: "VisoNext",
-      description: "Next.js site with responsive UI, SEO, and fast performance.",
+      description:
+        "Next.js site with responsive UI, SEO, and fast performance.",
       tech: "Next.js, React, Tailwind, shadcn/ui",
       image: "/images/projects/visonext.png",
       repo: "https://github.com/faroukchebaiki/VisoNext",
       live: "https://visonext.farouk.uk/",
       featured: true,
-      long:
-        "A multi-page Next.js website with a modern, responsive UI/UX, high performance, SEO, accessibility, and interactive components.",
+      long: "A multi-page Next.js website with a modern, responsive UI/UX, high performance, SEO, accessibility, and interactive components.",
       highlights: [
         "Fully responsive across desktop, tablet and mobile",
         "Modern UI/UX with clean design system",
@@ -69,8 +195,7 @@ export const siteConfig: SiteConfig = {
       image: "/images/projects/renova.png",
       repo: "https://github.com/faroukchebaiki/Renova",
       live: "https://renova.farouk.uk/",
-      long:
-        "A modern website for a home renovation and design company with gallery, contact, and SEO-optimized responsive pages.",
+      long: "A modern website for a home renovation and design company with gallery, contact, and SEO-optimized responsive pages.",
       highlights: [
         "Modern UI tailored for renovation services",
         "Project gallery to showcase past work",
@@ -105,7 +230,8 @@ export const siteConfig: SiteConfig = {
     },
     {
       title: "Grocery SaaS",
-      description: "A management system for grocery stores with offline support.",
+      description:
+        "A management system for grocery stores with offline support.",
       tech: "Electron, React, IndexedDB",
       image: "/images/projects/image.png",
       repo: "https://github.com/user/grocery-saas",
@@ -117,12 +243,18 @@ export const siteConfig: SiteConfig = {
 // Helper to map RawProject[] to the ProjectsGrid "Project" shape.
 export function mapProjectsForGrid(raw: RawProject[]) {
   return raw.map((p, idx) => ({
-    id: `${p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}-${idx + 1}`,
+    id: `${p.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")}-${idx + 1}`,
     title: p.title,
     short: p.description,
     long: p.long ?? p.description,
     image: p.image?.trim() ? p.image : "/images/projects/image.png",
-    stack: p.tech.split(",").map((s) => s.trim()).filter(Boolean),
+    stack: p.tech
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
     github: p.repo,
     live: p.live,
     featured: Boolean(p.featured),

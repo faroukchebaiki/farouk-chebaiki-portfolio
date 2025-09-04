@@ -37,7 +37,7 @@ export default function BlogList({ username }: { username: string }) {
         setError(null);
         setLoading(true);
         const url = `https://dev.to/api/articles?username=${encodeURIComponent(
-          username
+          username,
         )}&page=1&per_page=${PER_PAGE}`;
         const res = await fetch(url, { signal: ctrl.signal });
         if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
@@ -67,7 +67,7 @@ export default function BlogList({ username }: { username: string }) {
       setLoading(true);
       const nextPage = page + 1;
       const url = `https://dev.to/api/articles?username=${encodeURIComponent(
-        username
+        username,
       )}&page=${nextPage}&per_page=${PER_PAGE}`;
       const res = await fetch(url, { signal: ctrl.signal });
       if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
@@ -95,7 +95,7 @@ export default function BlogList({ username }: { username: string }) {
           loadMore();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "200px" },
     );
     observer.observe(el);
     return () => observer.unobserve(el);
@@ -172,7 +172,9 @@ export default function BlogList({ username }: { username: string }) {
       {/* Mobile slide-over only (desktop navigates to page) */}
       <div className="lg:hidden">
         <SlideOver open={open} onClose={onClose} widthClass="w-full md:w-[85%]">
-          {activeId ? <ArticleView id={Number(activeId)} onClose={onClose} /> : null}
+          {activeId ? (
+            <ArticleView id={Number(activeId)} onClose={onClose} />
+          ) : null}
         </SlideOver>
       </div>
     </>

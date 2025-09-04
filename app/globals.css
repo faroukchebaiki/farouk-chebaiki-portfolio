@@ -37,8 +37,12 @@
 }
 
 /* Hint native UI to match theme */
-:root { color-scheme: light; }
-.dark { color-scheme: dark; }
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
 
 /* Light theme values */
 :root {
@@ -104,20 +108,40 @@
 
 /* Base styles */
 @layer base {
-  * { @apply border-border; }                                   /* theme border */
-  :where(:focus-visible) { @apply outline-ring/50 outline-2 outline-offset-2; } /* focus ring */
-  body { @apply bg-background text-foreground; }                /* theme bg/text */
+  * {
+    @apply border-border;
+  } /* theme border */
+  :where(:focus-visible) {
+    @apply outline-ring/50 outline-2 outline-offset-2;
+  } /* focus ring */
+  body {
+    @apply bg-background text-foreground;
+  } /* theme bg/text */
 }
 
 /* Simple marquee animation for tech stack */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
-.animate-marquee { animation: marquee 28s linear infinite; }
-.animate-marquee-reverse { animation: marquee-reverse 28s linear infinite; }
-.pause-animation { animation-play-state: paused !important; }
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 28s linear infinite;
+}
+.pause-animation {
+  animation-play-state: paused !important;
+}

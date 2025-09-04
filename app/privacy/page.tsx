@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — Farouk Chebaiki",
   description:
     "How farouk.uk handles analytics, email communications, GDPR and US privacy rights, retention, and more.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPolicyPage() {
@@ -24,25 +25,67 @@ export default function PrivacyPolicyPage() {
         {/* Quick summary / TOC */}
         <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
           <p className="text-sm text-muted-foreground">
-            This page explains what data this site collects, why, and how you can
-            exercise your privacy rights (GDPR/EEA, UK, and US CCPA/CPRA).
+            This page explains what data this site collects, why, and how you
+            can exercise your privacy rights (GDPR/EEA, UK, and US CCPA/CPRA).
           </p>
           <nav className="mt-4 grid gap-2 text-sm">
-            <a className="hover:underline underline-offset-4" href="#who">Who I am</a>
-            <a className="hover:underline underline-offset-4" href="#scope">Scope</a>
-            <a className="hover:underline underline-offset-4" href="#collection">What data I collect</a>
-            <a className="hover:underline underline-offset-4" href="#analytics">Analytics used</a>
-            <a className="hover:underline underline-offset-4" href="#email">Email communication</a>
-            <a className="hover:underline underline-offset-4" href="#legal-bases">Legal bases (GDPR)</a>
-            <a className="hover:underline underline-offset-4" href="#rights-gdpr">Your rights — GDPR/EEA & UK</a>
-            <a className="hover:underline underline-offset-4" href="#rights-ccpa">Your rights — US (CCPA/CPRA)</a>
-            <a className="hover:underline underline-offset-4" href="#retention">Data retention</a>
-            <a className="hover:underline underline-offset-4" href="#transfers">International transfers</a>
-            <a className="hover:underline underline-offset-4" href="#security">Data security</a>
-            <a className="hover:underline underline-offset-4" href="#children">Children’s privacy</a>
-            <a className="hover:underline underline-offset-4" href="#dnt">Do Not Track</a>
-            <a className="hover:underline underline-offset-4" href="#changes">Changes</a>
-            <a className="hover:underline underline-offset-4" href="#contact">Contact</a>
+            <a className="hover:underline underline-offset-4" href="#who">
+              Who I am
+            </a>
+            <a className="hover:underline underline-offset-4" href="#scope">
+              Scope
+            </a>
+            <a
+              className="hover:underline underline-offset-4"
+              href="#collection"
+            >
+              What data I collect
+            </a>
+            <a className="hover:underline underline-offset-4" href="#analytics">
+              Analytics used
+            </a>
+            <a className="hover:underline underline-offset-4" href="#email">
+              Email communication
+            </a>
+            <a
+              className="hover:underline underline-offset-4"
+              href="#legal-bases"
+            >
+              Legal bases (GDPR)
+            </a>
+            <a
+              className="hover:underline underline-offset-4"
+              href="#rights-gdpr"
+            >
+              Your rights — GDPR/EEA & UK
+            </a>
+            <a
+              className="hover:underline underline-offset-4"
+              href="#rights-ccpa"
+            >
+              Your rights — US (CCPA/CPRA)
+            </a>
+            <a className="hover:underline underline-offset-4" href="#retention">
+              Data retention
+            </a>
+            <a className="hover:underline underline-offset-4" href="#transfers">
+              International transfers
+            </a>
+            <a className="hover:underline underline-offset-4" href="#security">
+              Data security
+            </a>
+            <a className="hover:underline underline-offset-4" href="#children">
+              Children’s privacy
+            </a>
+            <a className="hover:underline underline-offset-4" href="#dnt">
+              Do Not Track
+            </a>
+            <a className="hover:underline underline-offset-4" href="#changes">
+              Changes
+            </a>
+            <a className="hover:underline underline-offset-4" href="#contact">
+              Contact
+            </a>
           </nav>
         </div>
 
@@ -53,11 +96,15 @@ export default function PrivacyPolicyPage() {
           <p>
             This is the personal portfolio website of{" "}
             <strong>Farouk Mohamed Chebaiki</strong>, a freelance Full-Stack
-            Developer. The purpose of this site is to showcase my work and make it
-            easy to get in touch. You can reach me at{" "}
-            <a className="underline underline-offset-4" href="mailto:me@farouk.uk">
+            Developer. The purpose of this site is to showcase my work and make
+            it easy to get in touch. You can reach me at{" "}
+            <a
+              className="underline underline-offset-4"
+              href="mailto:me@farouk.uk"
+            >
               me@farouk.uk
-            </a>.
+            </a>
+            .
           </p>
         </Section>
 
@@ -66,9 +113,9 @@ export default function PrivacyPolicyPage() {
         {/* Scope */}
         <Section id="scope" title="Scope of this policy">
           <p>
-            This policy applies to <strong>farouk.uk</strong> and its sub-pages. It
-            covers analytics captured by this site and any information you choose
-            to send me by email or direct message.
+            This policy applies to <strong>farouk.uk</strong> and its sub-pages.
+            It covers analytics captured by this site and any information you
+            choose to send me by email or direct message.
           </p>
         </Section>
 
@@ -78,16 +125,18 @@ export default function PrivacyPolicyPage() {
         <Section id="collection" title="What data I collect">
           <h3 className="text-lg font-semibold">No accounts, no cookies</h3>
           <p className="mt-2 text-muted-foreground">
-            I do <strong>not</strong> run user accounts, contact forms, comments,
-            or trackers that fingerprint you. I do <strong>not</strong> use
-            advertising cookies.
+            I do <strong>not</strong> run user accounts, contact forms,
+            comments, or trackers that fingerprint you. I do{" "}
+            <strong>not</strong> use advertising cookies.
           </p>
 
-          <h3 className="mt-6 text-lg font-semibold">Technical/usage data (automatic)</h3>
+          <h3 className="mt-6 text-lg font-semibold">
+            Technical/usage data (automatic)
+          </h3>
           <p className="mt-2 text-muted-foreground">
-            The site collects high-level, privacy-respecting metrics via the analytics
-            services listed below (page views, device type, referrers, etc.). These
-            are aggregated and not used to identify you.
+            The site collects high-level, privacy-respecting metrics via the
+            analytics services listed below (page views, device type, referrers,
+            etc.). These are aggregated and not used to identify you.
           </p>
         </Section>
 
@@ -97,11 +146,14 @@ export default function PrivacyPolicyPage() {
         <Section id="analytics" title="Analytics used">
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold">Cloudflare Web Analytics</h3>
+              <h3 className="text-lg font-semibold">
+                Cloudflare Web Analytics
+              </h3>
               <p className="mt-2 text-muted-foreground">
-                Cloudflare Web Analytics provides anonymous metrics without cookies or
-                fingerprinting (e.g., page views, referrers, device types). This helps
-                me understand site usage and performance without tracking individual users.
+                Cloudflare Web Analytics provides anonymous metrics without
+                cookies or fingerprinting (e.g., page views, referrers, device
+                types). This helps me understand site usage and performance
+                without tracking individual users.
               </p>
               <p className="mt-2">
                 Privacy policy:{" "}
@@ -119,9 +171,10 @@ export default function PrivacyPolicyPage() {
             <div>
               <h3 className="text-lg font-semibold">Vercel Analytics</h3>
               <p className="mt-2 text-muted-foreground">
-                Vercel Analytics provides aggregated traffic and performance insights.
-                It does not create user profiles. I use it to ensure pages are fast and
-                stable and to understand general visit patterns.
+                Vercel Analytics provides aggregated traffic and performance
+                insights. It does not create user profiles. I use it to ensure
+                pages are fast and stable and to understand general visit
+                patterns.
               </p>
               <p className="mt-2">
                 Privacy policy:{" "}
@@ -143,30 +196,34 @@ export default function PrivacyPolicyPage() {
         {/* Email + Contact form */}
         <Section id="email" title="Email and contact form">
           <p>
-            If you email me or use the contact form on this site, I will see your
-            name, email address, and the contents of your message. I use this only to
-            respond to your inquiry.
+            If you email me or use the contact form on this site, I will see
+            your name, email address, and the contents of your message. I use
+            this only to respond to your inquiry.
           </p>
           <ul className="mt-3 list-disc pl-5 space-y-2 text-muted-foreground">
             <li>
-              <strong>What’s collected:</strong> name, email, message, and optional subject.
+              <strong>What’s collected:</strong> name, email, message, and
+              optional subject.
             </li>
             <li>
-              <strong>How it’s processed:</strong> the form submits to my server which forwards
-              your message to my inbox using an email service (Resend). I do not persist your
-              message in a site database.
+              <strong>How it’s processed:</strong> the form submits to my server
+              which forwards your message to my inbox using an email service
+              (Resend). I do not persist your message in a site database.
             </li>
             <li>
-              <strong>Anti‑spam:</strong> I use a hidden honeypot field and may add additional
-              protections (e.g., rate limiting or CAPTCHA) to prevent abuse.
+              <strong>Anti‑spam:</strong> I use a hidden honeypot field and may
+              add additional protections (e.g., rate limiting or CAPTCHA) to
+              prevent abuse.
             </li>
             <li>
-              <strong>Third parties:</strong> email delivery is handled by Resend. See Resend’s
-              policy for details on processing and retention.
+              <strong>Third parties:</strong> email delivery is handled by
+              Resend. See Resend’s policy for details on processing and
+              retention.
             </li>
             <li>
-              <strong>Retention:</strong> messages remain in my email inbox as needed to manage
-              the conversation or comply with legal obligations. You can request deletion at any time.
+              <strong>Retention:</strong> messages remain in my email inbox as
+              needed to manage the conversation or comply with legal
+              obligations. You can request deletion at any time.
             </li>
           </ul>
         </Section>
@@ -177,16 +234,17 @@ export default function PrivacyPolicyPage() {
         <Section id="legal-bases" title="Legal bases (GDPR)">
           <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
             <li>
-              <strong>Legitimate interests</strong> — to measure site performance and
-              improve content using privacy-respecting analytics.
+              <strong>Legitimate interests</strong> — to measure site
+              performance and improve content using privacy-respecting
+              analytics.
             </li>
             <li>
               <strong>Consent</strong> — when you choose to contact me and share
               information voluntarily.
             </li>
             <li>
-              <strong>Legal obligation</strong> — if I need to retain communications
-              to comply with applicable law.
+              <strong>Legal obligation</strong> — if I need to retain
+              communications to comply with applicable law.
             </li>
           </ul>
         </Section>
@@ -196,8 +254,8 @@ export default function PrivacyPolicyPage() {
         {/* Rights — GDPR/UK */}
         <Section id="rights-gdpr" title="Your rights — GDPR (EEA) & UK">
           <p className="text-muted-foreground">
-            If you are located in the European Economic Area or the United Kingdom,
-            you have the right to:
+            If you are located in the European Economic Area or the United
+            Kingdom, you have the right to:
           </p>
           <ul className="mt-3 list-disc pl-5 space-y-2 text-muted-foreground">
             <li>Access the personal data I hold about you</li>
@@ -207,9 +265,13 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p className="mt-3">
             To exercise these rights, email{" "}
-            <a className="underline underline-offset-4" href="mailto:me@farouk.uk">
+            <a
+              className="underline underline-offset-4"
+              href="mailto:me@farouk.uk"
+            >
               me@farouk.uk
-            </a>.
+            </a>
+            .
           </p>
         </Section>
 
@@ -227,11 +289,15 @@ export default function PrivacyPolicyPage() {
             <li>Non-discrimination for exercising your rights</li>
           </ul>
           <p className="mt-3 text-muted-foreground">
-            This site does not sell or share your personal information as defined by the CCPA/CPRA.
-            To submit a request, contact{" "}
-            <a className="underline underline-offset-4" href="mailto:me@farouk.uk">
+            This site does not sell or share your personal information as
+            defined by the CCPA/CPRA. To submit a request, contact{" "}
+            <a
+              className="underline underline-offset-4"
+              href="mailto:me@farouk.uk"
+            >
               me@farouk.uk
-            </a>.
+            </a>
+            .
           </p>
         </Section>
 
@@ -240,10 +306,11 @@ export default function PrivacyPolicyPage() {
         {/* Retention */}
         <Section id="retention" title="Data retention">
           <p className="text-muted-foreground">
-            Analytics data is retained according to each provider’s default retention
-            settings and is aggregated (non-identifying). Emails you send me may be
-            kept as long as needed to handle your inquiry, resolve issues, or comply
-            with legal requirements. You can ask me to delete your messages at any time.
+            Analytics data is retained according to each provider’s default
+            retention settings and is aggregated (non-identifying). Emails you
+            send me may be kept as long as needed to handle your inquiry,
+            resolve issues, or comply with legal requirements. You can ask me to
+            delete your messages at any time.
           </p>
         </Section>
 
@@ -252,9 +319,10 @@ export default function PrivacyPolicyPage() {
         {/* Transfers */}
         <Section id="transfers" title="International transfers">
           <p className="text-muted-foreground">
-            My site is deployed on global infrastructure (Vercel/Cloudflare). Data may
-            be processed in data centers outside your country. Where applicable, I rely
-            on the providers’ transfer safeguards and standard contractual clauses.
+            My site is deployed on global infrastructure (Vercel/Cloudflare).
+            Data may be processed in data centers outside your country. Where
+            applicable, I rely on the providers’ transfer safeguards and
+            standard contractual clauses.
           </p>
         </Section>
 
@@ -263,9 +331,10 @@ export default function PrivacyPolicyPage() {
         {/* Security */}
         <Section id="security" title="Data security">
           <p className="text-muted-foreground">
-            I take reasonable technical and organizational measures to protect any data
-            within my control. No method of transmission or storage is 100% secure, but
-            I aim to use reputable providers and minimize the data I handle.
+            I take reasonable technical and organizational measures to protect
+            any data within my control. No method of transmission or storage is
+            100% secure, but I aim to use reputable providers and minimize the
+            data I handle.
           </p>
         </Section>
 
@@ -274,9 +343,9 @@ export default function PrivacyPolicyPage() {
         {/* Children */}
         <Section id="children" title="Children’s privacy">
           <p className="text-muted-foreground">
-            This site is not intended for children under 13 (or the applicable minimum
-            age in your jurisdiction). I do not knowingly collect personal information
-            from children.
+            This site is not intended for children under 13 (or the applicable
+            minimum age in your jurisdiction). I do not knowingly collect
+            personal information from children.
           </p>
         </Section>
 
@@ -285,9 +354,9 @@ export default function PrivacyPolicyPage() {
         {/* DNT */}
         <Section id="dnt" title="Do Not Track (DNT)">
           <p className="text-muted-foreground">
-            Browsers may offer a Do Not Track setting. Because my analytics are already
-            privacy-respecting and aggregate-only, this site does not change behavior in
-            response to DNT signals.
+            Browsers may offer a Do Not Track setting. Because my analytics are
+            already privacy-respecting and aggregate-only, this site does not
+            change behavior in response to DNT signals.
           </p>
         </Section>
 
@@ -296,8 +365,9 @@ export default function PrivacyPolicyPage() {
         {/* Changes */}
         <Section id="changes" title="Changes to this policy">
           <p className="text-muted-foreground">
-            I may update this policy to reflect changes in technology, regulations, or
-            my practices. Updates will be posted on this page with a revised date.
+            I may update this policy to reflect changes in technology,
+            regulations, or my practices. Updates will be posted on this page
+            with a revised date.
           </p>
         </Section>
 
@@ -307,9 +377,13 @@ export default function PrivacyPolicyPage() {
         <Section id="contact" title="Contact">
           <p>
             If you have questions or requests about this policy, email{" "}
-            <a className="underline underline-offset-4" href="mailto:me@farouk.uk">
+            <a
+              className="underline underline-offset-4"
+              href="mailto:me@farouk.uk"
+            >
               me@farouk.uk
-            </a>. I aim to respond promptly.
+            </a>
+            . I aim to respond promptly.
           </p>
         </Section>
       </section>

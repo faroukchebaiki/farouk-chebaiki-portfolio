@@ -5,7 +5,9 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog — Farouk Chebaiki",
-  description: "Articles from DEV.to (@karadza) with a clean, theme-aware UI.",
+  description:
+    "Latest posts from my DEV.to — clean, fast, and theme‑aware reading experience.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {
@@ -17,8 +19,9 @@ export default function BlogPage() {
             Blog
           </h1>
           <p className="mt-2 text-muted-foreground">
-            Posts from DEV.to (@karadza). Click to read — desktop opens a page,
-            mobile slides in.
+            Fresh reads from my DEV.to (
+            {siteConfig.devtoUsername ? `@${siteConfig.devtoUsername}` : ""}).
+            Dive in.
           </p>
         </header>
         <Suspense

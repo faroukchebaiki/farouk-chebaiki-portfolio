@@ -33,6 +33,7 @@ export default function Navbar() {
             <NavButton href="/about">About</NavButton>
             <NavButton href="/projects">Projects</NavButton>
             <NavButton href="/blog">Blog</NavButton>
+            <NavButton href="/contact">Contact</NavButton>
           </div>
 
           {/* Right: Desktop contact + icons (tokens only) */}
@@ -100,6 +101,7 @@ export default function Navbar() {
                   <MenuLink href="/about" onSelect={() => setOpen(false)}>About</MenuLink>
                   <MenuLink href="/projects" onSelect={() => setOpen(false)}>Projects</MenuLink>
                   <MenuLink href="/blog" onSelect={() => setOpen(false)}>Blog</MenuLink>
+                  <MenuLink href="/contact" onSelect={() => setOpen(false)}>Contact</MenuLink>
                 </nav>
 
                 {/* Bottom row uses tokens */}

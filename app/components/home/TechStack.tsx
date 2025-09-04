@@ -66,8 +66,32 @@ export default function TechStack() {
   const items = React.useMemo(() => [...STACK, ...STACK], []);
   const [paused, setPaused] = React.useState(false);
   const [reverse, setReverse] = React.useState(false);
+  const [dragging, setDragging] = React.useState(false);
+  const [offset, setOffset] = React.useState(0);
+  const dragStartRef = React.useRef<{ x: number; baseOffset: number } | null>(null);
   const onTogglePause = () => setPaused((p) => !p);
   const onToggleReverse = () => setReverse((r) => !r);
+  const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    setDragging(true);
+    setPaused(true);
+    dragStartRef.current = { x: e.clientX, baseOffset: offset };
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch {}
+  };
+  const onPointerMove: React.PointerEventHandler<HTMLDivElement> = (e) => {
+    if (!dragging || !dragStartRef.current) return;
+    const dx = e.clientX - dragStartRef.current.x;
+    setOffset(dragStartRef.current.baseOffset + dx);
+  };
+  const endDrag = (el?: HTMLDivElement, id?: number) => {
+    setDragging(false);
+    setTimeout(() => setPaused(false), 60);
+    if (el && id !== undefined) {
+      try { el.releasePointerCapture(id); } catch {}
+    }
+  };
+  const onPointerUp: React.PointerEventHandler<HTMLDivElement> = (e) => endDrag(e.currentTarget, e.pointerId);
+  const onPointerCancel: React.PointerEventHandler<HTMLDivElement> = (e) => endDrag(e.currentTarget, e.pointerId);
   return (
     <section className="border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 py-10">
@@ -107,13 +131,25 @@ export default function TechStack() {
               </button>
             </div>
 
+            {/* Wrapper applies manual translate while dragging; inner continues anim */}
             <div
-              className={`flex w-max will-change-transform ${reverse ? "animate-marquee-reverse" : "animate-marquee"} ${paused ? "pause-animation" : ""}`}
-              onClick={onTogglePause}
-              role="button"
-              aria-label="Tech logos marquee"
+              className={`relative ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+              style={{ transform: `translateX(${offset}px)`, touchAction: "pan-y" as React.CSSProperties["touchAction"] }}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerCancel}
+              role="group"
+              aria-label="Tech logos marquee drag area"
             >
-              <Row items={items} size={56} />
+              <div
+                className={`flex w-max will-change-transform ${reverse ? "animate-marquee-reverse" : "animate-marquee"} ${paused ? "pause-animation" : ""}`}
+                onClick={onTogglePause}
+                role="button"
+                aria-label="Tech logos marquee"
+              >
+                <Row items={items} size={56} />
+              </div>
             </div>
           </div>
         </div>

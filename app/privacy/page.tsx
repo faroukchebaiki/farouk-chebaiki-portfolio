@@ -140,14 +140,35 @@ export default function PrivacyPolicyPage() {
 
         <Separator />
 
-        {/* Email */}
-        <Section id="email" title="Email communication">
+        {/* Email + Contact form */}
+        <Section id="email" title="Email and contact form">
           <p>
-            If you email me, I will see your email address and any information you
-            include. I use this only to reply to your inquiry. I do not share this
-            information with third parties. Your message remains in my inbox unless
-            you request deletion or I am legally required to keep it.
+            If you email me or use the contact form on this site, I will see your
+            name, email address, and the contents of your message. I use this only to
+            respond to your inquiry.
           </p>
+          <ul className="mt-3 list-disc pl-5 space-y-2 text-muted-foreground">
+            <li>
+              <strong>What’s collected:</strong> name, email, message, and optional subject.
+            </li>
+            <li>
+              <strong>How it’s processed:</strong> the form submits to my server which forwards
+              your message to my inbox using an email service (Resend). I do not persist your
+              message in a site database.
+            </li>
+            <li>
+              <strong>Anti‑spam:</strong> I use a hidden honeypot field and may add additional
+              protections (e.g., rate limiting or CAPTCHA) to prevent abuse.
+            </li>
+            <li>
+              <strong>Third parties:</strong> email delivery is handled by Resend. See Resend’s
+              policy for details on processing and retention.
+            </li>
+            <li>
+              <strong>Retention:</strong> messages remain in my email inbox as needed to manage
+              the conversation or comply with legal obligations. You can request deletion at any time.
+            </li>
+          </ul>
         </Section>
 
         <Separator />

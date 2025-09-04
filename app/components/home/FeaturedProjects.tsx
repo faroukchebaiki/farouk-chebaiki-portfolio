@@ -1,11 +1,12 @@
 // src/components/home/FeaturedProjects.tsx
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
 const projects = siteConfig.projects.slice(0, 3).map((p) => ({
   title: p.title,
   desc: p.description,
-  href: "/projects",
+  image: p.image,
 }));
 
 export default function FeaturedProjects() {
@@ -17,13 +18,24 @@ export default function FeaturedProjects() {
           {projects.map((p) => (
             <Link
               key={p.title}
-              href={p.href}
-              className="group rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
+              href="/projects"
+              className="group rounded-xl border border-border bg-card text-card-foreground overflow-hidden hover:bg-accent hover:text-accent-foreground transition"
             >
-              <h3 className="font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground group-hover:text-accent-foreground/90">
-                {p.desc}
-              </p>
+              <div className="relative aspect-[16/9] w-full border-b border-border overflow-hidden">
+                <Image
+                  src={p.image || "/images/projects/image.png"}
+                  alt={p.title}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-semibold">{p.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground group-hover:text-accent-foreground/90">
+                  {p.desc}
+                </p>
+              </div>
             </Link>
           ))}
         </div>

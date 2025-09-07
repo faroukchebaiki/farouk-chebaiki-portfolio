@@ -18,9 +18,9 @@ type DevToArticleFull = {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const id = params.id;
+  const { id } = await params;
   try {
     const res = await fetch(`https://dev.to/api/articles/${id}`, {
       next: { revalidate: 300 },
@@ -52,9 +52,9 @@ export async function generateMetadata({
 export default async function ArticlePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = params.id;
+  const { id } = await params;
   const res = await fetch(`https://dev.to/api/articles/${id}`, {
     cache: "no-store",
   });

@@ -13,6 +13,18 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
   try {
+    // Basic in-memory rate limit (per instance): 5 requests / 10 minutes per IP
+    // This is a lightweight protection and may reset between deployments.
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
+    if (checkRateLimit(ip))
+      return NextResponse.json(
+        { ok: false, error: "Too many requests. Try again later." },
+        { status: 429 },
+      );
+
     const body = (await req.json()) as Partial<ContactPayload>;
 
     const name = (body.name ?? "").trim().slice(0, 120);
@@ -97,4 +109,21 @@ function escapeHtml(input: string) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+// --- simple in-memory rate limiter ---
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const info = rateMap.get(ip);
+  if (!info || info.resetAt <= now) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  if (info.count >= RATE_LIMIT_MAX) return true;
+  info.count += 1;
+  return false;
 }

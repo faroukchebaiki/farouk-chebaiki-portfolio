@@ -210,7 +210,7 @@ export const siteConfig: SiteConfig = {
       tech: "Next.js, OpenAI API, TailwindCSS",
       image: "/images/projects/image.png",
       repo: "https://github.com/user/ai-resume-generator",
-      live: "https://resume-generator.com",
+      // live omitted to avoid broken link in production
     },
     {
       title: "Distributed Cloud Storage",
@@ -218,7 +218,7 @@ export const siteConfig: SiteConfig = {
       tech: "Kyber, McEliece, Rclone, Tor",
       image: "/images/projects/image.png",
       repo: "https://github.com/user/distributed-cloud-storage",
-      live: "https://cloud-storage.com",
+      // live omitted to avoid broken link in production
     },
     {
       title: "Web-Based Code Editor",
@@ -226,7 +226,7 @@ export const siteConfig: SiteConfig = {
       tech: "React, Monaco Editor, WebAssembly",
       image: "/images/projects/image.png",
       repo: "https://github.com/user/web-based-code-editor",
-      live: "https://code-editor.com",
+      // live omitted to avoid broken link in production
     },
     {
       title: "Grocery SaaS",
@@ -235,7 +235,7 @@ export const siteConfig: SiteConfig = {
       tech: "Electron, React, IndexedDB",
       image: "/images/projects/image.png",
       repo: "https://github.com/user/grocery-saas",
-      live: "https://grocery-saas.com",
+      // live omitted to avoid broken link in production
     },
   ],
 };

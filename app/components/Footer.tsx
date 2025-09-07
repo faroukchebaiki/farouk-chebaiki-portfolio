@@ -19,7 +19,7 @@ export default function Footer() {
           <Link
             href={siteConfig.social.github ?? "#"}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
             className="text-foreground hover:text-emerald-400 transition-colors"
           >
             {siteConfig.brandName}

@@ -95,7 +95,13 @@ export default function AboutPage() {
                 >
                   {/* Use <img> for external SVG logos to avoid Next Image SVG restrictions */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={it.img} alt="" width={20} height={20} className="select-none" />
+                  <img
+                    src={it.img}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="select-none"
+                  />
                   <span>{it.name}</span>
                 </li>
               ))}

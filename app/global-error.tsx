@@ -22,6 +22,7 @@ export default function GlobalError({
           </p>
           <div className="mt-6">
             <button
+              type="button"
               onClick={() => reset()}
               className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:bg-accent hover:text-accent-foreground transition"
             >

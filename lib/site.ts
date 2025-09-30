@@ -67,8 +67,8 @@ export const siteConfig: SiteConfig = {
   githubUsername: "faroukchebaiki",
   hero: {
     heading:
-      "a Full-Stack Dev focused on building user-friendly web applications.",
-    subheading: "Hi, I’m Farouk",
+      "Farouk Chebaiki — Full-Stack Dev focused on building user-friendly web applications.",
+    subheading: "hi there ,i'm",
     profileImage: "/profile.png",
   },
   contactCta: {

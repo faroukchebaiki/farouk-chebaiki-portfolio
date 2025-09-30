@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import dynamic from "next/dynamic";
+import * as React from "react";
 
 // react-github-calendar is client-only; load dynamically to avoid SSR issues
 const GitHubCalendar = dynamic(() => import("react-github-calendar"), {

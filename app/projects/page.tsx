@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { mapProjectsForGrid, siteConfig } from "@/lib/site";
 import ProjectsGrid, {
   type Project,
 } from "../components/projects/ProjectsGrid";
-import { siteConfig, mapProjectsForGrid } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",

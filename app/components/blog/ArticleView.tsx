@@ -54,9 +54,9 @@ export default function ArticleView({
         <div className="h-6 w-3/4 rounded bg-muted animate-pulse" />
         <div className="mt-4 h-4 w-1/2 rounded bg-muted animate-pulse" />
         <div className="mt-6 space-y-2">
-          {[...Array(8)].map((_, i) => (
+          {["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"].map((k) => (
             <div
-              key={i}
+              key={k}
               className="h-3 w-full rounded bg-muted animate-pulse"
             />
           ))}

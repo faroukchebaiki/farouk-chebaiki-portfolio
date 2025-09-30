@@ -2,19 +2,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  Github,
-  GitBranch,
-  Terminal,
-  Cloud,
-  Database,
-  Server,
-  Shield,
-  Cpu,
-  Play,
-  Pause,
-  ArrowLeftRight,
-} from "lucide-react";
+import { ArrowLeftRight, Pause, Play } from "lucide-react";
 
 type StackItem = {
   name: string;
@@ -171,17 +159,15 @@ export default function TechStack() {
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
               onPointerCancel={onPointerCancel}
-              role="group"
-              aria-label="Tech logos marquee drag area"
             >
-              <div
+              <button
+                type="button"
                 className={`flex w-max will-change-transform ${reverse ? "animate-marquee-reverse" : "animate-marquee"} ${paused ? "pause-animation" : ""}`}
                 onClick={onTogglePause}
-                role="button"
                 aria-label="Tech logos marquee"
               >
                 <Row items={items} size={56} />
-              </div>
+              </button>
             </div>
           </div>
         </div>

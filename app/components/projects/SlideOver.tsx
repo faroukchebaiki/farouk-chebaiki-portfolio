@@ -38,6 +38,7 @@ export default function SlideOver({
     >
       {/* Overlay (click to close) */}
       <button
+        type="button"
         aria-label="Close panel"
         onClick={onClose}
         className={`

@@ -13,31 +13,28 @@ export default async function TwitterImage() {
   const subtitle = siteConfig.hero?.subheading ?? "";
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          background: "linear-gradient(135deg, #0b0f14 0%, #19232e 100%)",
-          color: "#ffffff",
-          padding: "64px 72px",
-        }}
-      >
-        <div style={{ fontSize: 52, fontWeight: 800, letterSpacing: -1 }}>
-          {title}
-        </div>
-        {subtitle && (
-          <div style={{ fontSize: 32, marginTop: 10, opacity: 0.9 }}>
-            {subtitle}
-          </div>
-        )}
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        background: "linear-gradient(135deg, #0b0f14 0%, #19232e 100%)",
+        color: "#ffffff",
+        padding: "64px 72px",
+      }}
+    >
+      <div style={{ fontSize: 52, fontWeight: 800, letterSpacing: -1 }}>
+        {title}
       </div>
-    ),
-    { ...size }
+      {subtitle && (
+        <div style={{ fontSize: 32, marginTop: 10, opacity: 0.9 }}>
+          {subtitle}
+        </div>
+      )}
+    </div>,
+    { ...size },
   );
 }
-

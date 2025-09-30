@@ -1,18 +1,17 @@
 "use client";
 
-import * as React from "react";
+import { Github, Menu as MenuIcon, Twitter, X } from "lucide-react";
+// Logo font (local to this component)
+import { UnifrakturMaguntia } from "next/font/google";
 import Link from "next/link";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
-  PopoverTrigger,
   PopoverContent,
+  PopoverTrigger,
 } from "@/components/ui/popover";
-import { Github, Twitter, Menu as MenuIcon, X } from "lucide-react";
 import { siteConfig } from "@/lib/site";
-
-// Logo font (local to this component)
-import { UnifrakturMaguntia } from "next/font/google";
 const logoFont = UnifrakturMaguntia({ weight: "400", subsets: ["latin"] });
 
 export default function Navbar() {
@@ -47,24 +46,24 @@ export default function Navbar() {
             >
               {siteConfig.email}
             </a>
-                  <a
-                    href={siteConfig.social.github ?? "#"}
-                    target="_blank"
-                    rel="me noopener noreferrer"
-                    className="hover:opacity-80 transition"
-                    aria-label="GitHub"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={siteConfig.social.twitter ?? "#"}
-                    target="_blank"
-                    rel="me noopener noreferrer"
-                    className="hover:opacity-80 transition"
-                    aria-label="X"
-                  >
-                    <Twitter className="h-5 w-5" />
-                  </a>
+            <a
+              href={siteConfig.social.github ?? "#"}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="hover:opacity-80 transition"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href={siteConfig.social.twitter ?? "#"}
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="hover:opacity-80 transition"
+              aria-label="X"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
           </div>
 
           {/* Mobile/Tablet: Menu button uses theme tokens (secondary surface) */}

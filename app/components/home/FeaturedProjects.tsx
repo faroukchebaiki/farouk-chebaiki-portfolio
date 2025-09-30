@@ -47,6 +47,7 @@ export default function FeaturedProjects() {
                   </p>
                 </div>
                 <button
+                  type="button"
                   onClick={onClose}
                   className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border hover:bg-accent transition"
                   aria-label="Close"
@@ -88,8 +89,8 @@ export default function FeaturedProjects() {
                   <div className="mt-4">
                     <h3 className="text-base font-semibold">Features</h3>
                     <ul className="mt-2 list-disc pl-6 space-y-1 text-sm text-foreground/90">
-                      {active.highlights.map((h, i) => (
-                        <li key={i}>{h}</li>
+                      {active.highlights.map((h) => (
+                        <li key={h}>{h}</li>
                       ))}
                     </ul>
                   </div>
@@ -100,8 +101,8 @@ export default function FeaturedProjects() {
                   <div className="mt-4">
                     <h3 className="text-base font-semibold">Pages</h3>
                     <ul className="mt-2 list-disc pl-6 space-y-1 text-sm text-foreground/90">
-                      {active.pages.map((p, i) => (
-                        <li key={i}>{p}</li>
+                      {active.pages.map((p) => (
+                        <li key={p}>{p}</li>
                       ))}
                     </ul>
                   </div>

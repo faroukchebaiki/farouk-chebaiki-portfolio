@@ -1,7 +1,7 @@
 // app/components/Particles.tsx
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
 interface ParticlesProps {
@@ -171,7 +171,7 @@ export default function Particles({
     ).map(hexToRgb);
 
     for (let i = 0; i < count; i++) {
-      let x, y, z, len;
+      let x: number, y: number, z: number, len: number;
       do {
         x = Math.random() * 2 - 1;
         y = Math.random() * 2 - 1;
@@ -264,9 +264,11 @@ export default function Particles({
     sizeRandomness,
     cameraDistance,
     disableRotation,
-    additiveBlend, // NEW dep
-    brightness, // NEW dep
-    alphaStrength, // NEW dep
+    additiveBlend,
+    brightness,
+    alphaStrength,
+    particleColors,
+    particleColors?.length,
   ]);
 
   return (

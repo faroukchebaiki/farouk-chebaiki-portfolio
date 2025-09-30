@@ -1,6 +1,6 @@
 "use client";
 
-export default function Error({
+export default function AppError({
   error,
   reset,
 }: {
@@ -22,6 +22,7 @@ export default function Error({
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <button
+            type="button"
             onClick={() => reset()}
             className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:bg-accent hover:text-accent-foreground transition"
           >

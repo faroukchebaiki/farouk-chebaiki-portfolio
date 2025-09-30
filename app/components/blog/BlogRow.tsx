@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Clock, Heart, MessageSquare } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export type DevToArticle = {
   id: number;
@@ -24,7 +25,7 @@ export default function BlogRow({
   onClick,
 }: {
   article: DevToArticle;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
 }) {
   const tags = Array.isArray(article.tag_list)
     ? article.tag_list
@@ -38,11 +39,11 @@ export default function BlogRow({
   const dateWithYear = `${article.readable_publish_date}, ${year}`;
 
   return (
-    <button
-      type="button"
+    <Link
+      href={`/blog/${article.id}`}
       onClick={onClick}
       className="
-        group relative w-full cursor-pointer text-left overflow-hidden rounded-2xl
+        group relative block w-full cursor-pointer text-left overflow-hidden rounded-2xl
         border border-border bg-card transition
         hover:-translate-y-0.5 hover:shadow-lg
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50
@@ -127,6 +128,6 @@ export default function BlogRow({
           </div>
         </div>
       </div>
-    </button>
+    </Link>
   );
 }

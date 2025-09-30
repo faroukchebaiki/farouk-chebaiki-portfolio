@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import * as React from "react";
 import type { Project } from "./ProjectsGrid";
 
 /** Clickable project card */
@@ -16,6 +15,7 @@ export default function ProjectCard({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`
         group w-full text-left cursor-pointer

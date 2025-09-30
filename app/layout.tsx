@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-import { ThemeProvider } from "./components/theme-provider";
-import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";
-
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteConfig } from "@/lib/site";
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+import { ThemeProvider } from "./components/theme-provider";
 
 const bodyFont = Roboto_Mono({
   weight: ["400", "600", "700"],
@@ -46,9 +45,8 @@ export const metadata: Metadata = {
     title: "Farouk Chebaiki — Full Stack Developer",
     description:
       "Full‑stack dev building user‑friendly, secure, high‑performance web applications.",
-    images: [
-      { url: "/profile.png", width: 512, height: 512, alt: "Farouk Chebaiki" },
-    ],
+    locale: "en_GB",
+    images: [{ url: "/opengraph-image" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,14 +54,22 @@ export const metadata: Metadata = {
     description:
       "Full‑stack dev building user‑friendly, secure, high‑performance web applications.",
     creator: "@faroukchebaiki",
-    images: [
-      { url: "/profile.png", alt: "Farouk Chebaiki" },
-    ],
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -79,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={bodyFont.variable} suppressHydrationWarning>
+    <html lang="en-GB" className={bodyFont.variable} suppressHydrationWarning>
       <body className={`antialiased`}>
         <ThemeProvider>
           <Navbar />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import BlogList from "../components/blog/BlogList";
 import { siteConfig } from "@/lib/site";
+import BlogList from "../components/blog/BlogList";
 
 export const metadata: Metadata = {
   title: "Blog — Farouk Chebaiki",

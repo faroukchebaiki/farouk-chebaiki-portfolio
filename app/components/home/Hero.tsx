@@ -1,6 +1,6 @@
 import Image from "next/image";
-import BackgroundParticles from "./HeroParticles";
 import { siteConfig } from "@/lib/site";
+import BackgroundParticles from "./HeroParticles";
 
 export default function Hero() {
   return (
@@ -24,7 +24,7 @@ export default function Hero() {
           {siteConfig.hero?.subheading}
         </p>
 
-        <h1 className="mt-2 text-xl sm:text-3xl md:text-4xl tracking-tight">
+        <h1 className="mt-2 text-xl sm:text-3xl md:text-4xl tracking-tight lg:max-w-[50%]">
           <HeroHeading text={siteConfig.hero?.heading ?? ""} />
         </h1>
       </div>
@@ -36,13 +36,35 @@ function HeroHeading({ text }: { text: string }) {
   const highlight = "Full-Stack Dev";
   const breakBefore = "user-friendly";
 
+  // Normalize various hyphen/dash characters to plain '-' for matching,
+  // while preserving original text for rendering.
+  const normalize = (s: string) =>
+    s.replace(/[\u2010\u2011\u2012\u2013\u2014]/g, "-");
+  const findIndexNormalized = (source: string, needle: string) => {
+    const normSource = normalize(source);
+    const normNeedle = normalize(needle);
+    const idx = normSource.indexOf(normNeedle);
+    if (idx < 0) return -1;
+    // Map index in normalized string back to original string index
+    let count = 0;
+    for (let i = 0; i < source.length; i++) {
+      const ch = source[i];
+      const contributes = /[\u2010\u2011\u2012\u2013\u2014]/.test(ch) ? 1 : 1;
+      // both original and normalized advance by 1 char; mapping is 1:1 length
+      // because we replace single code points with single '-'
+      if (count === idx) return i;
+      count += contributes;
+    }
+    return -1;
+  };
+
   // Insert line break before the chosen phrase
-  const breakIdx = text.indexOf(breakBefore);
+  const breakIdx = findIndexNormalized(text, breakBefore);
   const first = breakIdx >= 0 ? text.slice(0, breakIdx) : text;
   const second = breakIdx >= 0 ? text.slice(breakIdx) : "";
 
   const renderWithHighlight = (chunk: string) => {
-    const hiIdx = chunk.indexOf(highlight);
+    const hiIdx = findIndexNormalized(chunk, highlight);
     if (hiIdx < 0) return chunk;
     const pre = chunk.slice(0, hiIdx);
     const hi = chunk.slice(hiIdx, hiIdx + highlight.length);
@@ -63,7 +85,8 @@ function HeroHeading({ text }: { text: string }) {
       {renderWithHighlight(first)}
       {second ? (
         <>
-          <br />
+          {/* Force a break on small screens only; let larger screens wrap naturally */}
+          <br className="sm:hidden" />
           {renderWithHighlight(second)}
         </>
       ) : null}

@@ -3,7 +3,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import SlideOver from "../projects/SlideOver";
 import ArticleView from "../blog/ArticleView";
@@ -21,7 +21,8 @@ export default function LatestPosts() {
   const [posts, setPosts] = React.useState<DevToPost[]>([]);
   const [open, setOpen] = React.useState(false);
   const [activeId, setActiveId] = React.useState<number | null>(null);
-  const router = useRouter();
+  // SSR-safe reference for matchMedia
+  type MM = { matchMedia?: (q: string) => { matches: boolean } };
 
   React.useEffect(() => {
     let aborted = false;
@@ -44,16 +45,20 @@ export default function LatestPosts() {
   }, []);
 
   const isDesktop = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(min-width: 1024px)").matches; // lg
+    Boolean(
+      (globalThis as unknown as MM).matchMedia?.("(min-width: 1024px)")
+        ?.matches,
+    ); // lg
 
-  const onOpen = (id: number) => {
-    if (isDesktop()) {
-      router.push(`/blog/${id}`);
-    } else {
+  const onOpen = (e: React.MouseEvent | undefined, id: number) => {
+    // On mobile, keep slide-over and prevent navigation; desktop navigates
+    if (!isDesktop()) {
+      e?.preventDefault();
       setActiveId(id);
       setOpen(true);
+      return;
     }
+    // desktop: let the anchor navigate normally
   };
   const onClose = () => setOpen(false);
 
@@ -65,10 +70,11 @@ export default function LatestPosts() {
         <h2 className="text-2xl font-semibold">Latest Posts</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
-            <button
+            <Link
               key={p.id}
-              onClick={() => onOpen(p.id)}
-              className="cursor-pointer text-left rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
+              href={`/blog/${p.id}`}
+              onClick={(e) => onOpen(e, p.id)}
+              className="cursor-pointer block text-left rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
             >
               {p.cover_image && (
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-border">
@@ -85,7 +91,7 @@ export default function LatestPosts() {
               <p className="mt-2 text-sm text-muted-foreground">
                 {p.description}
               </p>
-            </button>
+            </Link>
           ))}
         </div>
 

@@ -1,11 +1,11 @@
 "use client";
 
-import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import BlogRow, { type DevToArticle } from "./BlogRow";
-import BlogRowSkeleton from "./BlogRowSkeleton";
+import * as React from "react";
 import SlideOver from "../projects/SlideOver";
 import ArticleView from "./ArticleView";
+import BlogRow, { type DevToArticle } from "./BlogRow";
+import BlogRowSkeleton from "./BlogRowSkeleton";
 
 const PER_PAGE = 7;
 
@@ -18,14 +18,17 @@ export default function BlogList({ username }: { username: string }) {
   const [hasMore, setHasMore] = React.useState(true);
   const sentinelRef = React.useRef<HTMLDivElement | null>(null);
 
+  // SSR-safe reference to matchMedia without using `any`
+  type MM = { matchMedia?: (q: string) => { matches: boolean } };
+  const w = globalThis as unknown as MM;
+
   const router = useRouter();
   const search = useSearchParams();
   const activeId = search.get("id");
   const open = Boolean(activeId);
 
   const isDesktop = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(min-width: 1024px)").matches; // lg breakpoint
+    Boolean(w.matchMedia?.("(min-width: 1024px)")?.matches); // lg breakpoint
 
   // Initial load
   React.useEffect(() => {
@@ -101,14 +104,16 @@ export default function BlogList({ username }: { username: string }) {
     return () => observer.unobserve(el);
   }, [loadMore]);
 
-  const onOpen = (id: number) => {
+  const onOpen = (e: React.MouseEvent | undefined, id: number) => {
     if (isDesktop()) {
-      router.push(`/blog/${id}`, { scroll: true });
-    } else {
-      const params = new URLSearchParams(search?.toString());
-      params.set("id", String(id));
-      router.push(`/blog?${params.toString()}`, { scroll: false });
+      // desktop: navigate normally (allow link default)
+      return;
     }
+    // mobile: open slide-over on the same /blog route
+    e?.preventDefault();
+    const params = new URLSearchParams(search?.toString());
+    params.set("id", String(id));
+    router.push(`/blog?${params.toString()}`, { scroll: false });
   };
 
   const onClose = () => {
@@ -119,6 +124,10 @@ export default function BlogList({ username }: { username: string }) {
     });
   };
 
+  const INIT_KEYS = React.useMemo(
+    () => Array.from({ length: PER_PAGE }, (_, i) => `init-${i}`),
+    [],
+  );
   if (error) {
     return (
       <div className="rounded-2xl border border-border bg-card p-6 text-sm text-destructive">
@@ -126,12 +135,11 @@ export default function BlogList({ username }: { username: string }) {
       </div>
     );
   }
-
   if (!articles) {
     return showSkeleton ? (
       <div className="space-y-5" aria-busy>
-        {Array.from({ length: PER_PAGE }).map((_, i) => (
-          <BlogRowSkeleton key={`init-${i}`} />
+        {INIT_KEYS.map((k) => (
+          <BlogRowSkeleton key={k} />
         ))}
       </div>
     ) : null;
@@ -142,13 +150,13 @@ export default function BlogList({ username }: { username: string }) {
       {/* Vertical stack on all sizes (clean + readable) */}
       <div className="space-y-5 ">
         {articles.map((a) => (
-          <BlogRow key={a.id} article={a} onClick={() => onOpen(a.id)} />
+          <BlogRow key={a.id} article={a} onClick={(e) => onOpen(e, a.id)} />
         ))}
         {/* Loading more skeletons */}
         {loading && hasMore && (
           <div className="space-y-5" aria-busy>
-            {Array.from({ length: 2 }).map((_, i) => (
-              <BlogRowSkeleton key={`more-${i}`} />
+            {["more-a", "more-b"].map((k) => (
+              <BlogRowSkeleton key={k} />
             ))}
           </div>
         )}

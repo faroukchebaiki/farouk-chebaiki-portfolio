@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { ExternalLink } from "lucide-react";
+import * as React from "react";
 
 export default function ArticleBody({
   html,
@@ -12,6 +12,7 @@ export default function ArticleBody({
 }) {
   const ref = React.useRef<HTMLDivElement>(null);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: rerun on HTML changes to rehydrate embeds and code blocks
   React.useEffect(() => {
     const root = ref.current;
     if (!root) return;
@@ -92,7 +93,9 @@ export default function ArticleBody({
           }, 1200);
         } catch {
           btn.innerHTML = `<span>Failed</span>`;
-          setTimeout(() => (btn.innerHTML = `<span>Copy</span>`), 1200);
+          setTimeout(() => {
+            btn.innerHTML = `<span>Copy</span>`;
+          }, 1200);
         }
       };
 

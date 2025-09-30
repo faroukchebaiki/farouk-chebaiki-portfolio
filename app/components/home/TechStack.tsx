@@ -34,12 +34,14 @@ const STACK: StackItem[] = [
   { name: "Postman", img: "https://cdn.simpleicons.org/postman" },
 ];
 
-function Row({ items, size = 40 }: { items: StackItem[]; size?: number }) {
+type StackEntry = StackItem & { key: string };
+
+function Row({ items, size = 40 }: { items: StackEntry[]; size?: number }) {
   return (
     <div className="flex items-center gap-4 pr-4">
-      {items.map((it, i) => (
+      {items.map((it) => (
         <div
-          key={`${it.name}-${i}`}
+          key={it.key}
           className="
             inline-flex items-center gap-3 rounded-2xl border border-border bg-card
             px-4 py-3 text-sm text-card-foreground
@@ -67,7 +69,14 @@ function Row({ items, size = 40 }: { items: StackItem[]; size?: number }) {
 
 export default function TechStack() {
   // Duplicate items for seamless marquee
-  const items = React.useMemo(() => [...STACK, ...STACK], []);
+  const items = React.useMemo<StackEntry[]>(
+    () =>
+      [...STACK, ...STACK].map((item, idx) => ({
+        ...item,
+        key: `tech-${item.name}-${idx}`,
+      })),
+    [],
+  );
   const [paused, setPaused] = React.useState(false);
   const [reverse, setReverse] = React.useState(false);
   const [dragging, setDragging] = React.useState(false);
@@ -84,7 +93,9 @@ export default function TechStack() {
     dragStartRef.current = { x: e.clientX, baseOffset: offset };
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
+    } catch {
+      // ignore devices that do not support pointer capture
+    }
   };
   const onPointerMove: React.PointerEventHandler<HTMLDivElement> = (e) => {
     if (!dragging || !dragStartRef.current) return;
@@ -97,7 +108,9 @@ export default function TechStack() {
     if (el && id !== undefined) {
       try {
         el.releasePointerCapture(id);
-      } catch {}
+      } catch {
+        // ignore release failures
+      }
     }
   };
   const onPointerUp: React.PointerEventHandler<HTMLDivElement> = (e) =>

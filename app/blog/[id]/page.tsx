@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { siteConfig } from "@/lib/site";
 import ArticleBody from "../../components/blog/ArticleBody";
 
@@ -124,28 +125,29 @@ export default async function ArticlePage({
               <ArticleBody html={data.body_html} originalUrl={data.url} />
 
               {/* JSON-LD: Article for rich results */}
-              <script
+              <Script
+                id={`jsonld-article-${data.id}`}
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "Article",
-                    headline: data.title,
-                    datePublished: data.published_timestamp,
-                    mainEntityOfPage: `${siteConfig.siteUrl}/blog/${data.id}`,
-                    image: data.cover_image ? [data.cover_image] : undefined,
-                    author: {
-                      "@type": "Person",
-                      name: "Farouk Chebaiki",
-                      url: siteConfig.siteUrl,
-                    },
-                    publisher: {
-                      "@type": "Person",
-                      name: "Farouk Chebaiki",
-                    },
-                  }),
-                }}
-              />
+                strategy="afterInteractive"
+              >
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "Article",
+                  headline: data.title,
+                  datePublished: data.published_timestamp,
+                  mainEntityOfPage: `${siteConfig.siteUrl}/blog/${data.id}`,
+                  image: data.cover_image ? [data.cover_image] : undefined,
+                  author: {
+                    "@type": "Person",
+                    name: "Farouk Chebaiki",
+                    url: siteConfig.siteUrl,
+                  },
+                  publisher: {
+                    "@type": "Person",
+                    name: "Farouk Chebaiki",
+                  },
+                })}
+              </Script>
             </div>
           </div>
         </div>

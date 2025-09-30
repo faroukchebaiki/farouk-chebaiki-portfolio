@@ -86,7 +86,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={bodyFont.variable} suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className="antialiased">
         <ThemeProvider>
           <Navbar />
           {children}

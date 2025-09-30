@@ -1,5 +1,6 @@
 "use client";
 
+import sanitizeHtml from "sanitize-html";
 import { ExternalLink } from "lucide-react";
 import * as React from "react";
 
@@ -11,6 +12,46 @@ export default function ArticleBody({
   originalUrl: string;
 }) {
   const ref = React.useRef<HTMLDivElement>(null);
+  const sanitizedHtml = React.useMemo(() => {
+    const allowedTags = Array.from(
+      new Set([
+        ...sanitizeHtml.defaults.allowedTags,
+        "img",
+        "pre",
+        "code",
+        "span",
+        "video",
+        "source",
+        "iframe",
+        "figure",
+        "figcaption",
+      ]),
+    );
+
+    return sanitizeHtml(html, {
+      allowedTags,
+      allowedAttributes: {
+        ...sanitizeHtml.defaults.allowedAttributes,
+        a: ["href", "name", "target", "rel", "title"],
+        img: ["src", "alt", "title", "width", "height", "loading"],
+        code: ["class"],
+        pre: ["class"],
+        span: ["class"],
+        div: ["class"],
+        iframe: ["src", "allow", "allowfullscreen", "frameborder", "title"],
+        video: ["controls", "poster", "width", "height"],
+        source: ["src", "type"],
+      },
+      allowedSchemes: ["http", "https", "mailto", "tel"],
+      transformTags: {
+        a: sanitizeHtml.simpleTransform(
+          "a",
+          { rel: "noopener noreferrer", target: "_blank" },
+          true,
+        ),
+      },
+    });
+  }, [html]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: rerun on HTML changes to rehydrate embeds and code blocks
   React.useEffect(() => {
@@ -92,9 +133,9 @@ export default function ArticleBody({
             `;
           }, 1200);
         } catch {
-          btn.innerHTML = `<span>Failed</span>`;
+          btn.innerHTML = "<span>Failed</span>";
           setTimeout(() => {
-            btn.innerHTML = `<span>Copy</span>`;
+            btn.innerHTML = "<span>Copy</span>";
           }, 1200);
         }
       };
@@ -129,7 +170,8 @@ export default function ArticleBody({
           /* Links */
           [&_a]:underline [&_a]:underline-offset-4
         "
-        dangerouslySetInnerHTML={{ __html: html }}
+        // skipcq: JS-0440 (HTML is sanitized before rendering)
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
       />
 
       <div className="mt-8 border-t border-border pt-4">

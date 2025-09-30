@@ -1,6 +1,6 @@
 {
   "name": "farouk-chebaiki-portfolio",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -24,6 +24,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-github-calendar": "^4.5.10",
+    "sanitize-html": "^2.17.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

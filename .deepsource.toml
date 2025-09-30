@@ -27,3 +27,6 @@ enabled = true
 dialect = "typescript"
 plugins = ["react"]
 environment = ["nodejs", "browser", "jest"]
+
+[analyzers.config]
+skip_diagnostics = ["JS-D1001"]

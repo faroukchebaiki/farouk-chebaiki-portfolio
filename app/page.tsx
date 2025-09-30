@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { siteConfig } from "@/lib/site";
 import ContactStrip from "./components/home/ContactStrip";
 import FeaturedProjects from "./components/home/FeaturedProjects";
@@ -34,37 +35,39 @@ export default function HomePage() {
       <TechStack />
       <ContactStrip />
       {/* JSON-LD: Person */}
-      <script
+      <Script
+        id="jsonld-person"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Farouk Chebaiki",
-            url: siteConfig.siteUrl,
-            email: siteConfig.email,
-            image: `${siteConfig.siteUrl}/profile.png`,
-            sameAs: [
-              siteConfig.social.github,
-              siteConfig.social.twitter,
-              siteConfig.social.linkedin,
-            ].filter(Boolean),
-            jobTitle: "Full Stack Developer",
-          }),
-        }}
-      />
+        strategy="afterInteractive"
+      >
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Farouk Chebaiki",
+          url: siteConfig.siteUrl,
+          email: siteConfig.email,
+          image: `${siteConfig.siteUrl}/profile.png`,
+          sameAs: [
+            siteConfig.social.github,
+            siteConfig.social.twitter,
+            siteConfig.social.linkedin,
+          ].filter(Boolean),
+          jobTitle: "Full Stack Developer",
+        })}
+      </Script>
       {/* JSON-LD: WebSite (sitelinks eligible) */}
-      <script
+      <Script
+        id="jsonld-website"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            url: siteConfig.siteUrl,
-            name: "Farouk Chebaiki",
-          }),
-        }}
-      />
+        strategy="afterInteractive"
+      >
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: siteConfig.siteUrl,
+          name: "Farouk Chebaiki",
+        })}
+      </Script>
     </main>
   );
 }

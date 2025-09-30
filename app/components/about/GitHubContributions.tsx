@@ -47,11 +47,15 @@ export default function GitHubContributions({
           break;
         }
       }
-    } catch {}
+    } catch {
+      // ignore CSS variable lookup issues (e.g., server render)
+    }
     try {
       const isDark = document.documentElement.classList.contains("dark");
       setScheme(isDark ? "dark" : "light");
-    } catch {}
+    } catch {
+      // ignore theme detection errors in non-browser contexts
+    }
     // Set responsive sizes
     const applySizes = () => {
       const w = typeof window !== "undefined" ? window.innerWidth : 1024;

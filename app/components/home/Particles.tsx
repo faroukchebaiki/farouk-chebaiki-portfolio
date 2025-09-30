@@ -251,7 +251,9 @@ export default function Particles({
       cancelAnimationFrame(raf);
       try {
         if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
-      } catch {}
+      } catch {
+        // ignore cleanup failures during unmount
+      }
     };
   }, [
     particleCount,

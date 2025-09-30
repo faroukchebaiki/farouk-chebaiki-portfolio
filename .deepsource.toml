@@ -1,9 +1,29 @@
 version = 1
 
+# Ignore generated/build artifacts and caches
+exclude_patterns = [
+  "node_modules/**",
+  ".next/**",
+  "dist/**",
+  "build/**",
+  "coverage/**",
+  "**/*.min.js"
+]
+
+# Common test file globs (none in repo yet, but future‑proof)
+test_patterns = [
+  "**/*.test.ts",
+  "**/*.test.tsx",
+  "**/*.spec.ts",
+  "**/*.spec.tsx"
+]
+
 [[analyzers]]
 name = "javascript"
 enabled = true
 
 [analyzers.meta]
+# This is a Next.js + TypeScript + React app
+dialect = "typescript"
 plugins = ["react"]
-environment = ["nodejs", "browser"]
+environment = ["nodejs", "browser", "jest"]

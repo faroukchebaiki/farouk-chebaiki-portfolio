@@ -164,6 +164,33 @@ export const siteConfig: SiteConfig = {
   },
   projects: [
     {
+      title: "Voidwrite",
+      description:
+        "A full-stack editorial platform with a reader-first blog and collaborative studio.",
+      tech: "Next.js 15, React 19, Tailwind CSS, Drizzle ORM, Auth.js",
+      image: "/images/projects/voidwrite.png",
+      repo: "https://github.com/faroukchebaiki/voidwrite",
+      live: "https://voidwrite.farouk.uk/",
+      featured: true,
+      long:
+        "Voidwrite blends a polished public publication with a role-aware editorial studio. It ships with passkey-ready authentication, analytics, collaborative authoring, and brand controls consolidated in a single config so small teams can launch quickly.",
+      highlights: [
+        "Reader-first blog experience with refined typography and responsive cards",
+        "Role-aware studio for editors and authors with dashboards, queues, and analytics",
+        "Passkey-ready Auth.js setup backed by Drizzle ORM and Postgres",
+        "Newsletter and digest pipeline powered by Resend with automated weekly summaries",
+        "Media handling via Vercel Blob, supporting cover uploads and responsive WebP variants",
+        "Opinionated branding system managed from a single `site.ts` source of truth",
+      ],
+      pages: [
+        "Reader homepage curating posts, authors, tags, and weekly leaderboard",
+        "Post view with sticky share bar, author spotlight, and email capture CTA",
+        "Studio dashboard with views chart, submission queues, and role-based moderation",
+        "Newsletter digest endpoint that assembles personalised weekly roundups",
+        "Auth flows covering email/password, passkey enrolment, and suspension handling",
+      ],
+    },
+    {
       title: "VisoNext",
       description:
         "Next.js site with responsive UI, SEO, and fast performance.",
@@ -171,8 +198,8 @@ export const siteConfig: SiteConfig = {
       image: "/images/projects/visonext.png",
       repo: "https://github.com/faroukchebaiki/VisoNext",
       live: "https://visonext.farouk.uk/",
-      featured: true,
-      long: "A multi-page Next.js website with a modern, responsive UI/UX, high performance, SEO, accessibility, and interactive components.",
+      long:
+        "A multi-page Next.js website with a modern, responsive UI/UX, high performance, SEO, accessibility, and interactive components.",
       highlights: [
         "Fully responsive across desktop, tablet and mobile",
         "Modern UI/UX with clean design system",
@@ -195,7 +222,8 @@ export const siteConfig: SiteConfig = {
       image: "/images/projects/renova.png",
       repo: "https://github.com/faroukchebaiki/Renova",
       live: "https://renova.farouk.uk/",
-      long: "A modern website for a home renovation and design company with gallery, contact, and SEO-optimized responsive pages.",
+      long:
+        "A modern website for a home renovation and design company with gallery, contact, and SEO-optimized responsive pages.",
       highlights: [
         "Modern UI tailored for renovation services",
         "Project gallery to showcase past work",
@@ -203,14 +231,6 @@ export const siteConfig: SiteConfig = {
         "SEO-optimized pages",
         "Fully responsive and mobile-friendly",
       ],
-    },
-    {
-      title: "AI Resume Generator",
-      description: "An AI-powered tool to generate professional resumes.",
-      tech: "Next.js, OpenAI API, TailwindCSS",
-      image: "/images/projects/image.png",
-      repo: "https://github.com/user/ai-resume-generator",
-      // live omitted to avoid broken link in production
     },
     {
       title: "Distributed Cloud Storage",

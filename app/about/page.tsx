@@ -100,6 +100,8 @@ export default function AboutPage() {
                     alt=""
                     width={20}
                     height={20}
+                    loading="lazy"
+                    decoding="async"
                     className="select-none"
                   />
                   <span>{it.name}</span>

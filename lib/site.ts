@@ -193,69 +193,51 @@ export const siteConfig: SiteConfig = {
     {
       title: "VisoNext",
       description:
-        "Next.js site with responsive UI, SEO, and fast performance.",
-      tech: "Next.js, React, Tailwind, shadcn/ui",
+        "Nuxt 3 marketing site with polished gradients, motion, and production-ready SEO.",
+      tech: "Nuxt 3, Vue 3, Tailwind CSS, @nuxt/image, VueUse Motion, @nuxtjs/seo",
       image: "/images/projects/visonext.png",
       repo: "https://github.com/faroukchebaiki/VisoNext",
       live: "https://visonext.farouk.uk/",
       long:
-        "A multi-page Next.js website with a modern, responsive UI/UX, high performance, SEO, accessibility, and interactive components.",
+        "VisoNext 2.0 is a rebuilt Nuxt 3 + Vue 3 experience with a refreshed gradient design system, animations via VueUse Motion, responsive media powered by @nuxt/image, and production-ready SEO defaults from @nuxtjs/seo.",
       highlights: [
-        "Fully responsive across desktop, tablet and mobile",
-        "Modern UI/UX with clean design system",
-        "High performance with optimized assets",
-        "SEO-optimized metadata and structure",
-        "Accessibility-friendly semantics and ARIA",
-        "Interactive components: tabs, forms, smooth interactions",
+        "Rebuilt frontend on Nuxt 3 with reusable layout + UI primitives",
+        "Gradient/glass design system with Tailwind helpers and motion presets",
+        "Responsive media and lazy loading via @nuxt/image",
+        "Automated SEO + structured data through @nuxtjs/seo",
+        "Validated contact form and UX-friendly loading states",
       ],
       pages: [
-        "Home: hero, features, services preview, testimonials, stats",
-        "About: mission/values, team, timeline, call-to-action",
-        "Services: tabbed categories, details, pricing, FAQs, inquiry form",
-        "Contact: validated form, contact details, map, business hours",
+        "Home: hero, stats, services preview, testimonials, CTA",
+        "About: mission, values grid, and team spotlights",
+        "Services: detailed cards with benefits and process timeline",
+        "Contact: glass-style form, info cards, and business hours",
       ],
     },
     {
       title: "REnova",
-      description: "Expert design and build services for residential projects.",
-      tech: "Next.js, Tailwind CSS",
+      description:
+        "Vite + React 19 marketing site for a renovation studio with MUI, Framer Motion, and responsive sections.",
+      tech: "React 19, Vite, TypeScript, MUI, Framer Motion, React Router",
       image: "/images/projects/renova.png",
       repo: "https://github.com/faroukchebaiki/Renova",
       live: "https://renova.farouk.uk/",
       long:
-        "A modern website for a home renovation and design company with gallery, contact, and SEO-optimized responsive pages.",
+        "Renova is a modern web experience for a home renovation and design company, built with Vite and React 19. It ships a custom MUI theme, smooth Framer Motion animations, and interactive sections highlighting services, projects, testimonials, and contact.",
       highlights: [
-        "Modern UI tailored for renovation services",
-        "Project gallery to showcase past work",
-        "Contact form for inquiries",
-        "SEO-optimized pages",
-        "Fully responsive and mobile-friendly",
+        "Custom MUI design system tuned for the brand",
+        "Framer Motion for polished transitions and section reveals",
+        "Responsive layouts across desktop, tablet, and mobile",
+        "Interactive services, projects gallery, testimonials, and contact form",
+        "TypeScript-first stack with Vite, React Router, and Biome linting",
       ],
-    },
-    {
-      title: "Distributed Cloud Storage",
-      description: "A secure, post-quantum encrypted cloud storage system.",
-      tech: "Kyber, McEliece, Rclone, Tor",
-      image: "/images/projects/image.png",
-      repo: "https://github.com/user/distributed-cloud-storage",
-      // live omitted to avoid broken link in production
-    },
-    {
-      title: "Web-Based Code Editor",
-      description: "A sandboxed environment for running code in the browser.",
-      tech: "React, Monaco Editor, WebAssembly",
-      image: "/images/projects/image.png",
-      repo: "https://github.com/user/web-based-code-editor",
-      // live omitted to avoid broken link in production
-    },
-    {
-      title: "Grocery SaaS",
-      description:
-        "A management system for grocery stores with offline support.",
-      tech: "Electron, React, IndexedDB",
-      image: "/images/projects/image.png",
-      repo: "https://github.com/user/grocery-saas",
-      // live omitted to avoid broken link in production
+      pages: [
+        "Home: hero, services overview, featured projects, testimonials, CTA",
+        "About: company story, values, and team highlight",
+        "Services: detailed renovation services with benefits and process",
+        "Projects: gallery-style highlights of completed work",
+        "Contact: inquiry form with validation and business details",
+      ],
     },
   ],
 };

@@ -4,9 +4,11 @@ import dynamic from "next/dynamic";
 import * as React from "react";
 
 // react-github-calendar is client-only; load dynamically to avoid SSR issues
-const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
-  ssr: false,
-});
+const GitHubCalendar = dynamic(
+  () =>
+    import("react-github-calendar").then((mod) => mod.GitHubCalendar),
+  { ssr: false },
+);
 
 export default function GitHubContributions({
   username,

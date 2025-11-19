@@ -55,6 +55,8 @@ function Row({ items, size = 40 }: { items: StackEntry[]; size?: number }) {
               src={it.img}
               alt=""
               className="select-none"
+              loading="lazy"
+              decoding="async"
               style={{ height: size, width: size }}
             />
           ) : it.Icon ? (

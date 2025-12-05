@@ -172,8 +172,7 @@ export const siteConfig: SiteConfig = {
       repo: "https://github.com/faroukchebaiki/voidwrite",
       live: "https://voidwrite.farouk.uk/",
       featured: true,
-      long:
-        "Voidwrite blends a polished public publication with a role-aware editorial studio. It ships with passkey-ready authentication, analytics, collaborative authoring, and brand controls consolidated in a single config so small teams can launch quickly.",
+      long: "Voidwrite blends a polished public publication with a role-aware editorial studio. It ships with passkey-ready authentication, analytics, collaborative authoring, and brand controls consolidated in a single config so small teams can launch quickly.",
       highlights: [
         "Reader-first blog experience with refined typography and responsive cards",
         "Role-aware studio for editors and authors with dashboards, queues, and analytics",
@@ -198,8 +197,7 @@ export const siteConfig: SiteConfig = {
       image: "/images/projects/visonext.png",
       repo: "https://github.com/faroukchebaiki/VisoNext",
       live: "https://visonext.farouk.uk/",
-      long:
-        "VisoNext 2.0 is a rebuilt Nuxt 3 + Vue 3 experience with a refreshed gradient design system, animations via VueUse Motion, responsive media powered by @nuxt/image, and production-ready SEO defaults from @nuxtjs/seo.",
+      long: "VisoNext 2.0 is a rebuilt Nuxt 3 + Vue 3 experience with a refreshed gradient design system, animations via VueUse Motion, responsive media powered by @nuxt/image, and production-ready SEO defaults from @nuxtjs/seo.",
       highlights: [
         "Rebuilt frontend on Nuxt 3 with reusable layout + UI primitives",
         "Gradient/glass design system with Tailwind helpers and motion presets",
@@ -222,8 +220,7 @@ export const siteConfig: SiteConfig = {
       image: "/images/projects/renova.png",
       repo: "https://github.com/faroukchebaiki/Renova",
       live: "https://renova.farouk.uk/",
-      long:
-        "Renova is a modern web experience for a home renovation and design company, built with Vite and React 19. It ships a custom MUI theme, smooth Framer Motion animations, and interactive sections highlighting services, projects, testimonials, and contact.",
+      long: "Renova is a modern web experience for a home renovation and design company, built with Vite and React 19. It ships a custom MUI theme, smooth Framer Motion animations, and interactive sections highlighting services, projects, testimonials, and contact.",
       highlights: [
         "Custom MUI design system tuned for the brand",
         "Framer Motion for polished transitions and section reveals",

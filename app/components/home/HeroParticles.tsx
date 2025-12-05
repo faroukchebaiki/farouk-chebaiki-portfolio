@@ -32,18 +32,25 @@ export default function HeroParticles() {
 
     if (!mql.matches) {
       const start = () => setShouldRender(true);
-      const hasRIC = typeof (window as unknown as { requestIdleCallback?: unknown }).requestIdleCallback === "function";
+      const hasRIC =
+        typeof (window as unknown as { requestIdleCallback?: unknown })
+          .requestIdleCallback === "function";
       const ric = hasRIC
-        ? (window as unknown as { requestIdleCallback: typeof requestIdleCallback }).requestIdleCallback(
-            start,
-            { timeout: 400 },
-          )
+        ? (
+            window as unknown as {
+              requestIdleCallback: typeof requestIdleCallback;
+            }
+          ).requestIdleCallback(start, { timeout: 400 })
         : window.setTimeout(start, 220);
 
       return () => {
         mql.removeEventListener("change", updateMotion);
         if (hasRIC) {
-          (window as unknown as { cancelIdleCallback: typeof cancelIdleCallback }).cancelIdleCallback(ric);
+          (
+            window as unknown as {
+              cancelIdleCallback: typeof cancelIdleCallback;
+            }
+          ).cancelIdleCallback(ric);
         } else {
           clearTimeout(ric);
         }
@@ -108,15 +115,20 @@ export default function HeroParticles() {
         }
       : {
           additiveBlend: false, // no glow on light
-      brightness: 0.85,
-      alphaStrength: 0.65,
-      particleBaseSize: 95,
-      particleCount: 180,
-    };
-  }, [isDark, density]);
+          brightness: 0.85,
+          alphaStrength: 0.65,
+          particleBaseSize: 95,
+          particleCount: 180,
+        };
+  }, [isDark]);
 
-  const particleCount = Math.max(60, Math.round(params.particleCount * density));
-  const particleSize = Math.round(params.particleBaseSize * (0.75 + density * 0.25));
+  const particleCount = Math.max(
+    60,
+    Math.round(params.particleCount * density),
+  );
+  const particleSize = Math.round(
+    params.particleBaseSize * (0.75 + density * 0.25),
+  );
   const showParticles = shouldRender && !reduceMotion;
 
   return (

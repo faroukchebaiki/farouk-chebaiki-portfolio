@@ -23,6 +23,23 @@ export default function HeroParticles() {
   const [density, setDensity] = useState(1);
   const [hoverEnabled, setHoverEnabled] = useState(false);
 
+  // Skip expensive visuals when the user is on a constrained connection
+  useEffect(() => {
+    const conn = (
+      navigator as unknown as {
+        connection?: { saveData?: boolean; effectiveType?: string };
+      }
+    ).connection;
+    if (
+      conn?.saveData ||
+      conn?.effectiveType === "slow-2g" ||
+      conn?.effectiveType === "2g"
+    ) {
+      setReduceMotion(true);
+      setShouldRender(false);
+    }
+  }, []);
+
   // Respect prefers-reduced-motion and schedule the effect after idle
   useEffect(() => {
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)");

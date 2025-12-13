@@ -1,7 +1,7 @@
 Farouk Chebaiki — Portfolio (Next.js)
 ====================================
 
-Clean, fast, and accessible developer portfolio built with Next.js 15 (App Router), React 19, Tailwind CSS v4, and TypeScript. Includes projects, an About page with a contributions heatmap, a DEV.to-powered blog, and a contact form powered by Resend.
+Clean, fast, and accessible developer portfolio built with Next.js 16 (App Router), React 19, Tailwind CSS v4, and TypeScript. Includes projects, an About page with a contributions heatmap, a DEV.to-powered blog, and a contact form powered by Resend.
 
 - Live: https://www.farouk.uk
 - License: MIT
@@ -17,7 +17,7 @@ Features
 - Analytics via @vercel/analytics and performance via @vercel/speed-insights
 
 Stack
-- Next.js 15 (Turbopack), React 19, TypeScript
+- Next.js 16 (Turbopack), React 19, TypeScript
 - Tailwind CSS v4 + CSS variables theme in `app/globals.css`
 - lucide-react icons, Radix UI primitives (popover), class-variance-authority
 - Biome for linting/formatting
@@ -38,7 +38,7 @@ Project Structure
 
 Quick Start
 1) Prereqs
-- Node.js 18.18+ (or 20+). Package manager: npm, pnpm, or yarn.
+- Node.js 20.9+ (or 22+). Package manager: npm, pnpm, or yarn.
 
 2) Install & run
 ```bash

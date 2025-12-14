@@ -38,7 +38,7 @@ Project Structure
 
 Quick Start
 1) Prereqs
-- Node.js 20.9+ (or 22+). Package manager: npm, pnpm, or yarn.
+- Node.js 22+. Package manager: npm, pnpm, or yarn.
 
 2) Install & run
 ```bash

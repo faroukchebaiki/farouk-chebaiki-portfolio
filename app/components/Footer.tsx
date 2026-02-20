@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-border bg-background/80 text-muted-foreground">
       <div className="container mx-auto px-4 py-3 text-center">
         <p className="text-xs sm:text-sm">
-          © 2025{" "}
+          © {new Date().getFullYear()}{" "}
           <Link
             href={siteConfig.repository ?? "#"}
             target="_blank"

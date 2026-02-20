@@ -157,8 +157,7 @@ export const siteConfig: SiteConfig = {
       {
         title: "High School Graduation (Science stream)",
         period: "2018",
-        description:
-          "Saida, Algeria — foundation in math, physics, and problem‑solving.",
+        description: "Saida, Algeria — foundation in math, physics, and problem‑solving.",
       },
     ],
   },

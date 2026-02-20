@@ -55,10 +55,7 @@ export default function ArticleView({
         <div className="mt-4 h-4 w-1/2 rounded bg-muted animate-pulse" />
         <div className="mt-6 space-y-2">
           {["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"].map((k) => (
-            <div
-              key={k}
-              className="h-3 w-full rounded bg-muted animate-pulse"
-            />
+            <div key={k} className="h-3 w-full rounded bg-muted animate-pulse" />
           ))}
         </div>
       </div>
@@ -78,9 +75,7 @@ export default function ArticleView({
           <ArrowLeft className="h-4 w-4" />
           Back
         </button>
-        <h2 className="ml-1 line-clamp-1 text-base font-semibold">
-          {data.title}
-        </h2>
+        <h2 className="ml-1 line-clamp-1 text-base font-semibold">{data.title}</h2>
       </div>
 
       {/* Scrollable content */}

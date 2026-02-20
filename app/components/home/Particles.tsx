@@ -28,18 +28,14 @@ interface ParticlesProps {
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 
 const hexToRgb = (hex: string): [number, number, number] => {
-  hex = hex.replace(/^#/, "");
-  if (hex.length === 3)
-    hex = hex
+  let h = hex.replace(/^#/, "");
+  if (h.length === 3)
+    h = h
       .split("")
       .map((c) => c + c)
       .join("");
-  const int = parseInt(hex, 16);
-  return [
-    ((int >> 16) & 255) / 255,
-    ((int >> 8) & 255) / 255,
-    (int & 255) / 255,
-  ];
+  const int = parseInt(h, 16);
+  return [((int >> 16) & 255) / 255, ((int >> 8) & 255) / 255, (int & 255) / 255];
 };
 
 const vertex = /* glsl */ `
@@ -134,7 +130,7 @@ export default function Particles({
       const gl = renderer.gl;
 
       if (!gl) {
-        console.warn("WebGL context creation failed: gl is null");
+        // WebGL unavailable (e.g. restricted browser) — degrade gracefully
         return;
       }
 
@@ -170,19 +166,21 @@ export default function Particles({
         const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
         mouseRef.current = { x, y };
       };
-      if (moveParticlesOnHover)
-        container.addEventListener("mousemove", handleMouseMove);
+      if (moveParticlesOnHover) container.addEventListener("mousemove", handleMouseMove);
 
       const count = particleCount;
       const positions = new Float32Array(count * 3);
       const randoms = new Float32Array(count * 4);
       const colors = new Float32Array(count * 3);
-      const palette = (
-        particleColors?.length ? particleColors : defaultColors
-      ).map(hexToRgb);
+      const palette = (particleColors?.length ? particleColors : defaultColors).map(
+        hexToRgb,
+      );
 
       for (let i = 0; i < count; i++) {
-        let x: number, y: number, z: number, len: number;
+        let x: number;
+        let y: number;
+        let z: number;
+        let len: number;
         do {
           x = Math.random() * 2 - 1;
           y = Math.random() * 2 - 1;
@@ -191,12 +189,8 @@ export default function Particles({
         } while (len > 1 || len === 0);
         const r = Math.cbrt(Math.random());
         positions.set([x * r, y * r, z * r], i * 3);
-        randoms.set(
-          [Math.random(), Math.random(), Math.random(), Math.random()],
-          i * 4,
-        );
-        const [rCol, gCol, bCol] =
-          palette[Math.floor(Math.random() * palette.length)];
+        randoms.set([Math.random(), Math.random(), Math.random(), Math.random()], i * 4);
+        const [rCol, gCol, bCol] = palette[Math.floor(Math.random() * palette.length)];
         colors.set([rCol, gCol, bCol], i * 3);
       }
 
@@ -269,11 +263,8 @@ export default function Particles({
           // ignore cleanup failures during unmount
         }
       };
-    } catch (error) {
-      console.warn(
-        "Particles: WebGL initialization failed (possibly disabled).",
-        error,
-      );
+    } catch {
+      // WebGL init failed (e.g. disabled in privacy-hardened browsers) — degrade gracefully
       return;
     }
   }, [
@@ -295,9 +286,6 @@ export default function Particles({
   ]);
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative w-full h-full ${className ?? ""}`}
-    />
+    <div ref={containerRef} className={`relative w-full h-full ${className ?? ""}`} />
   );
 }

@@ -15,18 +15,13 @@ export default function BlogPage() {
     <main className="bg-background text-foreground">
       <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:max-w-4xl">
         <header className="mb-8 sm:mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Blog
-          </h1>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Blog</h1>
           <p className="mt-2 text-muted-foreground">
             Fresh reads from my DEV.to (
-            {siteConfig.devtoUsername ? `@${siteConfig.devtoUsername}` : ""}).
-            Dive in.
+            {siteConfig.devtoUsername ? `@${siteConfig.devtoUsername}` : ""}). Dive in.
           </p>
         </header>
-        <Suspense
-          fallback={<div className="text-muted-foreground">Loading...</div>}
-        >
+        <Suspense fallback={<div className="text-muted-foreground">Loading...</div>}>
           <BlogList username={siteConfig.devtoUsername ?? ""} />
         </Suspense>
       </section>

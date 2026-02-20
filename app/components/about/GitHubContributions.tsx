@@ -9,19 +9,13 @@ const GitHubCalendar = dynamic(
   { ssr: false },
 );
 
-export default function GitHubContributions({
-  username,
-}: {
-  username: string;
-}) {
+export default function GitHubContributions({ username }: { username: string }) {
   // Responsive sizing for the calendar blocks
   const [blockSize, setBlockSize] = React.useState<number>(12);
   const [blockMargin, setBlockMargin] = React.useState<number>(3);
   const [fontSize, setFontSize] = React.useState<number>(12);
   const [color, setColor] = React.useState<string>("#22c55e"); // fallback: emerald-500
-  const [scheme, setScheme] = React.useState<"light" | "dark" | undefined>(
-    undefined,
-  );
+  const [scheme, setScheme] = React.useState<"light" | "dark" | undefined>(undefined);
   const currentYear = new Date().getFullYear();
   const years = React.useMemo(() => {
     const start = 2022;

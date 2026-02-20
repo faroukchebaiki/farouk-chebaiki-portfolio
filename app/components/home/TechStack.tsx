@@ -83,9 +83,7 @@ export default function TechStack() {
   const [reverse, setReverse] = React.useState(false);
   const [dragging, setDragging] = React.useState(false);
   const [offset, setOffset] = React.useState(0);
-  const dragStartRef = React.useRef<{ x: number; baseOffset: number } | null>(
-    null,
-  );
+  const dragStartRef = React.useRef<{ x: number; baseOffset: number } | null>(null);
   const onTogglePause = () => setPaused((p) => !p);
   const onToggleReverse = () => setReverse((r) => !r);
   const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
@@ -124,10 +122,9 @@ export default function TechStack() {
       <div className="container mx-auto px-4 sm:px-6 py-10">
         <h2 className="text-xl font-semibold">Tech Stack</h2>
         <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-          Full‑stack developer focused on scalable, high‑performance apps with
-          clean architecture, security, and efficient DX — working across
-          Next.js, React, Node.js, and containerized backends while exploring
-          AI‑driven automation.
+          Full‑stack developer focused on scalable, high‑performance apps with clean
+          architecture, security, and efficient DX — working across Next.js, React,
+          Node.js, and containerized backends while exploring AI‑driven automation.
         </p>
 
         {/* Marquee rail */}

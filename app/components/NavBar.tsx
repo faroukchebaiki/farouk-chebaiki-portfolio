@@ -6,11 +6,7 @@ import { UnifrakturMaguntia } from "next/font/google";
 import Link from "next/link";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { siteConfig } from "@/lib/site";
 const logoFont = UnifrakturMaguntia({ weight: "400", subsets: ["latin"] });
 
@@ -70,10 +66,7 @@ export default function Navbar() {
           <div className="lg:hidden">
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
-                <Button
-                  variant="secondary"
-                  className="rounded-2xl px-3 sm:px-4"
-                >
+                <Button variant="secondary" className="rounded-2xl px-3 sm:px-4">
                   <MenuIcon className="h-4 w-4 mr-2" />
                   Menu
                 </Button>
@@ -170,13 +163,7 @@ export default function Navbar() {
 
 /* --- Helpers use only theme tokens --- */
 
-function NavButton({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+function NavButton({ href, children }: { href: string; children: React.ReactNode }) {
   // ghost variant already uses tokens; add subtle hover surface via accent
   return (
     <Button

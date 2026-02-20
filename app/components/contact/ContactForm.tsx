@@ -3,9 +3,9 @@
 import * as React from "react";
 
 export default function ContactForm() {
-  const [status, setStatus] = React.useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
   const [error, setError] = React.useState<string | null>(null);
   const [emailValid, setEmailValid] = React.useState(true);
   const emailRef = React.useRef<HTMLInputElement>(null);
@@ -42,8 +42,7 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       });
       const json = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !json.ok)
-        throw new Error(json.error || `Failed (${res.status})`);
+      if (!res.ok || !json.ok) throw new Error(json.error || `Failed (${res.status})`);
       setStatus("success");
       form.reset();
       setEmailValid(true);
@@ -123,13 +122,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex items-start gap-2 text-sm">
-        <input
-          id="consent"
-          name="consent"
-          type="checkbox"
-          required
-          className="mt-1"
-        />
+        <input id="consent" name="consent" type="checkbox" required className="mt-1" />
         <label htmlFor="consent" className="text-muted-foreground">
           I consent to be contacted regarding my inquiry.
         </label>
@@ -148,9 +141,7 @@ export default function ContactForm() {
             Sent. I’ll get back to you soon.
           </span>
         )}
-        {status === "error" && (
-          <span className="text-sm text-destructive">{error}</span>
-        )}
+        {status === "error" && <span className="text-sm text-destructive">{error}</span>}
       </div>
     </form>
   );

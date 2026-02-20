@@ -60,9 +60,7 @@ export default async function LatestPosts() {
                 </div>
               )}
               <h3 className="mt-4 font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {p.description}
-              </p>
+              <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
             </Link>
           ))}
         </div>

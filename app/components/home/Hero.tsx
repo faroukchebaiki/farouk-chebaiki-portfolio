@@ -20,9 +20,7 @@ export default function Hero() {
           />
         </div>
 
-        <p className="text-base text-muted-foreground">
-          {siteConfig.hero?.subheading}
-        </p>
+        <p className="text-base text-muted-foreground">{siteConfig.hero?.subheading}</p>
 
         <h1 className="mt-2 text-xl sm:text-3xl md:text-4xl tracking-tight lg:max-w-[50%]">
           <HeroHeading text={siteConfig.hero?.heading ?? ""} />
@@ -38,8 +36,7 @@ function HeroHeading({ text }: { text: string }) {
 
   // Normalize various hyphen/dash characters to plain '-' for matching,
   // while preserving original text for rendering.
-  const normalize = (s: string) =>
-    s.replace(/[\u2010\u2011\u2012\u2013\u2014]/g, "-");
+  const normalize = (s: string) => s.replace(/[\u2010\u2011\u2012\u2013\u2014]/g, "-");
   const findIndexNormalized = (source: string, needle: string) => {
     const normSource = normalize(source);
     const normNeedle = normalize(needle);

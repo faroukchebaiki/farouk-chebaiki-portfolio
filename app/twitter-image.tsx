@@ -26,13 +26,9 @@ export default async function TwitterImage() {
         padding: "64px 72px",
       }}
     >
-      <div style={{ fontSize: 52, fontWeight: 800, letterSpacing: -1 }}>
-        {title}
-      </div>
+      <div style={{ fontSize: 52, fontWeight: 800, letterSpacing: -1 }}>{title}</div>
       {subtitle && (
-        <div style={{ fontSize: 32, marginTop: 10, opacity: 0.9 }}>
-          {subtitle}
-        </div>
+        <div style={{ fontSize: 32, marginTop: 10, opacity: 0.9 }}>{subtitle}</div>
       )}
     </div>,
     { ...size },

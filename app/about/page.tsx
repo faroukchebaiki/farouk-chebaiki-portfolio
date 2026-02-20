@@ -69,15 +69,13 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-semibold">What I do</h2>
             <p className="mt-3 text-muted-foreground max-w-2xl">
-              End‑to‑end product work — from data models and APIs to clean,
-              responsive UIs — with performance and security top of mind.
+              End‑to‑end product work — from data models and APIs to clean, responsive UIs
+              — with performance and security top of mind.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               {siteConfig.about?.whatIDo?.map((item) => (
                 <li key={item.title}>
-                  <span className="font-medium text-foreground">
-                    {item.title}
-                  </span>{" "}
+                  <span className="font-medium text-foreground">{item.title}</span>{" "}
                   {item.body}
                 </li>
               ))}
@@ -120,10 +118,7 @@ export default function AboutPage() {
             A quick timeline from most recent to earliest milestones.
           </p>
 
-          <ol
-            className="mt-6 relative border-s border-border pl-6"
-            aria-label="Timeline"
-          >
+          <ol className="mt-6 relative border-s border-border pl-6" aria-label="Timeline">
             {/* 2022 – Present */}
             <li className="mb-8 ms-4">
               <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
@@ -132,8 +127,8 @@ export default function AboutPage() {
                   💻 2022 – Present — Web Development Journey
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Transitioned into software development through online
-                  bootcamps and self‑learning.
+                  Transitioned into software development through online bootcamps and
+                  self‑learning.
                 </p>
                 <div className="mt-3 text-sm text-muted-foreground space-y-2">
                   <div>
@@ -143,18 +138,13 @@ export default function AboutPage() {
                     — completed multiple courses focusing on:
                   </div>
                   <ul className="list-disc pl-5 space-y-1">
-                    <li>
-                      Full Stack Web Development (Next.js, React, Node.js,
-                      Express)
-                    </li>
+                    <li>Full Stack Web Development (Next.js, React, Node.js, Express)</li>
                     <li>System Design, Security, and DevOps fundamentals</li>
                     <li>Projects‑driven learning with real‑world practices</li>
                   </ul>
                 </div>
                 <div className="mt-3">
-                  <h4 className="text-sm font-semibold">
-                    Selected personal projects
-                  </h4>
+                  <h4 className="text-sm font-semibold">Selected personal projects</h4>
                   <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
                     <li>🛒 Clothing E‑Commerce Platform (Next.js + MongoDB)</li>
                     <li>🔐 Crypto Payment API (Express + PostgreSQL)</li>
@@ -171,8 +161,8 @@ export default function AboutPage() {
               <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
                 <h3 className="font-semibold">🎖️ 2023 — Military Service</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Served one year in the Algerian National Service — gained
-                  resilience, teamwork, adaptability, and discipline.
+                  Served one year in the Algerian National Service — gained resilience,
+                  teamwork, adaptability, and discipline.
                 </p>
               </div>
             </li>
@@ -199,8 +189,8 @@ export default function AboutPage() {
                   🎓 2017 – 2020 — Bachelor’s in Process Engineering
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  University of Saida — developed strong analytical and
-                  problem‑solving skills.
+                  University of Saida — developed strong analytical and problem‑solving
+                  skills.
                 </p>
               </div>
             </li>
@@ -209,12 +199,10 @@ export default function AboutPage() {
             <li className="ms-4">
               <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
               <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">
-                  🎓 2018 — High School Graduation
-                </h3>
+                <h3 className="font-semibold">🎓 2018 — High School Graduation</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Science stream, Saida, Algeria — foundation in math, physics,
-                  and problem‑solving.
+                  Science stream, Saida, Algeria — foundation in math, physics, and
+                  problem‑solving.
                 </p>
               </div>
             </li>

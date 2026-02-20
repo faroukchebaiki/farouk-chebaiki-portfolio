@@ -91,9 +91,7 @@ export default function BlogRow({
             </span>
           </div>
 
-          <h3 className="mt-1 text-xl font-semibold leading-tight">
-            {article.title}
-          </h3>
+          <h3 className="mt-1 text-xl font-semibold leading-tight">{article.title}</h3>
 
           <p className="mt-2 text-sm lg:text-[0.95rem] text-muted-foreground line-clamp-3 lg:line-clamp-6">
             {article.description}

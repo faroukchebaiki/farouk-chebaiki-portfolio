@@ -64,10 +64,7 @@ export default async function ArticlePage({
     return (
       <main className="container mx-auto px-4 sm:px-6 py-10">
         <p className="text-muted-foreground">Article not found.</p>
-        <Link
-          href="/blog"
-          className="mt-4 inline-block underline underline-offset-4"
-        >
+        <Link href="/blog" className="mt-4 inline-block underline underline-offset-4">
           ← Back to blog
         </Link>
       </main>
@@ -104,9 +101,7 @@ export default async function ArticlePage({
             </div>
 
             <div className="flex items-center justify-end">
-              <span className="text-xs text-muted-foreground">
-                {dateWithYear}
-              </span>
+              <span className="text-xs text-muted-foreground">{dateWithYear}</span>
             </div>
 
             {/* Page-like reading area with side lines */}

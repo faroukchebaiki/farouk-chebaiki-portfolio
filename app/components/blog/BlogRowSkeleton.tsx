@@ -48,10 +48,7 @@ export default function BlogRowSkeleton() {
           {/* Tags row */}
           <div className="mt-3 flex flex-wrap gap-2">
             {["a", "b", "c", "d", "e"].map((k) => (
-              <div
-                key={k}
-                className="h-5 w-16 rounded-full bg-muted animate-pulse"
-              />
+              <div key={k} className="h-5 w-16 rounded-full bg-muted animate-pulse" />
             ))}
           </div>
 

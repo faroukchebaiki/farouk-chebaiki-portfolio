@@ -73,8 +73,7 @@ export default function ArticleBody({
     const pres = Array.from(root.querySelectorAll("pre"));
     pres.forEach((pre) => {
       // If already processed, skip
-      if ((pre.parentElement as HTMLElement)?.classList?.contains("__codewrap"))
-        return;
+      if ((pre.parentElement as HTMLElement)?.classList?.contains("__codewrap")) return;
 
       // 1) Create wrapper
       const wrap = document.createElement("div");
@@ -170,7 +169,7 @@ export default function ArticleBody({
           /* Links */
           [&_a]:underline [&_a]:underline-offset-4
         "
-        // skipcq: JS-0440 (HTML is sanitized before rendering)
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML is sanitised via sanitize-html with a strict allowlist before rendering
         dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
       />
 

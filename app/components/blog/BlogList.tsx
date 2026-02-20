@@ -27,8 +27,7 @@ export default function BlogList({ username }: { username: string }) {
   const activeId = search.get("id");
   const open = Boolean(activeId);
 
-  const isDesktop = () =>
-    Boolean(w.matchMedia?.("(min-width: 1024px)")?.matches); // lg breakpoint
+  const isDesktop = () => Boolean(w.matchMedia?.("(min-width: 1024px)")?.matches); // lg breakpoint
 
   // Initial load
   React.useEffect(() => {
@@ -180,9 +179,7 @@ export default function BlogList({ username }: { username: string }) {
       {/* Mobile slide-over only (desktop navigates to page) */}
       <div className="lg:hidden">
         <SlideOver open={open} onClose={onClose} widthClass="w-full md:w-[85%]">
-          {activeId ? (
-            <ArticleView id={Number(activeId)} onClose={onClose} />
-          ) : null}
+          {activeId ? <ArticleView id={Number(activeId)} onClose={onClose} /> : null}
         </SlideOver>
       </div>
     </>

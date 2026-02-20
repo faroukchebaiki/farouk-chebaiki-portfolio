@@ -62,9 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const posts: DevToLight[] = await res.json();
     const postEntries: MetadataRoute.Sitemap = posts.map((p) => ({
       url: `${base}/blog/${p.id}`,
-      lastModified: p.published_timestamp
-        ? new Date(p.published_timestamp)
-        : now,
+      lastModified: p.published_timestamp ? new Date(p.published_timestamp) : now,
       changeFrequency: "monthly",
       priority: 0.7,
     }));

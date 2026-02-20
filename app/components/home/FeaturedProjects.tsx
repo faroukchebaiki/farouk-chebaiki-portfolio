@@ -42,9 +42,7 @@ export default function FeaturedProjects() {
               <div className="flex items-start justify-between border-b border-border p-4">
                 <div>
                   <h2 className="text-xl font-semibold">{active.title}</h2>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {active.short}
-                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">{active.short}</p>
                 </div>
                 <button
                   type="button"
@@ -68,9 +66,7 @@ export default function FeaturedProjects() {
                   />
                 </div>
 
-                <p className="text-[0.975rem]/7 text-muted-foreground">
-                  {active.long}
-                </p>
+                <p className="text-[0.975rem]/7 text-muted-foreground">{active.long}</p>
 
                 {/* Stack badges */}
                 <ul className="mt-1 flex flex-wrap gap-2">

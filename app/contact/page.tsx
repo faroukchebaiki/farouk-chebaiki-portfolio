@@ -17,9 +17,7 @@ export default function ContactPage() {
     <main className="bg-background text-foreground">
       <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <header className="mb-8 sm:mb-10 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Contact
-          </h1>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Contact</h1>
           <p className="mt-2 text-muted-foreground">
             I’m available for select freelance projects or a full‑time role.
           </p>
@@ -30,9 +28,8 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <ContactForm />
             <p className="mt-4 text-xs text-muted-foreground">
-              By submitting, you consent to be contacted regarding your inquiry.
-              I don’t store your message on the server; it’s forwarded to my
-              inbox. See the{" "}
+              By submitting, you consent to be contacted regarding your inquiry. I don’t
+              store your message on the server; it’s forwarded to my inbox. See the{" "}
               <Link href="/privacy" className="underline underline-offset-4">
                 Privacy
               </Link>{" "}
@@ -87,10 +84,7 @@ export default function ContactPage() {
                     rel="me noopener noreferrer"
                     className="underline underline-offset-4 text-muted-foreground hover:text-foreground"
                   >
-                    {siteConfig.social.github.replace(
-                      "https://github.com/",
-                      "",
-                    )}
+                    {siteConfig.social.github.replace("https://github.com/", "")}
                   </a>
                 </li>
               )}

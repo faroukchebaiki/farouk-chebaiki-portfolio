@@ -9,9 +9,7 @@ const Particles = dynamic(() => import("./Particles"), { ssr: false });
 /** Read a CSS var and fall back to a hex */
 function readVar(name: string, fallback: string) {
   if (typeof window === "undefined") return fallback;
-  const v = getComputedStyle(document.documentElement)
-    .getPropertyValue(name)
-    .trim();
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   return v || fallback;
 }
 
@@ -112,12 +110,11 @@ export default function HeroParticles() {
       const accent = "#ffffff"; // pure white
       const tint = readVar("--accent", "#a7f3d0"); // soft mint
       return [accent, tint];
-    } else {
-      // subtle on light
-      const ink = readVar("--primary", "#0f172a"); // slate-900-ish
-      const ring = readVar("--ring", "#64748b"); // slate-500-ish
-      return [ink, ring];
     }
+    // subtle on light
+    const ink = readVar("--primary", "#0f172a"); // slate-900-ish
+    const ring = readVar("--ring", "#64748b"); // slate-500-ish
+    return [ink, ring];
   }, [isDark]);
 
   // Tune rendering params per theme
@@ -139,13 +136,8 @@ export default function HeroParticles() {
         };
   }, [isDark]);
 
-  const particleCount = Math.max(
-    60,
-    Math.round(params.particleCount * density),
-  );
-  const particleSize = Math.round(
-    params.particleBaseSize * (0.75 + density * 0.25),
-  );
+  const particleCount = Math.max(60, Math.round(params.particleCount * density));
+  const particleSize = Math.round(params.particleBaseSize * (0.75 + density * 0.25));
   const showParticles = shouldRender && !reduceMotion;
 
   return (

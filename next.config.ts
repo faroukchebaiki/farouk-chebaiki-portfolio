@@ -16,8 +16,7 @@ const securityHeaders = [
   {
     key: "Permissions-Policy",
     // Disable powerful APIs not used; adjust if needed
-    value:
-      "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=()",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=()",
   },
 ];
 

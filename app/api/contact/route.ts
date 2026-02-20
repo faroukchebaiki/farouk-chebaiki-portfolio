@@ -41,10 +41,7 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     if (!EMAIL_RE.test(email))
-      return NextResponse.json(
-        { ok: false, error: "Invalid email" },
-        { status: 400 },
-      );
+      return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
     if (!consent)
       return NextResponse.json(
         { ok: false, error: "Consent is required" },
@@ -95,10 +92,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true }, { status: 202 });
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Bad request" },
-      { status: 400 },
-    );
+    return NextResponse.json({ ok: false, error: "Bad request" }, { status: 400 });
   }
 }
 

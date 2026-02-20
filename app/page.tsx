@@ -35,11 +35,7 @@ export default function HomePage() {
       <TechStack />
       <ContactStrip />
       {/* JSON-LD: Person */}
-      <Script
-        id="jsonld-person"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
+      <Script id="jsonld-person" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
@@ -56,11 +52,7 @@ export default function HomePage() {
         })}
       </Script>
       {/* JSON-LD: WebSite (sitelinks eligible) */}
-      <Script
-        id="jsonld-website"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
+      <Script id="jsonld-website" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",

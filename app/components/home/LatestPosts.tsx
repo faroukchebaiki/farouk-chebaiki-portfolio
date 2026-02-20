@@ -1,12 +1,9 @@
-// src/components/home/LatestPosts.tsx
-"use client";
-
-import * as React from "react";
+// app/components/home/LatestPosts.tsx
+// Server component — data fetched at build / revalidated hourly on the server.
+// No client JS bundle for the data layer; eliminates the client-side waterfall.
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-import SlideOver from "../projects/SlideOver";
-import ArticleView from "../blog/ArticleView";
 
 type DevToPost = {
   id: number;
@@ -17,50 +14,26 @@ type DevToPost = {
   published_timestamp: string;
 };
 
-export default function LatestPosts() {
-  const [posts, setPosts] = React.useState<DevToPost[]>([]);
-  const [open, setOpen] = React.useState(false);
-  const [activeId, setActiveId] = React.useState<number | null>(null);
-  // SSR-safe reference for matchMedia
-  type MM = { matchMedia?: (q: string) => { matches: boolean } };
+async function getLatestPosts(): Promise<DevToPost[]> {
+  try {
+    const res = await fetch(
+      `https://dev.to/api/articles?username=${encodeURIComponent(
+        siteConfig.devtoUsername ?? "",
+      )}&per_page=3`,
+      {
+        // ISR: revalidate every hour (matches page.tsx revalidate = 3600)
+        next: { revalidate: 3600 },
+      },
+    );
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
 
-  React.useEffect(() => {
-    let aborted = false;
-    const run = async () => {
-      try {
-        const res = await fetch(
-          `https://dev.to/api/articles?username=${encodeURIComponent(siteConfig.devtoUsername ?? "")}&per_page=3`,
-          { cache: "no-store" },
-        );
-        const data: DevToPost[] = res.ok ? await res.json() : [];
-        if (!aborted) setPosts(data);
-      } catch {
-        if (!aborted) setPosts([]);
-      }
-    };
-    run();
-    return () => {
-      aborted = true;
-    };
-  }, []);
-
-  const isDesktop = () =>
-    Boolean(
-      (globalThis as unknown as MM).matchMedia?.("(min-width: 1024px)")
-        ?.matches,
-    ); // lg
-
-  const onOpen = (e: React.MouseEvent | undefined, id: number) => {
-    // On mobile, keep slide-over and prevent navigation; desktop navigates
-    if (!isDesktop()) {
-      e?.preventDefault();
-      setActiveId(id);
-      setOpen(true);
-      return;
-    }
-    // desktop: let the anchor navigate normally
-  };
-  const onClose = () => setOpen(false);
+export default async function LatestPosts() {
+  const posts = await getLatestPosts();
 
   if (!posts.length) return null;
 
@@ -73,7 +46,6 @@ export default function LatestPosts() {
             <Link
               key={p.id}
               href={`/blog/${p.id}`}
-              onClick={(e) => onOpen(e, p.id)}
               className="cursor-pointer block text-left rounded-xl border border-border bg-card text-card-foreground p-5 hover:bg-accent hover:text-accent-foreground transition"
             >
               {p.cover_image && (
@@ -93,17 +65,6 @@ export default function LatestPosts() {
               </p>
             </Link>
           ))}
-        </div>
-
-        {/* Mobile slide-over */}
-        <div className="lg:hidden">
-          <SlideOver
-            open={open}
-            onClose={onClose}
-            widthClass="w-full md:w-[85%]"
-          >
-            {activeId ? <ArticleView id={activeId} onClose={onClose} /> : null}
-          </SlideOver>
         </div>
       </div>
     </section>

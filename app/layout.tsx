@@ -86,6 +86,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={bodyFont.variable} suppressHydrationWarning>
+      <head>
+        {/* Preconnect to external domains used by this site */}
+        <link rel="preconnect" href="https://dev.to" />
+        <link rel="dns-prefetch" href="https://dev.to" />
+        <link rel="preconnect" href="https://cdn.simpleicons.org" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
+      </head>
       <body className="antialiased">
         <ThemeProvider>
           <Navbar />

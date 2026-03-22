@@ -1,3 +1,5 @@
+import type { BrandIconName } from "@/lib/brand-icons";
+
 export type RawProject = {
   title: string;
   description: string;
@@ -41,7 +43,7 @@ export type SiteConfig = {
     heroTagline: string;
     intro: string[];
     whatIDo: Array<{ title: string; body: string }>;
-    stack: Array<{ name: string; img: string }>;
+    stack: Array<{ name: string; icon: BrandIconName }>;
     background: Array<{
       title: string;
       period: string;
@@ -105,23 +107,23 @@ export const siteConfig: SiteConfig = {
       },
     ],
     stack: [
-      { name: "TypeScript", img: "https://cdn.simpleicons.org/typescript" },
-      { name: "React", img: "https://cdn.simpleicons.org/react" },
-      { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs" },
-      { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss" },
-      { name: "shadcn/ui", img: "https://cdn.simpleicons.org/shadcnui" },
-      { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
-      { name: "Express", img: "https://cdn.simpleicons.org/express" },
-      { name: "tRPC", img: "https://cdn.simpleicons.org/trpc" },
-      { name: "PostgreSQL", img: "https://cdn.simpleicons.org/postgresql" },
-      { name: "MongoDB", img: "https://cdn.simpleicons.org/mongodb" },
-      { name: "Redis", img: "https://cdn.simpleicons.org/redis" },
-      { name: "Firebase", img: "https://cdn.simpleicons.org/firebase" },
-      { name: "Docker", img: "https://cdn.simpleicons.org/docker" },
-      { name: "Podman", img: "https://cdn.simpleicons.org/podman" },
-      { name: "Linux", img: "https://cdn.simpleicons.org/linux" },
-      { name: "Nginx", img: "https://cdn.simpleicons.org/nginx" },
-      { name: "Git", img: "https://cdn.simpleicons.org/git" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextdotjs" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+      { name: "shadcn/ui", icon: "shadcnui" },
+      { name: "Node.js", icon: "nodedotjs" },
+      { name: "Express", icon: "express" },
+      { name: "tRPC", icon: "trpc" },
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "Redis", icon: "redis" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Docker", icon: "docker" },
+      { name: "Podman", icon: "podman" },
+      { name: "Linux", icon: "linux" },
+      { name: "Nginx", icon: "nginx" },
+      { name: "Git", icon: "git" },
     ],
     background: [
       {

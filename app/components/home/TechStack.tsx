@@ -3,35 +3,32 @@
 
 import * as React from "react";
 import { ArrowLeftRight, Pause, Play } from "lucide-react";
+import { BrandIcon, type BrandIconName } from "@/lib/brand-icons";
 
 type StackItem = {
   name: string;
-  // Prefer lucide icons when possible
-  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  // If a brand logo is needed, drop an SVG or PNG under public/icons/stack and set img
-  img?: string; // e.g. "/icons/stack/react.svg"
+  icon: BrandIconName;
 };
 
 const STACK: StackItem[] = [
-  // Use Simple Icons CDN for recognizable brand marks
-  { name: "TypeScript", img: "https://cdn.simpleicons.org/typescript" },
-  { name: "React", img: "https://cdn.simpleicons.org/react" },
-  { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs" },
-  { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss" },
-  { name: "shadcn/ui", img: "https://cdn.simpleicons.org/shadcnui" },
-  { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
-  { name: "Express", img: "https://cdn.simpleicons.org/express/ffffff" },
-  { name: "PostgreSQL", img: "https://cdn.simpleicons.org/postgresql" },
-  { name: "MongoDB", img: "https://cdn.simpleicons.org/mongodb" },
-  { name: "Redis", img: "https://cdn.simpleicons.org/redis" },
-  { name: "Firebase", img: "https://cdn.simpleicons.org/firebase" },
-  { name: "Linux", img: "https://cdn.simpleicons.org/linux" },
-  { name: "Docker", img: "https://cdn.simpleicons.org/docker" },
-  { name: "Podman", img: "https://cdn.simpleicons.org/podman" },
-  { name: "Cloudflare", img: "https://cdn.simpleicons.org/cloudflare" },
-  { name: "Nginx", img: "https://cdn.simpleicons.org/nginx" },
-  { name: "Git", img: "https://cdn.simpleicons.org/git" },
-  { name: "Postman", img: "https://cdn.simpleicons.org/postman" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextdotjs" },
+  { name: "Tailwind CSS", icon: "tailwindcss" },
+  { name: "shadcn/ui", icon: "shadcnui" },
+  { name: "Node.js", icon: "nodedotjs" },
+  { name: "Express", icon: "express" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "Redis", icon: "redis" },
+  { name: "Firebase", icon: "firebase" },
+  { name: "Linux", icon: "linux" },
+  { name: "Docker", icon: "docker" },
+  { name: "Podman", icon: "podman" },
+  { name: "Cloudflare", icon: "cloudflare" },
+  { name: "Nginx", icon: "nginx" },
+  { name: "Git", icon: "git" },
+  { name: "Postman", icon: "postman" },
 ];
 
 type StackEntry = StackItem & { key: string };
@@ -49,19 +46,7 @@ function Row({ items, size = 40 }: { items: StackEntry[]; size?: number }) {
           "
           title={it.name}
         >
-          {it.img ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={it.img}
-              alt=""
-              className="select-none"
-              loading="lazy"
-              decoding="async"
-              style={{ height: size, width: size }}
-            />
-          ) : it.Icon ? (
-            <it.Icon className="" style={{ height: size, width: size }} />
-          ) : null}
+          <BrandIcon name={it.icon} size={size} className="shrink-0" />
           <span className="whitespace-nowrap">{it.name}</span>
         </div>
       ))}

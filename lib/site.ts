@@ -80,28 +80,28 @@ export const siteConfig: SiteConfig = {
     secondary: { href: "/projects", label: "See Projects" },
   },
   about: {
-    heroGreeting: "👋 Hi, I’m Farouk Chebaiki",
-    heroTagline: "🚀 Full Stack Developer · Security & DevOps Enthusiast",
+    heroGreeting: "Hi, I’m Farouk Chebaiki",
+    heroTagline: "Industrial Chemical Engineer and Full Stack Developer",
     intro: [
-      "I’m a Full Stack Developer passionate about building scalable, secure, and high‑performance web applications. I blend intuitive frontend experiences with robust backend systems — always guided by efficiency, security, and maintainability.",
-      "With a focus on clean architecture and modern tech, I bring ideas to life with Next.js, React, Tailwind CSS, Node.js, and tRPC — while ensuring reliability with Express, PostgreSQL, MongoDB, Redis, and Firebase.",
+      "I bring together a background in materials process engineering and several years of full stack development experience. Across both disciplines, my work is driven by structure, efficiency, and measurable results.",
+      "From laboratory analysis and quality control to client-facing product delivery, I focus on building reliable systems, improving processes, and turning complex requirements into practical solutions.",
     ],
     whatIDo: [
       {
-        title: "Frontend Development →",
-        body: "Seamless UIs with Next.js, React, Tailwind CSS, and MUI — accessible, fast, and polished.",
+        title: "Full Stack Development",
+        body: "Designing and maintaining web applications with React, Next.js, Node.js, JavaScript, and TypeScript.",
       },
       {
-        title: "Backend Engineering →",
-        body: "Secure APIs and scalable systems with Node.js, Express, and tRPC — optimized for reliability and speed.",
+        title: "Process and Quality Improvement",
+        body: "Applying engineering discipline, analysis, and validation to improve reliability, accuracy, and operational efficiency.",
       },
       {
-        title: "DevOps & Security →",
-        body: "Hardened infrastructures using Docker, Podman, Ubuntu Server, and Nginx — with automation at the core.",
+        title: "Cross-Functional Collaboration",
+        body: "Working with clients, production teams, and stakeholders to define needs clearly and deliver fit-for-purpose solutions.",
       },
       {
-        title: "Scalable Deployments →",
-        body: "Performance‑driven pipelines with Cloudflare, Payload CMS, and containerization strategies.",
+        title: "Continuous Improvement",
+        body: "Strengthening workflows, testing practices, and delivery quality with a solution-oriented mindset.",
       },
     ],
     stack: [
@@ -125,39 +125,72 @@ export const siteConfig: SiteConfig = {
     ],
     background: [
       {
-        title: "Web Development Journey",
-        period: "2022 – Present",
+        title: "Industrial Chemical Engineer · BMSD Chaux Hassasna SARL",
+        period: "January 2026 - Present",
         description:
-          "Transitioned into software development through online bootcamps and self‑learning. Zero To Mastery Academy (ZTM) courses with System Design, Security, and DevOps focus.",
+          "Responsible for material analysis and quality assurance in an industrial production environment.",
         bullets: [
-          "Full Stack Web Development (Next.js, React, Node.js, Express)",
-          "System Design, Security, and DevOps fundamentals",
-          "Projects‑driven learning with real‑world practices",
-          "Selected projects: E‑Commerce (Next.js + MongoDB), Crypto Payment API (Express + PostgreSQL), Task Manager (React + Redis), Portfolio (Next.js + Tailwind)",
+          "Responsible for physico-chemical analyses of materials and compliance with quality standards",
+          "Developed and implemented testing methodologies to improve the accuracy of results",
+          "Collaborated with multiple departments to optimize production processes and support customer satisfaction",
+        ],
+      },
+      {
+        title: "Freelance Full Stack Developer",
+        period: "January 2018 - Present",
+        description:
+          "Delivering end-to-end web solutions for clients, from requirements gathering to deployment and quality improvement.",
+        bullets: [
+          "Built and maintained web applications end to end using modern JavaScript and TypeScript stacks",
+          "Worked directly with clients to define requirements and design tailored solutions",
+          "Improved application performance and implemented automated testing to support delivery quality",
         ],
       },
       {
         title: "Military Service",
-        period: "2023",
+        period: "January 2023 - January 2024",
         description:
-          "Algerian National Service — resilience, teamwork, adaptability, and discipline.",
+          "Completed national service with a strong focus on discipline, adaptability, and teamwork.",
       },
       {
-        title: "Master’s in Process Engineering of Materials",
-        period: "2020 – 2022",
+        title: "HSE Engineer · Naftal",
+        period: "February 2022 - April 2022",
         description:
-          "University of Saida — efficiency, optimization, and scalability applied to software architecture.",
+          "Contributed to safety, compliance, and process discipline within an industrial environment.",
+        bullets: [
+          "Gained practical experience in process safety and industrial health regulations",
+          "Contributed to the implementation of safety protocols and workflow optimization",
+        ],
       },
       {
-        title: "Bachelor’s in Process Engineering",
-        period: "2017 – 2020",
-        description:
-          "University of Saida — strong analytical and problem‑solving skills.",
+        title: "Master's Degree in Materials Process Engineering · Dr. Tahar Moulay University",
+        period: "July 2022",
+        description: "Advanced academic training in process engineering, materials science, and optimization methods.",
+        bullets: [
+          "Thesis: Optimization of operating conditions for the extraction of Gadolinium (III) using D2EHPA and the non-ionic surfactant Triton X-114",
+        ],
       },
       {
-        title: "High School Graduation (Science stream)",
-        period: "2018",
-        description: "Saida, Algeria — foundation in math, physics, and problem‑solving.",
+        title: "Bachelor's Degree in Process Engineering · Dr. Tahar Moulay University",
+        period: "December 2020",
+        description: "Built a strong foundation in process systems, technical analysis, and engineering problem-solving.",
+        bullets: [
+          "Thesis: General information and bibliographic elements on the three techniques for extracting heavy metals and rare earths",
+        ],
+      },
+      {
+        title: "Process Technician · Sonatrach",
+        period: "March 2020",
+        description: "Supported process monitoring and operational improvement activities in a production setting.",
+        bullets: [
+          "Contributed to process monitoring and the development of optimization strategies",
+          "Assisted with troubleshooting and operational efficiency improvements",
+        ],
+      },
+      {
+        title: "Baccalaureate in Mathematics · Abd El Moumen High School",
+        period: "July 2017",
+        description: "Mathematics-focused secondary education that strengthened analytical and quantitative reasoning skills.",
       },
     ],
   },

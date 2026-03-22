@@ -25,6 +25,8 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const background = siteConfig.about?.background ?? [];
+
   return (
     <main className="bg-background text-foreground">
       {/* ===== Hero ===== */}
@@ -111,101 +113,43 @@ export default function AboutPage() {
       </section>
 
       {/* ===== Background (Timeline) ===== */}
-      <section className="border-b border-border">
+      <section className="border-b border-border bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.08),_transparent_55%)]">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <h2 className="text-2xl font-semibold">Background</h2>
           <p className="mt-2 text-muted-foreground max-w-2xl">
-            A quick timeline from most recent to earliest milestones.
+            A concise professional timeline covering engineering, software, and academic milestones.
           </p>
 
           <ol className="mt-6 relative border-s border-border pl-6" aria-label="Timeline">
-            {/* 2022 – Present */}
-            <li className="mb-8 ms-4">
-              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">
-                  💻 2022 – Present — Web Development Journey
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Transitioned into software development through online bootcamps and
-                  self‑learning.
-                </p>
-                <div className="mt-3 text-sm text-muted-foreground space-y-2">
-                  <div>
-                    <span className="text-foreground font-medium">
-                      Zero To Mastery Academy (ZTM)
-                    </span>{" "}
-                    — completed multiple courses focusing on:
+            {background.map((item, index) => (
+              <li
+                key={`${item.title}-${item.period}`}
+                className={index === background.length - 1 ? "ms-4" : "mb-8 ms-4"}
+              >
+                <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
+                <div className="rounded-2xl border border-border bg-card/95 p-4 shadow-sm backdrop-blur-sm sm:p-5">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <h3 className="font-semibold leading-snug">{item.title}</h3>
+                    <span className="inline-flex w-fit rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
+                      {item.period}
+                    </span>
                   </div>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>Full Stack Web Development (Next.js, React, Node.js, Express)</li>
-                    <li>System Design, Security, and DevOps fundamentals</li>
-                    <li>Projects‑driven learning with real‑world practices</li>
-                  </ul>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
+                  {item.bullets?.length ? (
+                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
-                <div className="mt-3">
-                  <h4 className="text-sm font-semibold">Selected personal projects</h4>
-                  <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                    <li>🛒 Clothing E‑Commerce Platform (Next.js + MongoDB)</li>
-                    <li>🔐 Crypto Payment API (Express + PostgreSQL)</li>
-                    <li>✅ Task Manager App (React + Redis)</li>
-                    <li>🌐 Personal Portfolio (Next.js + Tailwind CSS)</li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-
-            {/* 2023 — Military Service */}
-            <li className="mb-8 ms-4">
-              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">🎖️ 2023 — Military Service</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Served one year in the Algerian National Service — gained resilience,
-                  teamwork, adaptability, and discipline.
-                </p>
-              </div>
-            </li>
-
-            {/* 2020 – 2022 — Master's */}
-            <li className="mb-8 ms-4">
-              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">
-                  🎓 2020 – 2022 — Master’s in Process Engineering of Materials
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  University of Saida — focused on efficiency, optimization, and
-                  scalability; principles I now apply in software architecture.
-                </p>
-              </div>
-            </li>
-
-            {/* 2017 – 2020 — Bachelor's */}
-            <li className="mb-8 ms-4">
-              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">
-                  🎓 2017 – 2020 — Bachelor’s in Process Engineering
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  University of Saida — developed strong analytical and problem‑solving
-                  skills.
-                </p>
-              </div>
-            </li>
-
-            {/* 2018 — High School */}
-            <li className="ms-4">
-              <span className="absolute -start-1.5 mt-1 h-3 w-3 rounded-full bg-primary ring-4 ring-background" />
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <h3 className="font-semibold">🎓 2018 — High School Graduation</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Science stream, Saida, Algeria — foundation in math, physics, and
-                  problem‑solving.
-                </p>
-              </div>
-            </li>
+              </li>
+            ))}
           </ol>
         </div>
       </section>

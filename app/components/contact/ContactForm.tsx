@@ -73,6 +73,7 @@ export default function ContactForm() {
             name="name"
             required
             maxLength={120}
+            placeholder="Your full name"
             className="w-full rounded-lg border border-border bg-background px-3 py-2"
           />
         </div>
@@ -88,6 +89,7 @@ export default function ContactForm() {
             ref={emailRef}
             onChange={(e) => setEmailValid(EMAIL_RE.test(e.target.value))}
             aria-invalid={!emailValid}
+            placeholder="you@example.com"
             className={`w-full rounded-lg bg-background px-3 py-2 border ${
               emailValid
                 ? "border-border"
@@ -103,6 +105,7 @@ export default function ContactForm() {
             id="subject"
             name="subject"
             maxLength={200}
+            placeholder="Project inquiry, freelance role, collaboration..."
             className="w-full rounded-lg border border-border bg-background px-3 py-2"
           />
         </div>
@@ -116,6 +119,7 @@ export default function ContactForm() {
             required
             rows={6}
             maxLength={6000}
+            placeholder="Tell me a bit about your project, goals, timeline, or the help you need."
             className="w-full rounded-lg border border-border bg-background px-3 py-2"
           />
         </div>
